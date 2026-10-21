@@ -1,0 +1,21 @@
+name: Format when needed
+
+on: 'workflow_dispatch'
+
+permissions:
+  contents: write
+
+jobs:
+  static-checks:
+    name: 'GDScript Format'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+    - uses: Scony/godot-gdscript-toolkit@master
+    - run: gdformat .
+
+    - uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "style: format"
