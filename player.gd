@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 # just some code to make player move
 const SPEED = 300.0
+
+
 func _physics_process(delta: float) -> void:
 	var leftright := Input.get_axis("left", "right")
 	if leftright:
