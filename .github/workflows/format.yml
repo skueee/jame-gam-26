@@ -21,6 +21,9 @@ jobs:
     # gdformat makes a requirements file, we don't want that
     - run: rm -f requirements.txt
 
+    # Restore addons so that they are not deleted
+    - run: git checkout addons
+
     - uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "style: format"
