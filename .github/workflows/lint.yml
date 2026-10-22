@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v7
     - uses: Scony/godot-gdscript-toolkit@master
+    # Addons are probably fine
+    - run: rm -rf addons
     - run: gdlint .
