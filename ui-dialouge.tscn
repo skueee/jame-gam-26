@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://wl3x12oxss0l"]
+
+[ext_resource type="FontFile" uid="uid://dhwvmj2il7oyb" path="res://Ithaca-LVB75.ttf" id="1_j5ay6"]
+[ext_resource type="Script" uid="uid://bjmlbdagjdrr4" path="res://ui_dialouge.gd" id="1_k0i3x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlto0"]
+font = ExtResource("1_j5ay6")
+font_size = 38
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=675358860]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0i3x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1922485325]
+layout_mode = 0
+offset_top = 370.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.9999996, 0.8524609, 0.70162094, 1)
+
+[node name="Label" type="Label" parent="." unique_id=691789813]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 402.0
+offset_right = 1124.0
+offset_bottom = 582.0
+label_settings = SubResource("LabelSettings_tlto0")
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1872246994]
+layout_mode = 0
+offset_top = 363.0
+offset_right = 1152.0
+offset_bottom = 370.0
+color = Color(0, 0, 0, 1)
