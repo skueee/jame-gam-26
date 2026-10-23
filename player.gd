@@ -12,10 +12,12 @@ extends CharacterBody2D
 @export var wall_stength := 300
 var wall_jump := false
 var wall_direction: Vector2
-
+var last_direction := 1
 var direction := 1
 var jump := false
 @export var bridge_throw_cd := 0.1
+@export var shield_force = 15.0
+@export var shield_radius = 15
 var can_bridge_throw = true
 @onready var bridge_throw_timer = $Timer
 @onready var shield_timer = $Timer2
@@ -45,6 +47,8 @@ func _physics_process(_delta: float) -> void:
 
 func get_input():
 	direction = Input.get_axis("left", "right")
+	if direction:
+		last_direction = direction
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			jump = true
@@ -73,7 +77,7 @@ func attack():
 		var potion: RigidBody2D = throwable.instantiate()
 		potion.global_position = global_position
 		get_parent().add_child(potion)
-		var throw_direction = Vector2(direction if direction else 1, 0)
+		var throw_direction = Vector2(last_direction, 0)
 		var throw_force = 500.0
 		potion.apply_central_impulse(throw_direction * throw_force)
 
@@ -84,16 +88,16 @@ func shield():
 		shield_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
 		var count = 14
-		var radius = 15
+		
 		for i in range(count):
 			var potion: RigidBody2D = throwable.instantiate()
 			var angle = TAU * i / count
-			var offset = Vector2(cos(angle), sin(angle)) * radius
+			var offset = Vector2(cos(angle), sin(angle)) * shield_radius
 			potion.global_position = global_position + offset
 			get_parent().add_child(potion)
 			var throw_direction = offset.normalized()
-			var throw_force = 20.0
-			potion.apply_central_impulse(throw_direction * throw_force)
+			
+			potion.apply_central_impulse(throw_direction * shield_force)
 
 func set_velocit(delta):
 	if wall_jump:
