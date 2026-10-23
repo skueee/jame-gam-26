@@ -54,5 +54,5 @@ func go_to_next_text():
 
 # Just checks if there is input
 func _process(_delta: float) -> void:
-	if dialog_active and Input.is_action_just_pressed("interact"):
+	if dialog_active and Input.is_action_just_pressed("continue"):
 		go_to_next_text()

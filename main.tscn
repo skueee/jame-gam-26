@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -95,7 +96,13 @@ tile_set = SubResource("TileSet_tsws6")
 z_index = 3
 position = Vector2(104, 88)
 npc_name = "testik"
+npc_speaktext = PackedStringArray("Ah, what a beautiful day out here", "Godots are chirping, godots are flying", "Never gonna give you up", "never gonna let you down")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPCv1" unique_id=2037732567]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_0xm2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1243159890]
+
+[node name="DialogBox" parent="CanvasLayer" unique_id=675358860 instance=ExtResource("4_1bvp3")]
+visible = false
