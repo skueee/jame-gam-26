@@ -16,6 +16,7 @@ script/source = "extends CPUParticles2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 func _ready():
+	print(sparks_count)
 	cpu_particles_2d.amount = sparks_count
 	var custom = Gradient.new()
 	custom.set_color(0, color_start)
