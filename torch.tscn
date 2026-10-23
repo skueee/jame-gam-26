@@ -23,7 +23,7 @@ func _ready():
 colors = PackedColorArray(1, 0, 0, 1, 0.5921569, 0, 0, 1)
 
 [node name="Fireeffect" type="CPUParticles2D" unique_id=7705216]
-amount = 128
+amount = 75
 lifetime = 0.48
 randomness = 0.45
 lifetime_randomness = 0.23
