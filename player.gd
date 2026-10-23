@@ -58,6 +58,8 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
-
+func die():
+	get_tree().reload_current_scene()
+	
 func done():
-	scale = (scale / 100) * (100 - ShrinkPercent)
+	scale = (scale / 100) * (100 - (ShrinkPercent / 60))

@@ -92,6 +92,7 @@ sources/0 = SubResource("TileSetAtlasSource_h2yge")
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("1_ig7tw")]
 z_index = 4
+position = Vector2(0, -91)
 
 [node name="Tilemap" type="Node" parent="." unique_id=629510787]
 
