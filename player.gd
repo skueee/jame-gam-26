@@ -7,27 +7,31 @@ extends CharacterBody2D
 @export var max_speed := 600
 @export var max_fall := 1000
 @export var jump_strength = 300
-@export var ShrinkPercent := 5
+@export var shrink_percent := 5
 @export var wall_jump_bounce := 500
 @export var wall_stength := 300
+@export var bridge_throw_cd := 0.1
+@export var shield_force = 15.0
+@export var shield_radius = 15
+
 var wall_jump := false
 var wall_direction: Vector2
 var last_direction := 1
 var direction := 1
 var jump := false
-@export var bridge_throw_cd := 0.1
-@export var shield_force = 15.0
-@export var shield_radius = 15
 var can_bridge_throw = true
+var can_shield = true
+
 @onready var bridge_throw_timer = $Timer
 @onready var shield_timer = $Timer2
-var can_shield = true
+
+
 func _ready() -> void:
 	bridge_throw_timer.wait_time = bridge_throw_cd
 	bridge_throw_timer.timeout.connect(allow)
 	bridge_throw_timer.start()
 	shield_timer.timeout.connect(allow_shield)
-	
+
 
 func allow_shield():
 	can_shield = true
@@ -36,7 +40,7 @@ func allow():
 	can_bridge_throw = true
 
 func _physics_process(_delta: float) -> void:
-	scale -= (scale/100)*((ShrinkPercent/60)*_delta)
+	scale -= (scale/100)*((shrink_percent/60)*_delta)
 	get_input()
 	set_velocit(_delta)
 	move_and_slide()
@@ -88,7 +92,7 @@ func shield():
 		shield_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
 		var count = 14
-		
+
 		for i in range(count):
 			var potion: RigidBody2D = throwable.instantiate()
 			var angle = TAU * i / count
@@ -96,7 +100,7 @@ func shield():
 			potion.global_position = global_position + offset
 			get_parent().add_child(potion)
 			var throw_direction = offset.normalized()
-			
+
 			potion.apply_central_impulse(throw_direction * shield_force)
 
 func set_velocit(delta):
@@ -119,5 +123,3 @@ func set_velocit(delta):
 
 func die():
 	get_tree().reload_current_scene()
-	
-	
