@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b4mxlk2it25gx"]
+
+[ext_resource type="Texture2D" uid="uid://vvxyri77idsx" path="res://torch.png" id="1_pa17o"]
+
+[sub_resource type="Gradient" id="Gradient_ukc20"]
+offsets = PackedFloat32Array(0, 0.99753696)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_tsws6"]
+resource_name = "change-color"
+script/source = "extends CPUParticles2D
+@export_category(\"Torch Customisation\")
+@export var color_start: Color = \"#ff0000\"
+@export var color_finish: Color = \"ffff00\"
+func _ready():
+	var custom = Gradient.new()
+	custom.set_color(0, color_start)
+	custom.set_color(1, color_finish)
+	color_ramp = custom
+"
+
+[sub_resource type="Gradient" id="Gradient_tsws6"]
+colors = PackedColorArray(1, 0, 0, 1, 0.5921569, 0, 0, 1)
+
+[node name="Fireeffect" type="CPUParticles2D" unique_id=7705216]
+amount = 128
+lifetime = 0.48
+randomness = 0.45
+lifetime_randomness = 0.23
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2(0, -100)
+color_ramp = SubResource("Gradient_ukc20")
+script = SubResource("GDScript_tsws6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1425113711]
+amount = 4
+lifetime = 0.5
+explosiveness = 0.3
+lifetime_randomness = 0.36
+direction = Vector2(0, -1)
+gravity = Vector2(0, 500)
+initial_velocity_min = 48.37
+initial_velocity_max = 183.29
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_tsws6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2006497906]
+position = Vector2(0, 4)
+texture = ExtResource("1_pa17o")
