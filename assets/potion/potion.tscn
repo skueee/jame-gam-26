@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dhceoonaopdoa"]
 
 [ext_resource type="Texture2D" uid="uid://6ve2koji2ito" path="res://assets/potion/potion.tres" id="1_pje5f"]
+[ext_resource type="Script" uid="uid://bxc5nx5ed3lyf" path="res://assets/potion/potion.gd" id="1_scavh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3f4"]
-size = Vector2(14, 18)
+size = Vector2(10, 18)
 
 [node name="Potion" type="Area2D" unique_id=877409574]
 collision_layer = 2
+script = ExtResource("1_scavh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1329096000]
 position = Vector2(1.9073486e-06, 1.9073486e-06)
@@ -15,3 +17,9 @@ texture = ExtResource("1_pje5f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984858448]
 shape = SubResource("RectangleShape2D_pa3f4")
+
+[node name="Timer" type="Timer" parent="." unique_id=595253488]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
