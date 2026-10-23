@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjmlbdagjdrr4" path="res://ui_dialogue.gd" id="1_s7mfv"]
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_s7mfv"]
-[ext_resource type="Shader" uid="uid://cove4mx0k6y1l" path="res://ui-dialogue.gdshader" id="3_isl28"]
+[ext_resource type="Shader" uid="uid://cove4mx0k6y1l" path="res://modulate.gdshader" id="3_isl28"]
 [ext_resource type="FontFile" uid="uid://dhwvmj2il7oyb" path="res://Ithaca-LVB75.ttf" id="4_01xp2"]
 [ext_resource type="Texture2D" uid="uid://bm8pldk1r7ve0" path="res://dialogue_box_texture.png" id="4_226md"]
 [ext_resource type="Texture2D" uid="uid://r5hnagoss3bi" path="res://arrow.svg" id="6_wuyp7"]
@@ -16,7 +16,13 @@ shader_parameter/tolerance = 0.1
 [sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
 font = ExtResource("4_01xp2")
 font_size = 81
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01xp2"]
+shader = ExtResource("3_isl28")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
+shader_parameter/tolerance = 0.1
 
 [node name="DialogBox" type="Control" unique_id=675358860]
 layout_mode = 3
@@ -57,7 +63,7 @@ offset_right = 1338.3749
 offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
 theme_override_fonts/normal_font = ExtResource("4_01xp2")
 theme_override_font_sizes/normal_font_size = 52
 theme_override_font_sizes/bold_font_size = 52
@@ -84,6 +90,7 @@ offset_bottom = 139.49991
 texture = ExtResource("2_s7mfv")
 
 [node name="Arrow" type="TextureRect" parent="." unique_id=302877005]
+material = SubResource("ShaderMaterial_01xp2")
 layout_mode = 0
 offset_left = 1090.0
 offset_top = -59.0

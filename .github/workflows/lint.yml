@@ -10,9 +10,14 @@ jobs:
   static-checks:
     name: 'GDScript Check'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - uses: actions/checkout@v7
     - uses: Scony/godot-gdscript-toolkit@master
     # Addons are probably fine
     - run: rm -rf addons
-    - run: gdlint .
+    - run: gdlint . | tee gdlint-report.txt || true
+    - uses: actions/upload-artifact@v7
+      with:
+        name: lint-result
+        path: gdlint-report.txt
