@@ -1,6 +1,6 @@
 # Dialogue logic
-# To use, call displayText() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
-# For ex: displayText(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"))
+# To use, call display_text() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
+# For ex: display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"))
 #                      The two lines that will be displayed                   Character     Sprite
 
 extends Control
@@ -16,18 +16,18 @@ var next_text_index : int
 @onready var _dialogue : RichTextLabel = $Text
 
 # Main function to call, it display text and then hides the textbox
-func displayText(lines : Array, speaker : String = "", speaker_sprite : Texture2D = null):
-	showTextBox(speaker, speaker_sprite)
+func display_text(lines : Array, speaker : String = "", speaker_sprite : Texture2D = null):
+	show_text_box(speaker, speaker_sprite)
 	current_text = lines
-	displayLine(current_text[0])
+	display_line(current_text[0])
 	next_text_index = 1
 
 # Just displays a line on the Text label
-func displayLine(line : String):
+func display_line(line : String):
 	_dialogue.text = line
 
 # Shows the dialogue and assigns everything
-func showTextBox(speaker : String = "", speaker_sprite : Texture2D = null):
+func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null):
 	dialog_active = true
 	visible = true
 	_speaker.visible = (speaker != "")
@@ -37,22 +37,22 @@ func showTextBox(speaker : String = "", speaker_sprite : Texture2D = null):
 		_speaker_sprite.texture = speaker_sprite
 	else:
 		_speaker_sprite.visible = false
-		
+
 # Hides the dialogue
-func hideTextBox():
+func hide_text_box():
 	dialog_active = false
 	visible = false
 	dialogue_finished.emit()
 
 # Ensure that the dialogue is not finished, then show the next line
-func goToNextText():
+func go_to_next_text():
 	if next_text_index < current_text.size():
-		displayLine(current_text[next_text_index])
+		display_line(current_text[next_text_index])
 		next_text_index += 1
 	else:
-		hideTextBox()
+		hide_text_box()
 
 # Just checks if there is input
 func _process(_delta: float) -> void:
 	if dialog_active and Input.is_action_just_pressed("interact"):
-		goToNextText()
+		go_to_next_text()

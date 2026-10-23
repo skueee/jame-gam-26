@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 170.0
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var leftright := Input.get_axis("left", "right")
 	if leftright:
 		velocity.x = leftright * SPEED
