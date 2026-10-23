@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bjmlbdagjdrr4" path="res://ui_dialogue.gd" id="1_s7mfv"]
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_s7mfv"]
+[ext_resource type="Shader" uid="uid://cove4mx0k6y1l" path="res://ui-dialogue.gdshader" id="3_isl28"]
+[ext_resource type="FontFile" uid="uid://dhwvmj2il7oyb" path="res://Ithaca-LVB75.ttf" id="4_01xp2"]
+[ext_resource type="Texture2D" uid="uid://bm8pldk1r7ve0" path="res://dialogue_box_texture.png" id="4_226md"]
+[ext_resource type="Texture2D" uid="uid://r5hnagoss3bi" path="res://arrow.svg" id="6_wuyp7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjfn4"]
+shader = ExtResource("3_isl28")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(0.56078434, 0.3372549, 0.4627451, 1)
+shader_parameter/tolerance = 0.1
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
-font_size = 29
+font = ExtResource("4_01xp2")
+font_size = 81
+font_color = Color(0, 0, 0, 1)
 
 [node name="DialogBox" type="Control" unique_id=675358860]
 layout_mode = 3
@@ -14,45 +26,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-offset_transform_enabled = true
 offset_transform_position = Vector2(0, -648)
 script = ExtResource("1_s7mfv")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1922485325]
+[node name="DialogueBox" type="NinePatchRect" parent="." unique_id=1978485780]
+material = SubResource("ShaderMaterial_mjfn4")
 layout_mode = 0
-offset_top = 370.0
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.9999996, 0.8524609, 0.70162094, 1)
+offset_left = 8.0
+offset_top = -234.0
+offset_right = 2832.9998
+offset_bottom = 326.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_226md")
+region_rect = Rect2(0, 0, 2607, 981)
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
 
-[node name="Text" type="RichTextLabel" parent="." unique_id=1558098988]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 432.0
-offset_right = 1137.0
-offset_bottom = 619.0
+[node name="Text" type="RichTextLabel" parent="DialogueBox" unique_id=1558098988]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1338.3748
+offset_top = -400.0
+offset_right = 1338.3749
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_01xp2")
+theme_override_font_sizes/normal_font_size = 52
+theme_override_font_sizes/bold_font_size = 52
+theme_override_font_sizes/bold_italics_font_size = 52
+theme_override_font_sizes/italics_font_size = 52
+theme_override_font_sizes/mono_font_size = 52
 text = "Lorem Ipsum Dolor Si Amet"
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1872246994]
+[node name="Speaker" type="Label" parent="DialogueBox" unique_id=891964289]
 layout_mode = 0
-offset_top = 363.0
-offset_right = 1152.0
-offset_bottom = 370.0
-color = Color(0, 0, 0, 1)
-
-[node name="Speaker" type="Label" parent="." unique_id=891964289]
-layout_mode = 0
-offset_left = 225.0
-offset_top = 384.0
-offset_right = 1129.0
-offset_bottom = 424.0
+offset_left = 452.5
+offset_top = 49.99997
+offset_right = 1356.5
+offset_bottom = 121.99997
 text = "Lorem Ipsum"
 label_settings = SubResource("LabelSettings_mjfn4")
 
-[node name="SpeakerSprite" type="TextureRect" parent="." unique_id=1638581323]
+[node name="SpeakerSprite" type="TextureRect" parent="DialogueBox" unique_id=1638581323]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 230.0
-offset_right = 216.0
-offset_bottom = 425.0
+offset_left = 82.5
+offset_top = -195.00003
+offset_right = 419.49994
+offset_bottom = 139.49991
 texture = ExtResource("2_s7mfv")
+
+[node name="Arrow" type="TextureRect" parent="." unique_id=302877005]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = -59.0
+offset_right = 1114.0
+offset_bottom = -28.0
+texture = ExtResource("6_wuyp7")

@@ -1,7 +1,8 @@
 # Dialogue logic
 # To use, call display_text() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
-# For ex: display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"))
-#                      The two lines that will be displayed                   Character     Sprite
+# For ex: display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))
+#                      The two lines that will be displayed                   Character     Sprite                 Color
+# Color, Character and Sprite are optional
 
 extends Control
 
@@ -11,13 +12,14 @@ var dialog_active : bool = false
 var current_text : Array
 var next_text_index : int
 
-@onready var _speaker : Label = $Speaker
-@onready var _speaker_sprite : TextureRect = $SpeakerSprite
-@onready var _dialogue : RichTextLabel = $Text
+@onready var _speaker : Label = $DialogueBox/Speaker
+@onready var _speaker_sprite : TextureRect = $DialogueBox/SpeakerSprite
+@onready var _dialogue : RichTextLabel = $DialogueBox/Text
+@onready var _box : NinePatchRect = $DialogueBox
 
 # Main function to call, it display text and then hides the textbox
-func display_text(lines : Array, speaker : String = "", speaker_sprite : Texture2D = null):
-	show_text_box(speaker, speaker_sprite)
+func display_text(lines : Array, speaker : String = "", speaker_sprite : Texture2D = null, color : Color = Color("black")):
+	show_text_box(speaker, speaker_sprite, color)
 	current_text = lines
 	display_line(current_text[0])
 	next_text_index = 1
@@ -27,7 +29,7 @@ func display_line(line : String):
 	_dialogue.text = line
 
 # Shows the dialogue and assigns everything
-func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null):
+func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null, color : Color = Color("black")):
 	dialog_active = true
 	visible = true
 	_speaker.visible = (speaker != "")
@@ -37,6 +39,7 @@ func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null):
 		_speaker_sprite.texture = speaker_sprite
 	else:
 		_speaker_sprite.visible = false
+	_box.material.set_shader_parameter("replacement_color", color)
 
 # Hides the dialogue
 func hide_text_box():
