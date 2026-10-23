@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -112,3 +113,9 @@ texture = ExtResource("2_0xm2m")
 
 [node name="DialogBox" parent="CanvasLayer" unique_id=675358860 instance=ExtResource("4_1bvp3")]
 visible = false
+
+[node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("5_lquwl")]
+position = Vector2(124, 71)
+
+[node name="Fireeffect2" parent="." unique_id=1983302559 instance=ExtResource("5_lquwl")]
+position = Vector2(88, 70)
