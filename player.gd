@@ -25,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 	set_velocit(_delta)
 	move_and_slide()
 	attack()
+	bridge()
 
 
 func get_input():
@@ -35,6 +36,16 @@ func get_input():
 		elif is_on_wall():
 			wall_jump = true
 			wall_direction = get_wall_normal()
+func bridge():
+	if Input.is_action_just_pressed("bridge"):
+		
+		var bridgeable: PackedScene = load("res://bridgeable.tscn")
+		var bridge: RigidBody2D = bridgeable.instantiate()
+		bridge.global_position = Vector2(global_position.x, global_position.y+10)
+		get_parent().add_child(bridge)
+		var throw_direction = Vector2(direction, 0)
+		var throw_force = 500.0
+		bridge.apply_central_impulse(throw_direction * throw_force)
 
 func attack():
 	if Input.is_action_just_pressed("throw"):

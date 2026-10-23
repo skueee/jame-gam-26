@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_y31su"]
 
-[sub_resource type="GDScript" id="GDScript_y31su"]
+[sub_resource type="GDScript" id="GDScript_vhmpr"]
 resource_name = "expire"
 script/source = "extends RigidBody2D
 @onready var timer: Timer = $Timer
@@ -40,7 +40,7 @@ size = Vector2(10, 10)
 [node name="throwable" type="RigidBody2D" unique_id=1626015072]
 mass = 0.007
 gravity_scale = 0.0
-script = SubResource("GDScript_y31su")
+script = SubResource("GDScript_vhmpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759565082]
 position = Vector2(0, 5.9604645e-08)

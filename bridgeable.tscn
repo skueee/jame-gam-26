@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c6mo3p1dioh2s"]
+
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_uo1tn"]
+
+[sub_resource type="GDScript" id="GDScript_uo1tn"]
+resource_name = "expire"
+script/source = "extends RigidBody2D
+@onready var timer: Timer = $Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	timer.timeout.connect(expire)
+	timer.start()
+
+
+func expire():
+	freeze = false
+	apply_central_impulse(Vector2(0, -0.2))
+	timer.timeout.connect(expire2)
+	timer.start()
+
+func expire2():
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
+size = Vector2(7.5, 7.5)
+
+[node name="bridgeable" type="RigidBody2D" unique_id=1626015072]
+mass = 0.007
+gravity_scale = 0.2
+freeze = true
+script = SubResource("GDScript_uo1tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759565082]
+position = Vector2(0, 5.9604645e-08)
+scale = Vector2(0.056640625, 0.05664063)
+texture = ExtResource("1_uo1tn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=696245529]
+shape = SubResource("RectangleShape2D_tsws6")
+
+[node name="Timer" type="Timer" parent="." unique_id=27813274]
+wait_time = 1.5
