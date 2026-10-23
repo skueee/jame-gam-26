@@ -42,7 +42,7 @@ func attack():
 		var potion: RigidBody2D = throwable.instantiate()
 		potion.global_position = global_position
 		get_parent().add_child(potion)
-		var throw_direction = Vector2(direction, 0)
+		var throw_direction = Vector2(direction if direction else 1, 0)
 		var throw_force = 500.0
 		potion.apply_central_impulse(throw_direction * throw_force)
 
