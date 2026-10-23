@@ -36,11 +36,13 @@ func _ready() -> void:
 func allow_shield():
 	can_shield = true
 
+
 func allow():
 	can_bridge_throw = true
 
+
 func _physics_process(_delta: float) -> void:
-	scale -= (scale/100)*((shrink_percent/60)*_delta)
+	scale -= (scale / 100) * ((shrink_percent / 60) * _delta)
 	get_input()
 	set_velocit(_delta)
 	move_and_slide()
@@ -59,22 +61,27 @@ func get_input():
 		elif is_on_wall():
 			wall_jump = true
 			wall_direction = get_wall_normal()
+
+
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
-		if not can_bridge_throw: return
+		if not can_bridge_throw:
+			return
 		can_bridge_throw = false
 		bridge_throw_timer.start()
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge: RigidBody2D = bridgeable.instantiate()
-		bridge.global_position = Vector2(global_position.x, global_position.y+10)
+		bridge.global_position = Vector2(global_position.x, global_position.y + 10)
 		get_parent().add_child(bridge)
 		var throw_direction = Vector2(direction, 0)
 		var throw_force = 500.0
 		bridge.apply_central_impulse(throw_direction * throw_force)
 
+
 func attack():
 	if Input.is_action_just_pressed("throw"):
-		if not can_bridge_throw: return
+		if not can_bridge_throw:
+			return
 		can_bridge_throw = false
 		bridge_throw_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
@@ -85,9 +92,11 @@ func attack():
 		var throw_force = 500.0
 		potion.apply_central_impulse(throw_direction * throw_force)
 
+
 func shield():
 	if Input.is_action_just_pressed("shield"):
-		if not can_shield: return
+		if not can_shield:
+			return
 		can_shield = false
 		shield_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
@@ -102,6 +111,7 @@ func shield():
 			var throw_direction = offset.normalized()
 
 			potion.apply_central_impulse(throw_direction * shield_force)
+
 
 func set_velocit(delta):
 	if wall_jump:
@@ -120,6 +130,7 @@ func set_velocit(delta):
 	elif jump:
 		velocity.y = 0 - jump_strength
 		jump = false
+
 
 func die():
 	get_tree().reload_current_scene()
