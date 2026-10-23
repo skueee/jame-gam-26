@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://wl3x12oxss0l"]
+
+[ext_resource type="Script" uid="uid://bjmlbdagjdrr4" path="res://ui_dialogue.gd" id="1_s7mfv"]
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_s7mfv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
+font_size = 29
+
+[node name="DialogBox" type="Control" unique_id=675358860]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s7mfv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1922485325]
+layout_mode = 0
+offset_top = 370.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.9999996, 0.8524609, 0.70162094, 1)
+
+[node name="Text" type="RichTextLabel" parent="." unique_id=1558098988]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 432.0
+offset_right = 1137.0
+offset_bottom = 619.0
+text = "Lorem Ipsum Dolor Si Amet"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1872246994]
+layout_mode = 0
+offset_top = 363.0
+offset_right = 1152.0
+offset_bottom = 370.0
+color = Color(0, 0, 0, 1)
+
+[node name="Speaker" type="Label" parent="." unique_id=891964289]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 384.0
+offset_right = 1129.0
+offset_bottom = 424.0
+text = "Lorem Ipsum"
+label_settings = SubResource("LabelSettings_mjfn4")
+
+[node name="SpeakerSprite" type="TextureRect" parent="." unique_id=1638581323]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 230.0
+offset_right = 216.0
+offset_bottom = 425.0
+texture = ExtResource("2_s7mfv")
