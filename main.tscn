@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://j2mphjm21ci6" path="res://dropzone.tscn" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -119,3 +120,6 @@ position = Vector2(124, 71)
 
 [node name="Fireeffect2" parent="." unique_id=1983302559 instance=ExtResource("5_lquwl")]
 position = Vector2(88, 70)
+
+[node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("6_7mycd")]
+position = Vector2(133, 285)

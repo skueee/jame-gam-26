@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://j2mphjm21ci6"]
+
+[sub_resource type="GDScript" id="GDScript_wmg3h"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"player\":
+		body.die()
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tsws6"]
+
+[node name="Dropzone" type="Area2D" unique_id=12974247]
+script = SubResource("GDScript_wmg3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900433905]
+shape = SubResource("WorldBoundaryShape2D_tsws6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
