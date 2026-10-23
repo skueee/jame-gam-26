@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var max_speed := 600
 @export var max_fall := 1000
 @export var jump_strength = 300
-@onready var timer: Timer = $Timer
 @export var ShrinkPercent := 5
 @export var wall_jump_bounce := 500
 @export var wall_stength := 300
@@ -18,13 +17,10 @@ var direction := 1
 var jump := false
 
 
-func _ready() -> void:
-	timer.timeout.connect(done)
 
 
 func _physics_process(_delta: float) -> void:
-	if timer.is_stopped():
-		timer.start()
+	scale -= (scale/100)*((ShrinkPercent/60)*_delta)
 	get_input()
 	set_velocit(_delta)
 	move_and_slide()
@@ -61,5 +57,4 @@ func set_velocit(delta):
 func die():
 	get_tree().reload_current_scene()
 	
-func done():
-	scale = (scale / 100) * (100 - (ShrinkPercent / 60))
+	
