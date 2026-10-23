@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3f4"]
 size = Vector2(14, 18)
 
-[node name="Potion" type="StaticBody2D" unique_id=1071668821]
+[node name="Potion" type="Area2D" unique_id=877409574]
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1329096000]
