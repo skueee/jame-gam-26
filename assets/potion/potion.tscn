@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dhceoonaopdoa"]
+
+[ext_resource type="Texture2D" uid="uid://6ve2koji2ito" path="res://assets/potion/potion.tres" id="1_pje5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3f4"]
+size = Vector2(14, 18)
+
+[node name="Potion" type="StaticBody2D" unique_id=1071668821]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1329096000]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.016029414, 0.016029416)
+texture = ExtResource("1_pje5f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984858448]
+shape = SubResource("RectangleShape2D_pa3f4")
