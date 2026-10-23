@@ -8,28 +8,38 @@ extends Control
 
 signal dialogue_finished
 
-var dialog_active : bool = false
-var current_text : Array
-var next_text_index : int
+var dialog_active: bool = false
+var current_text: Array
+var next_text_index: int
 
-@onready var _speaker : Label = $DialogueBox/Speaker
-@onready var _speaker_sprite : TextureRect = $DialogueBox/SpeakerSprite
-@onready var _dialogue : RichTextLabel = $DialogueBox/Text
-@onready var _box : NinePatchRect = $DialogueBox
+@onready var _speaker: Label = $DialogueBox/Speaker
+@onready var _speaker_sprite: TextureRect = $DialogueBox/SpeakerSprite
+@onready var _dialogue: RichTextLabel = $DialogueBox/Text
+@onready var _box: NinePatchRect = $DialogueBox
+
 
 # Main function to call, it display text and then hides the textbox
-func display_text(lines : Array, speaker : String = "", speaker_sprite : Texture2D = null, color : Color = Color("black")):
+func display_text(
+	lines: Array,
+	speaker: String = "",
+	speaker_sprite: Texture2D = null,
+	color: Color = Color("black")
+):
 	show_text_box(speaker, speaker_sprite, color)
 	current_text = lines
 	display_line(current_text[0])
 	next_text_index = 1
 
+
 # Just displays a line on the Text label
-func display_line(line : String):
+func display_line(line: String):
 	_dialogue.text = line
 
+
 # Shows the dialogue and assigns everything
-func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null, color : Color = Color("black")):
+func show_text_box(
+	speaker: String = "", speaker_sprite: Texture2D = null, color: Color = Color("black")
+):
 	dialog_active = true
 	visible = true
 	_speaker.visible = (speaker != "")
@@ -41,11 +51,13 @@ func show_text_box(speaker : String = "", speaker_sprite : Texture2D = null, col
 		_speaker_sprite.visible = false
 	_box.material.set_shader_parameter("replacement_color", color)
 
+
 # Hides the dialogue
 func hide_text_box():
 	dialog_active = false
 	visible = false
 	dialogue_finished.emit()
+
 
 # Ensure that the dialogue is not finished, then show the next line
 func go_to_next_text():
@@ -54,6 +66,7 @@ func go_to_next_text():
 		next_text_index += 1
 	else:
 		hide_text_box()
+
 
 # Just checks if there is input
 func _process(_delta: float) -> void:

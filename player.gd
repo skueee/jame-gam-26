@@ -12,13 +12,15 @@ extends CharacterBody2D
 @export var wall_jump_bounce := 500
 @export var wall_stength := 300
 var wall_jump := false
-var wall_direction : Vector2
+var wall_direction: Vector2
 
 var direction := 1
 var jump := false
 
+
 func _ready() -> void:
 	timer.timeout.connect(done)
+
 
 func _physics_process(_delta: float) -> void:
 	if timer.is_stopped():
@@ -36,7 +38,6 @@ func get_input():
 		elif is_on_wall():
 			wall_jump = true
 			wall_direction = get_wall_normal()
-	
 
 
 func set_velocit(delta):
@@ -46,14 +47,12 @@ func set_velocit(delta):
 		wall_jump = false
 	else:
 		if direction:
-			velocity.x = move_toward(velocity.x, direction*max_speed, delta*acceleration)
+			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
-			velocity.x = move_toward(velocity.x, 0, friction*delta)
-	
-	
-	
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
+
 	if not is_on_floor():
-		velocity.y += gravity*delta
+		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, max_fall)
 	elif jump:
 		velocity.y = 0 - jump_strength
@@ -61,4 +60,4 @@ func set_velocit(delta):
 
 
 func done():
-	scale = (scale/100)*(100-ShrinkPercent)
+	scale = (scale / 100) * (100 - ShrinkPercent)
