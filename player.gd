@@ -28,6 +28,7 @@ func _physics_process(_delta: float) -> void:
 	get_input()
 	set_velocit(_delta)
 	move_and_slide()
+	attack()
 
 
 func get_input():
@@ -39,6 +40,15 @@ func get_input():
 			wall_jump = true
 			wall_direction = get_wall_normal()
 
+func attack():
+	if Input.is_action_just_pressed("throw"):
+		var throwable: PackedScene = load("res://throwable.tscn")
+		var potion: RigidBody2D = throwable.instantiate()
+		potion.global_position = global_position
+		get_parent().add_child(potion)
+		var throw_direction = Vector2(direction, 0)
+		var throw_force = 500.0
+		potion.apply_central_impulse(throw_direction * throw_force)
 
 func set_velocit(delta):
 	if wall_jump:
