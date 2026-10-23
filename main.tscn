@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://assets/potion/potion.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -123,3 +124,6 @@ position = Vector2(88, 70)
 
 [node name="Potion" parent="." unique_id=1071668821 instance=ExtResource("6_7mycd")]
 position = Vector2(197, 86)
+
+[node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("7_272bh")]
+position = Vector2(61, 279)
