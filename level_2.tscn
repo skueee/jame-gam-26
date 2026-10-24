@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="9_eoq84"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="10_yl73a"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="11_eoq84"]
+[ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="12_yl73a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15wb7"]
 texture = ExtResource("1_n7ypv")
@@ -199,3 +200,7 @@ position = Vector2(1873, -13)
 
 [node name="Fireeffect3" parent="." unique_id=1053839209 instance=ExtResource("6_7j8ne")]
 position = Vector2(1920, -11)
+
+[node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("12_yl73a")]
+position = Vector2(1898, -30)
+level = 3
