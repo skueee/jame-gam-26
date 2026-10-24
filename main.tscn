@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://assets/potion/potion.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://5mxqg4igecw4" path="res://cloudpotion.tscn" id="10_4c57u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
 texture = ExtResource("2_5vw27")
@@ -75,9 +76,16 @@ position = Vector2(197, 72)
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("7_272bh")]
 position = Vector2(61, 279)
 
-[node name="enemy" parent="." unique_id=1733318048 instance=ExtResource("3_kek77")]
-position = Vector2(948, 7)
-
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("1_ig7tw")]
 
-[editable path="enemy"]
+[node name="enemy" parent="." unique_id=1733318048 instance=ExtResource("3_kek77")]
+position = Vector2(1049, 10)
+
+[node name="Cloud_Potion" parent="." unique_id=1880108381 instance=ExtResource("10_4c57u")]
+position = Vector2(351, -91)
+
+[node name="Cloud_Potion2" parent="." unique_id=1642128399 instance=ExtResource("10_4c57u")]
+position = Vector2(-67, 57)
+
+[node name="Cloud_Potion3" parent="." unique_id=2132586286 instance=ExtResource("10_4c57u")]
+position = Vector2(653, -87)

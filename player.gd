@@ -19,26 +19,35 @@ var wall_direction: Vector2
 var last_direction := 1
 var direction := 1.0
 var jump := false
-var can_bridge_throw = true
+var can_throw = true
 var can_shield = true
+var can_bridge = false
 
-@onready var bridge_throw_timer = $Timer
+@onready var throw_timer = $Timer
 @onready var shield_timer = $Timer2
+@onready var bridge_timer: Timer = $Timer3
 
 
 func _ready() -> void:
-	bridge_throw_timer.wait_time = bridge_throw_cd
-	bridge_throw_timer.timeout.connect(allow)
-	bridge_throw_timer.start()
+	throw_timer.wait_time = bridge_throw_cd
+	throw_timer.timeout.connect(allow)
+	throw_timer.start()
 	shield_timer.timeout.connect(allow_shield)
+	bridge_timer.timeout.connect(disable_bridge)
 
+func enable_bridge():
+	can_bridge = true
+	bridge_timer.start()
+
+func disable_bridge():
+	can_bridge = false
 
 func allow_shield():
 	can_shield = true
 
 
 func allow():
-	can_bridge_throw = true
+	can_throw = true
 
 
 func _physics_process(_delta: float) -> void:
@@ -66,10 +75,10 @@ func get_input():
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
-		if not can_bridge_throw:
+		if not can_bridge:
 			return
-		can_bridge_throw = false
-		bridge_throw_timer.start()
+		
+		
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
@@ -81,10 +90,10 @@ func bridge():
 
 func attack():
 	if Input.is_action_just_pressed("throw"):
-		if not can_bridge_throw:
+		if not can_throw:
 			return
-		can_bridge_throw = false
-		bridge_throw_timer.start()
+		can_throw = false
+		throw_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
 		var potion: RigidBody2D = throwable.instantiate()
 		potion.global_position = Vector2(global_position.x - (0 if last_direction == 1 else 5), global_position.y -3)

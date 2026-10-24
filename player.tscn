@@ -84,3 +84,6 @@ shape = SubResource("RectangleShape2D_ukc20")
 
 [node name="Timer2" type="Timer" parent="." unique_id=80709999]
 wait_time = 5.0
+
+[node name="Timer3" type="Timer" parent="." unique_id=1958093591]
+wait_time = 20.0
