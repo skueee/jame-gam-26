@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="11_efxa6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("2_5vw27")
@@ -90,5 +91,8 @@ position = Vector2(1562, -15)
 
 [node name="Fireeffect3" parent="." unique_id=1510392062 instance=ExtResource("5_lquwl")]
 position = Vector2(1630, -14)
+
+[node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("11_efxa6")]
+position = Vector2(1597, -29)
 
 [editable path="enemy"]

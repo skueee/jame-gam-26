@@ -55,7 +55,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	attack()
 	bridge()
-	print(scale)
+	if scale.x < 0.5:
+		die()
 	
 func animate():
 	if velocity.x:
