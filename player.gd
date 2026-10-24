@@ -55,6 +55,7 @@ func get_input():
 	direction = Input.get_axis("left", "right")
 	if direction:
 		last_direction = direction
+		$Sprite2D.flip_h = direction < 0
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			jump = true
@@ -133,4 +134,6 @@ func set_velocit(delta):
 
 
 func die():
+	$AnimationPlayer.play("die")
+	await $AnimationPlayer.animation_finished
 	get_tree().call_deferred("reload_current_scene")
