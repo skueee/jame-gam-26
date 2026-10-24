@@ -24,6 +24,7 @@ var can_shield = true
 
 @onready var bridge_throw_timer = $Timer
 @onready var shield_timer = $Timer2
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
 func _ready() -> void:
@@ -45,10 +46,17 @@ func _physics_process(_delta: float) -> void:
 	scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
 	get_input()
 	set_velocit(_delta)
+	animate()
 	move_and_slide()
 	attack()
 	bridge()
 	shield()
+	
+func animate():
+	if velocity.x:
+		sprite_2d.play("run")
+	else:
+		sprite_2d.play("default")
 
 
 func get_input():
