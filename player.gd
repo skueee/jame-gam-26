@@ -126,8 +126,12 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		velocity.y = min(velocity.y, max_fall)
+		if not is_on_wall():
+			velocity.y += gravity * delta
+			velocity.y = min(velocity.y, max_fall)
+		else:
+			velocity.y = gravity* 0.07
+			velocity.y = min(velocity.y, max_fall)
 	elif jump:
 		velocity.y = 0 - jump_strength
 		jump = false
