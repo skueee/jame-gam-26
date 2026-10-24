@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var max_speed := 500
 @export var max_fall := 1000
 @export var jump_strength = 300
-@export var shrink_percent := 5
+@export var shrink_percent := 165
 @export var wall_jump_bounce := 500
 @export var wall_stength := 300
 @export var throw_cd := 0.1
@@ -24,6 +24,7 @@ var wall_jump_lock := 0.0
 @export var bridge_cd = 0.3333
 var can_bridge = false
 @onready var bridge_timer: Timer = $Timer2
+@onready var timey: Timer = $Timer3
 
 @onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
@@ -54,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	attack()
 	bridge()
+	print(scale)
 	
 func animate():
 	if velocity.x:
@@ -145,6 +147,14 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
+func stopshrinking():
+	shrink_percent = 0
+	timey.wait_time = 15
+	timey.timeout.connect(resumeshrinking)
+	timey.start()
+
+func resumeshrinking():
+	shrink_percent = 165
 
 func die(force: bool = false):
 	if lives > 1 and not force:

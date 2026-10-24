@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://assets/potion/potion.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="10_4c57u"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("2_5vw27")
 texture_region_size = Vector2i(416, 416)
 0:0/0 = 0
@@ -36,7 +36,7 @@ texture_region_size = Vector2i(416, 416)
 [sub_resource type="TileSet" id="TileSet_tsws6"]
 tile_size = Vector2i(416, 416)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_kek77")
+sources/1 = SubResource("TileSetAtlasSource_4c57u")
 
 [node name="main" type="Node2D" unique_id=379423558]
 
@@ -64,11 +64,8 @@ texture = ExtResource("2_0xm2m")
 [node name="DialogBox" parent="CanvasLayer" unique_id=675358860 instance=ExtResource("4_1bvp3")]
 visible = false
 
-[node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("5_lquwl")]
-position = Vector2(104, 43)
-
 [node name="Potion" parent="." unique_id=1071668821 instance=ExtResource("6_7mycd")]
-position = Vector2(1599, -27)
+position = Vector2(669, -27)
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("7_272bh")]
 position = Vector2(61, 279)
@@ -80,19 +77,18 @@ position = Vector2(948, 7)
 acceleration = 300
 max_speed = 700
 
-[node name="Fireeffect3" parent="." unique_id=1671324559 instance=ExtResource("5_lquwl")]
-position = Vector2(475, -22)
-
-[node name="Fireeffect6" parent="." unique_id=1778400004 instance=ExtResource("5_lquwl")]
-position = Vector2(950, -29)
-
 [node name="cloud_potion" parent="." unique_id=1756372684 instance=ExtResource("10_4c57u")]
 position = Vector2(1172, 70)
 seconds = 3
 reusable = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=240568466]
+[node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("5_lquwl")]
+position = Vector2(669, -57)
 
-[node name="Node" type="Node" parent="." unique_id=294547103]
+[node name="Fireeffect2" parent="." unique_id=397481477 instance=ExtResource("5_lquwl")]
+position = Vector2(1562, -15)
+
+[node name="Fireeffect3" parent="." unique_id=1510392062 instance=ExtResource("5_lquwl")]
+position = Vector2(1630, -14)
 
 [editable path="enemy"]
