@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://assets/potion/potion.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="10_4c57u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
 texture = ExtResource("2_5vw27")
@@ -84,5 +85,14 @@ position = Vector2(475, -22)
 
 [node name="Fireeffect6" parent="." unique_id=1778400004 instance=ExtResource("5_lquwl")]
 position = Vector2(950, -29)
+
+[node name="cloud_potion" parent="." unique_id=1756372684 instance=ExtResource("10_4c57u")]
+position = Vector2(1172, 70)
+seconds = 3
+reusable = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=240568466]
+
+[node name="Node" type="Node" parent="." unique_id=294547103]
 
 [editable path="enemy"]

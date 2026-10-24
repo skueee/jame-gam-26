@@ -146,8 +146,8 @@ func set_velocit(delta):
 		jump = false
 
 
-func die():
-	if lives > 1:
+func die(force: bool = false):
+	if lives > 1 and not force:
 		lives -= 1
 		shield()
 		return
