@@ -1,16 +1,124 @@
 [gd_scene format=3 uid="uid://br7ggdqod8yod"]
 
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://4jwet6rufjd6" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cl6tjg4xxqva0" path="res://assets/player/player.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukc20"]
-size = Vector2(13.125, 12.625)
+size = Vector2(20.75, 17.519531)
+
+[sub_resource type="Animation" id="Animation_onrkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.7683716e-07, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01614868, 0.01614868)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+resource_name = "die"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.7),
+"transitions": PackedFloat32Array(1.366041, 2.1435478, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333334, 0.1, 0.6666666),
+"transitions": PackedFloat32Array(0.5946035, 2.070531, 1),
+"update": 0,
+"values": [Vector2(0.01614868, 0.01614868), Vector2(0.018, 0.018), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(0.43527535, 1.2745609, 1),
+"update": 0,
+"values": [Vector2(-4.7683716e-07, -3), Vector2(0, -9.085), Vector2(0, -15.15)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(2.4622896, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqtel"]
+_data = {
+&"RESET": SubResource("Animation_onrkg"),
+&"die": SubResource("Animation_i3pqv")
+}
 
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
 script = ExtResource("1_onrkg")
 gravity = 980
 max_fall = 2000
-ShrinkPercent = 30
 shield_force = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809773085]
@@ -21,13 +129,19 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1349685286]
-scale = Vector2(0.114257805, 0.114257805)
-texture = ExtResource("1_4flbx")
+position = Vector2(-4.7683716e-07, -3)
+scale = Vector2(0.01614868, 0.01614868)
+texture = ExtResource("2_onrkg")
+offset = Vector2(-2.670288e-05, -185.77368)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1750728536]
+position = Vector2(-2.375, -2.7597656)
 shape = SubResource("RectangleShape2D_ukc20")
 
 [node name="Timer" type="Timer" parent="." unique_id=1033359897]
 
 [node name="Timer2" type="Timer" parent="." unique_id=80709999]
 wait_time = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1626688477]
+libraries/ = SubResource("AnimationLibrary_hqtel")
