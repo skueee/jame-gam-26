@@ -95,7 +95,7 @@ func attack():
 		bridge_throw_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
 		var potion: RigidBody2D = throwable.instantiate()
-		potion.global_position = global_position
+		potion.global_position = Vector2(global_position.x - (0 if last_direction == 1 else 5), global_position.y -3)
 		get_parent().add_child(potion)
 		var throw_direction = Vector2(last_direction, 0)
 		var throw_force = 500.0
