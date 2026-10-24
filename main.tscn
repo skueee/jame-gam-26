@@ -76,6 +76,8 @@ position = Vector2(61, 279)
 position = Vector2(948, 7)
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("1_ig7tw")]
+acceleration = 300
+max_speed = 600
 
 [node name="Fireeffect3" parent="." unique_id=1671324559 instance=ExtResource("5_lquwl")]
 position = Vector2(475, -22)
