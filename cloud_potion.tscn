@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bdssw3vtf8yxf"]
+
+[ext_resource type="Texture2D" uid="uid://b5t5cry361cml" path="res://cloudpotion.png" id="1_cq6m0"]
+
+[sub_resource type="GDScript" id="GDScript_wmg3h"]
+resource_name = "collect"
+script/source = "extends Area2D
+@export var seconds: int = 20
+@export var reusable: bool = false
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var timey: Timer = $Timer
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"player\":
+		body.enable_bridge(seconds)
+		if not reusable: queue_free()
+		visible = false
+		collision_shape_2d.disabled = true
+		timey.one_shot = true
+		timey.wait_time = 10
+		timey.timeout.connect(reappear)
+		timey.start()
+
+func reappear():
+	visible = true
+	collision_shape_2d.disabled = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
+
+[node name="cloud_potion" type="Area2D" unique_id=1756372684]
+script = SubResource("GDScript_wmg3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788424965]
+shape = SubResource("RectangleShape2D_tsws6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1412835092]
+texture = ExtResource("1_cq6m0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1468865810]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

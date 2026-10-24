@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var shrink_percent := 5
 @export var wall_jump_bounce := 500
 @export var wall_stength := 300
-@export var bridge_throw_cd := 0.1
+@export var throw_cd := 0.1
 @export var shield_force = 15.0
 @export var shield_radius = 15
 @export var lives = 2
@@ -19,20 +19,31 @@ var wall_direction: Vector2
 var last_direction := 1
 var direction := 1.0
 var jump := false
-var can_bridge_throw = true
+var can_throw = true
 var wall_jump_lock := 0.0
+@export var bridge_cd = 0.3333
+var can_bridge = false
+@onready var bridge_timer: Timer = $Timer2
 
-@onready var bridge_throw_timer = $Timer
+@onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
 func _ready() -> void:
-	bridge_throw_timer.wait_time = bridge_throw_cd
-	bridge_throw_timer.timeout.connect(allow)
-	bridge_throw_timer.start()
+	throw_timer.wait_time = throw_cd
+	throw_timer.timeout.connect(allow)
+	throw_timer.start()
+	bridge_timer.wait_time = 20
+	bridge_timer.timeout.connect(disable_bridge)
 func allow():
-	can_bridge_throw = true
+	can_throw = true
 
+func enable_bridge(sec):
+	can_bridge = true
+	bridge_timer.start(sec)
+
+func disable_bridge():
+	can_bridge = false
 
 func _physics_process(_delta: float) -> void:
 	wall_jump_lock -= _delta
@@ -66,10 +77,7 @@ func get_input():
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
-		if not can_bridge_throw:
-			return
-		can_bridge_throw = false
-		bridge_throw_timer.start()
+		if not can_bridge: return
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
@@ -81,10 +89,10 @@ func bridge():
 
 func attack():
 	if Input.is_action_just_pressed("throw"):
-		if not can_bridge_throw:
+		if not can_throw:
 			return
-		can_bridge_throw = false
-		bridge_throw_timer.start()
+		can_throw = false
+		throw_timer.start()
 		var throwable: PackedScene = load("res://throwable.tscn")
 		var potion: RigidBody2D = throwable.instantiate()
 		potion.global_position = Vector2(global_position.x - (0 if last_direction == 1 else 5), global_position.y -3)

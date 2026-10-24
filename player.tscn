@@ -93,3 +93,5 @@ position = Vector2(-0.3125, 0.5)
 shape = SubResource("RectangleShape2D_ukc20")
 
 [node name="Timer" type="Timer" parent="." unique_id=1033359897]
+
+[node name="Timer2" type="Timer" parent="." unique_id=464568139]
