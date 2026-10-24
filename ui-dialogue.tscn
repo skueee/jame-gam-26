@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://bjmlbdagjdrr4" path="res://ui_dialogue.gd" id="1_s7mfv"]
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_s7mfv"]
 [ext_resource type="Shader" uid="uid://cove4mx0k6y1l" path="res://modulate.gdshader" id="3_isl28"]
-[ext_resource type="FontFile" uid="uid://dhwvmj2il7oyb" path="res://Ithaca-LVB75.ttf" id="4_01xp2"]
 [ext_resource type="Texture2D" uid="uid://bm8pldk1r7ve0" path="res://dialogue_box_texture.png" id="4_226md"]
+[ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="4_wuyp7"]
+[ext_resource type="FontFile" uid="uid://c3tx7rmhdtoov" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="5_0xpw0"]
 [ext_resource type="Texture2D" uid="uid://r5hnagoss3bi" path="res://arrow.svg" id="6_wuyp7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjfn4"]
@@ -13,9 +14,39 @@ shader_parameter/target_color = Color(0, 0, 0, 1)
 shader_parameter/replacement_color = Color(0.56078434, 0.3372549, 0.4627451, 1)
 shader_parameter/tolerance = 0.1
 
+[sub_resource type="FontVariation" id="FontVariation_mive0"]
+base_font = ExtResource("4_wuyp7")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+
+[sub_resource type="FontVariation" id="FontVariation_on1en"]
+base_font = ExtResource("4_wuyp7")
+variation_opentype = {
+2003072104: 100,
+2003265652: 600
+}
+
+[sub_resource type="FontVariation" id="FontVariation_4liwo"]
+base_font = ExtResource("4_wuyp7")
+variation_opentype = {
+2003072104: 100,
+2003265652: 600
+}
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_op7qy"]
+base_font = ExtResource("4_wuyp7")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
-font = ExtResource("4_01xp2")
-font_size = 81
+font = ExtResource("5_0xpw0")
+font_size = 78
 font_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01xp2"]
@@ -64,20 +95,23 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/default_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
-theme_override_fonts/normal_font = ExtResource("4_01xp2")
-theme_override_font_sizes/normal_font_size = 70
-theme_override_font_sizes/bold_font_size = 70
-theme_override_font_sizes/bold_italics_font_size = 70
-theme_override_font_sizes/italics_font_size = 70
-theme_override_font_sizes/mono_font_size = 70
+theme_override_fonts/normal_font = SubResource("FontVariation_mive0")
+theme_override_fonts/bold_font = SubResource("FontVariation_on1en")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_4liwo")
+theme_override_fonts/italics_font = SubResource("FontVariation_op7qy")
+theme_override_font_sizes/normal_font_size = 52
+theme_override_font_sizes/bold_font_size = 52
+theme_override_font_sizes/bold_italics_font_size = 52
+theme_override_font_sizes/italics_font_size = 52
+theme_override_font_sizes/mono_font_size = 52
 text = "Lorem Ipsum Dolor Si Amet"
 
 [node name="Speaker" type="Label" parent="DialogueBox" unique_id=891964289]
 layout_mode = 0
-offset_left = 452.5
-offset_top = 49.99997
-offset_right = 1356.5
-offset_bottom = 121.99997
+offset_left = 460.0
+offset_top = 29.999971
+offset_right = 1364.0
+offset_bottom = 147.99997
 text = "Lorem Ipsum"
 label_settings = SubResource("LabelSettings_mjfn4")
 
