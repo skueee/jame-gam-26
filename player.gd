@@ -130,7 +130,7 @@ func set_velocit(delta):
 			velocity.y += gravity * delta
 			velocity.y = min(velocity.y, max_fall)
 		else:
-			velocity.y += gravity * delta * 0.5
+			velocity.y = gravity* 0.07
 			velocity.y = min(velocity.y, max_fall)
 	elif jump:
 		velocity.y = 0 - jump_strength
