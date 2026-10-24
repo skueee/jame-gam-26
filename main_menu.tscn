@@ -1,0 +1,423 @@
+[gd_scene format=3 uid="uid://0wkj43ogchrw"]
+
+[ext_resource type="Texture2D" uid="uid://domuyuk0xngdx" path="res://assets/inari.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://trn5u6qkl3qf" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="2_7vrkn"]
+
+[sub_resource type="FontVariation" id="FontVariation_7vrkn"]
+base_font = ExtResource("2_7vrkn")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_06t4h"]
+font = SubResource("FontVariation_7vrkn")
+font_size = 26
+
+[sub_resource type="Gradient" id="Gradient_fu7sn"]
+offsets = PackedFloat32Array(0, 0.86167145)
+colors = PackedColorArray(0, 1, 0.26666668, 1, 0, 0.7372549, 0.5254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mjfn4"]
+gradient = SubResource("Gradient_fu7sn")
+fill_from = Vector2(0.055555556, 0.08547009)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_7vrkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Inari:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Inari:offset_transform_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Inari:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VBoxContainer/Options/SettingsLabel:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fu7sn"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Inari:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(0.21022435, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Inari:offset_transform_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.519887),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Inari:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(0.65975386, -2),
+"update": 0,
+"values": [Vector2(-45, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 0.7532203),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 0.8532203),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 0.9532203),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(-25, 0), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.40000004, 0.8),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(-25, 0), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(-25, 0), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.3007286, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VBoxContainer/Options/SettingsLabel:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.4002503, 0.6009163),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.50031286, 0.70043796),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jix8l"]
+_data = {
+&"RESET": SubResource("Animation_7vrkn"),
+&"spawn": SubResource("Animation_fu7sn")
+}
+
+[node name="MainMenu" type="Control" unique_id=1778874445]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=333289666]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=900513884]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -76.0
+offset_right = 100.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Inari" type="TextureRect" parent="VBoxContainer" unique_id=1770894801]
+texture_filter = 2
+custom_maximum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_06t4h")
+stretch_mode = 4
+
+[node name="Options" type="VBoxContainer" parent="VBoxContainer" unique_id=889628287]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PlayLabel" type="Label" parent="VBoxContainer/Options" unique_id=394764685]
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+label_settings = SubResource("LabelSettings_06t4h")
+
+[node name="PlayGradient" type="TextureRect" parent="VBoxContainer/Options/PlayLabel" unique_id=656451319]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -550.0
+offset_top = 7.0
+offset_right = 602.0
+offset_bottom = 33.0
+texture = SubResource("GradientTexture2D_mjfn4")
+expand_mode = 1
+
+[node name="SettingsLabel" type="Label" parent="VBoxContainer/Options" unique_id=1007502619]
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+label_settings = SubResource("LabelSettings_06t4h")
+
+[node name="SettingsGradient" type="TextureRect" parent="VBoxContainer/Options/SettingsLabel" unique_id=533461952]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -529.0
+offset_top = 7.0
+offset_right = 623.0
+offset_bottom = 32.0
+texture = SubResource("GradientTexture2D_mjfn4")
+expand_mode = 1
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer/Options" unique_id=884313157]
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+label_settings = SubResource("LabelSettings_06t4h")
+
+[node name="QuitGradient" type="TextureRect" parent="VBoxContainer/Options/QuitLabel" unique_id=1942361025]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -551.0
+offset_top = 7.0
+offset_right = 601.0
+offset_bottom = 27.0
+texture = SubResource("GradientTexture2D_mjfn4")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=357932377]
+libraries/ = SubResource("AnimationLibrary_jix8l")
