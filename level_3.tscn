@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="8_keufu"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="9_joegk"]
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="11_833wy"]
+[ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="12_833wy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15wb7"]
 texture = ExtResource("1_liaj6")
@@ -191,3 +192,9 @@ position = Vector2(1179, -133)
 
 [node name="cloud_potion" parent="." unique_id=1756372684 instance=ExtResource("4_kmy7e")]
 position = Vector2(1679, -45)
+
+[node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("12_833wy")]
+position = Vector2(1874, -10)
+
+[node name="Fireeffect2" parent="." unique_id=1985832657 instance=ExtResource("12_833wy")]
+position = Vector2(1922, -11)
