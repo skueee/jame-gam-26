@@ -13,18 +13,16 @@ extends CharacterBody2D
 @export var bridge_throw_cd := 0.1
 @export var shield_force = 15.0
 @export var shield_radius = 15
-
+@export var lives = 2
 var wall_jump := false
 var wall_direction: Vector2
 var last_direction := 1
 var direction := 1.0
 var jump := false
 var can_bridge_throw = true
-var can_shield = true
 var wall_jump_lock := 0.0
 
 @onready var bridge_throw_timer = $Timer
-@onready var shield_timer = $Timer2
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
@@ -32,13 +30,6 @@ func _ready() -> void:
 	bridge_throw_timer.wait_time = bridge_throw_cd
 	bridge_throw_timer.timeout.connect(allow)
 	bridge_throw_timer.start()
-	shield_timer.timeout.connect(allow_shield)
-
-
-func allow_shield():
-	can_shield = true
-
-
 func allow():
 	can_bridge_throw = true
 
@@ -52,7 +43,6 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	attack()
 	bridge()
-	shield()
 	
 func animate():
 	if velocity.x:
@@ -105,23 +95,19 @@ func attack():
 
 
 func shield():
-	if Input.is_action_just_pressed("shield"):
-		if not can_shield:
-			return
-		can_shield = false
-		shield_timer.start()
-		var throwable: PackedScene = load("res://throwable.tscn")
-		var count = 14
 
-		for i in range(count):
-			var potion: RigidBody2D = throwable.instantiate()
-			var angle = TAU * i / count
-			var offset = Vector2(cos(angle), sin(angle)) * shield_radius
-			potion.global_position = global_position + offset
-			get_parent().add_child(potion)
-			var throw_direction = offset.normalized()
+	var throwable: PackedScene = load("res://throwable.tscn")
+	var count = 14
 
-			potion.apply_central_impulse(throw_direction * shield_force)
+	for i in range(count):
+		var potion: RigidBody2D = throwable.instantiate()
+		var angle = TAU * i / count
+		var offset = Vector2(cos(angle), sin(angle)) * shield_radius
+		potion.global_position = global_position + offset
+		get_parent().add_child(potion)
+		var throw_direction = offset.normalized()
+
+		potion.apply_central_impulse(throw_direction * shield_force)
 
 
 func set_velocit(delta):
@@ -153,6 +139,8 @@ func set_velocit(delta):
 
 
 func die():
-	$AnimationPlayer.play("die")
-	await $AnimationPlayer.animation_finished
+	if lives > 1:
+		lives -= 1
+		shield()
+		return
 	get_tree().call_deferred("reload_current_scene")
