@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 # for player only
-@export var acceleration := 500
-@export var friction := 1500
+@export var acceleration := 150
+@export var friction := 1000000
 @export var gravity := 300
-@export var max_speed := 600
+@export var max_speed := 500
 @export var max_fall := 1000
 @export var jump_strength = 300
 @export var shrink_percent := 5
@@ -21,6 +21,7 @@ var direction := 1.0
 var jump := false
 var can_bridge_throw = true
 var can_shield = true
+var wall_jump_lock := 0.0
 
 @onready var bridge_throw_timer = $Timer
 @onready var shield_timer = $Timer2
@@ -43,6 +44,7 @@ func allow():
 
 
 func _physics_process(_delta: float) -> void:
+	wall_jump_lock -= _delta
 	scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
 	get_input()
 	set_velocit(_delta)
@@ -67,7 +69,7 @@ func get_input():
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			jump = true
-		elif is_on_wall():
+		elif is_on_wall() and wall_jump_lock <= 0:
 			wall_jump = true
 			wall_direction = get_wall_normal()
 
@@ -127,7 +129,8 @@ func set_velocit(delta):
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
 		wall_jump = false
-	else:
+		wall_jump_lock = 0.2
+	elif wall_jump_lock <= 0:
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
@@ -138,8 +141,12 @@ func set_velocit(delta):
 			velocity.y += gravity * delta
 			velocity.y = min(velocity.y, max_fall)
 		else:
-			velocity.y = gravity* 0.07
-			velocity.y = min(velocity.y, max_fall)
+			if velocity.y >= 0:
+				velocity.y = gravity* 0.07
+				velocity.y = min(velocity.y, max_fall)
+			else:
+				velocity.y += gravity * delta
+				velocity.y = min(velocity.y, max_fall)
 	elif jump:
 		velocity.y = 0 - jump_strength
 		jump = false
