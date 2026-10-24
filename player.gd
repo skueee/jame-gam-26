@@ -17,7 +17,7 @@ extends CharacterBody2D
 var wall_jump := false
 var wall_direction: Vector2
 var last_direction := 1
-var direction := 1
+var direction := 1.0
 var jump := false
 var can_bridge_throw = true
 var can_shield = true
@@ -42,7 +42,7 @@ func allow():
 
 
 func _physics_process(_delta: float) -> void:
-	scale -= (scale / 100) * ((shrink_percent / 60) * _delta)
+	scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
 	get_input()
 	set_velocit(_delta)
 	move_and_slide()
@@ -70,12 +70,12 @@ func bridge():
 		can_bridge_throw = false
 		bridge_throw_timer.start()
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
-		var bridge: RigidBody2D = bridgeable.instantiate()
-		bridge.global_position = Vector2(global_position.x, global_position.y + 10)
-		get_parent().add_child(bridge)
+		var bridge_instance: RigidBody2D = bridgeable.instantiate()
+		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
+		get_parent().add_child(bridge_instance)
 		var throw_direction = Vector2(direction, 0)
 		var throw_force = 500.0
-		bridge.apply_central_impulse(throw_direction * throw_force)
+		bridge_instance.apply_central_impulse(throw_direction * throw_force)
 
 
 func attack():
@@ -133,4 +133,4 @@ func set_velocit(delta):
 
 
 func die():
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
