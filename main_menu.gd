@@ -6,15 +6,15 @@ func _ready() -> void:
 	$AnimationPlayer.play("spawn")
 
 func select(index: int):
-	if selection == 0:
+	if index == 0:
 		%PlayGradient.visible = true
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = false
-	elif selection == 1:
+	elif index == 1:
 		%PlayGradient.visible = false
 		%SettingsGradient.visible = true
 		%QuitGradient.visible = false
-	elif selection == 2:
+	elif index == 2:
 		%PlayGradient.visible = false
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = true
