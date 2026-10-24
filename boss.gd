@@ -9,6 +9,7 @@ var can_projectile = true
 @onready var beamnode: Area2D = $beam
 @onready var timer_4: Timer = $Timer4
 
+
 func _ready() -> void:
 	timer.one_shot = true
 	timer_2.one_shot = true
@@ -23,25 +24,43 @@ func _ready() -> void:
 	timer_4.wait_time = 1
 	timer_4.timeout.connect(unbeam)
 
+
 func enable_beam():
 	can_beam = true
+
+
 func enable_projectile():
 	can_projectile = true
+
+
 func navigate() -> Array:
 	var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 	var direction
 	var beamattack
 	var projectileattack
-	if not player: return [0, false, false]
+	if not player:
+		return [0, false, false]
 	if player.global_position.x > global_position.x:
 		direction = 1
 	elif player.global_position.x < global_position.x:
 		direction = -1
 	else:
 		direction = 0
-	if max(player.global_position.x, global_position.x) - min(player.global_position.x, global_position.x) < 30:
+	if (
+		(
+			max(player.global_position.x, global_position.x)
+			- min(player.global_position.x, global_position.x)
+		)
+		< 30
+	):
 		beamattack = true
-	elif max(player.global_position.x, global_position.x) - min(player.global_position.x, global_position.x) < 60:
+	elif (
+		(
+			max(player.global_position.x, global_position.x)
+			- min(player.global_position.x, global_position.x)
+		)
+		< 60
+	):
 		projectileattack = true
 	return [direction, beamattack, projectileattack]
 
@@ -56,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+
 	if beamattack and can_beam:
 		can_beam = false
 		beam_foreshadowing.visible = true
@@ -73,10 +92,12 @@ func beam():
 	beamnode.get_child(1).disabled = false
 	timer_4.start()
 
+
 func unbeam():
 	beamnode.visible = false
 	beamnode.get_child(1).disabled = true
 	timer.start()
+
 
 func projectile():
 	pass

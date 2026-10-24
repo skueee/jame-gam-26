@@ -2,8 +2,10 @@ extends Control
 
 var selection := 0
 
+
 func _ready() -> void:
 	$AnimationPlayer.play("spawn")
+
 
 func select(index: int):
 	if index == 0:
@@ -19,6 +21,7 @@ func select(index: int):
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = true
 
+
 func navigate(direction: int):
 	if selection + direction <= 2 and selection + direction >= 0:
 		selection += direction
@@ -26,6 +29,7 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 2
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("uidown"):

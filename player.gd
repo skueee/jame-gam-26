@@ -39,15 +39,20 @@ func _ready() -> void:
 	throw_timer.start()
 	bridge_timer.wait_time = 20
 	bridge_timer.timeout.connect(disable_bridge)
+
+
 func allow():
 	can_throw = true
+
 
 func enable_bridge(sec):
 	can_bridge = true
 	bridge_timer.start(sec)
 
+
 func disable_bridge():
 	can_bridge = false
+
 
 func _physics_process(_delta: float) -> void:
 	wall_jump_lock -= _delta
@@ -60,6 +65,7 @@ func _physics_process(_delta: float) -> void:
 	bridge()
 	if scale.x < 0.5:
 		die()
+
 
 func animate():
 	if velocity.x:
@@ -83,7 +89,8 @@ func get_input():
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
-		if not can_bridge: return
+		if not can_bridge:
+			return
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
@@ -100,7 +107,9 @@ func attack():
 		can_throw = false
 		throw_timer.start()
 		var potion: RigidBody2D = THROWABLE.instantiate()
-		potion.global_position = Vector2(global_position.x - (0 if last_direction == 1 else 5), global_position.y -3)
+		potion.global_position = Vector2(
+			global_position.x - (0 if last_direction == 1 else 5), global_position.y - 3
+		)
 		get_parent().add_child(potion)
 		var throw_direction = Vector2(last_direction, 0)
 		var throw_force = 500.0
@@ -108,7 +117,6 @@ func attack():
 
 
 func shield():
-
 	var count = 14
 
 	for i in range(count):
@@ -140,7 +148,7 @@ func set_velocit(delta):
 			velocity.y = min(velocity.y, max_fall)
 		else:
 			if velocity.y >= 0:
-				velocity.y = gravity* 0.07
+				velocity.y = gravity * 0.07
 				velocity.y = min(velocity.y, max_fall)
 			else:
 				velocity.y += gravity * delta
@@ -149,14 +157,17 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
+
 func stopshrinking():
 	shrink_percent = 0
 	timey.wait_time = 15
 	timey.timeout.connect(resumeshrinking)
 	timey.start()
 
+
 func resumeshrinking():
 	shrink_percent = 165
+
 
 func die(force: bool = false):
 	if lives > 1 and not force:
