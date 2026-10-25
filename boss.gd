@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var tilemap: TileMapLayer
-@export var SPEED: int = 100
+@export var speed: int = 100
 
 var can_beam = true
 var can_projectile = true
@@ -87,9 +87,9 @@ func _physics_process(delta: float) -> void:
 		return
 	global_position.y = -32
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	if beamattack and can_beam:
 		can_beam = false

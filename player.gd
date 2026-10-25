@@ -174,7 +174,7 @@ func resumeshrinking():
 func die(force: bool = false):
 	if lives > 1 and not force:
 		lives -= 1
-		shield()
+		shield.call_deferred()
 		hud.change_health(lives)
 		return
 	get_tree().call_deferred("reload_current_scene")
