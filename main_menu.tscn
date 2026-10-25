@@ -99,7 +99,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_enabled")
+tracks/4/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -111,19 +111,19 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
+tracks/5/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
+tracks/6/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -135,31 +135,31 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_position")
+tracks/7/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
+tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
+tracks/9/path = NodePath("ColorRect:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -171,7 +171,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("VBoxContainer/Options/SettingsLabel:modulate")
+tracks/10/path = NodePath("VBoxContainer/Inari/TextureRect:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -183,46 +183,10 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
+tracks/11/path = NodePath("TextureRect2:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("ColorRect:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("VBoxContainer/Inari/TextureRect:modulate")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("TextureRect2:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -283,11 +247,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_enabled")
+tracks/4/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.26666665, 1.1, 1.119887),
+"times": PackedFloat32Array(0.26666665, 1.1999999, 1.2198869),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -295,23 +259,23 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_enabled")
+tracks/5/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.26666665, 1.1999999, 1.2198869),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, true, false]
+"times": PackedFloat32Array(0.5666667, 0.9666666),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(-25, 0), Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("VBoxContainer/Options/PlayLabel:offset_transform_position")
+tracks/6/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5666667, 0.9666666),
+"times": PackedFloat32Array(0.76666653, 1.1666666),
 "transitions": PackedFloat32Array(0.4, 1),
 "update": 0,
 "values": [Vector2(-25, 0), Vector2(0, 0)]
@@ -319,94 +283,58 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("VBoxContainer/Options/SettingsLabel:offset_transform_position")
+tracks/7/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.6666666, 1.0666667),
-"transitions": PackedFloat32Array(0.4, 1),
-"update": 0,
-"values": [Vector2(-25, 0), Vector2(0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:offset_transform_position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.76666653, 1.1666666),
-"transitions": PackedFloat32Array(0.4, 1),
-"update": 0,
-"values": [Vector2(-25, 0), Vector2(0, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("VBoxContainer/Options/PlayLabel:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
 "times": PackedFloat32Array(0.5673952, 0.76666653),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.7669796, 0.96710455),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(0.42044812, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("VBoxContainer/Options/SettingsLabel:modulate")
+tracks/10/path = NodePath("VBoxContainer/Inari/TextureRect:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.66691697, 0.8675829),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.38, 0.9),
+"transitions": PackedFloat32Array(0.659754, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("VBoxContainer/Options/QuitLabel:modulate")
+tracks/11/path = NodePath("TextureRect2:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.7669796, 0.96710455),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("ColorRect:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.93333334),
-"transitions": PackedFloat32Array(0.42044812, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("VBoxContainer/Inari/TextureRect:modulate")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0.38, 0.9),
-"transitions": PackedFloat32Array(0.659754, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("TextureRect2:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
 "times": PackedFloat32Array(0.65, 0.93),
 "transitions": PackedFloat32Array(1.6245049, 1),
 "update": 0,
@@ -505,31 +433,6 @@ expand_mode = 1
 position = Vector2(23.5, 17.5)
 shape = SubResource("RectangleShape2D_mjfn4")
 
-[node name="SettingsLabel" type="Label" parent="VBoxContainer/Options" unique_id=1007502619]
-self_modulate = Color(0, 0, 0, 1)
-clip_children = 2
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Settings"
-label_settings = SubResource("LabelSettings_06t4h")
-
-[node name="SettingsGradient" type="TextureRect" parent="VBoxContainer/Options/SettingsLabel" unique_id=533461952]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = -529.0
-offset_top = 7.0
-offset_right = 623.0
-offset_bottom = 32.0
-texture = SubResource("GradientTexture2D_mjfn4")
-expand_mode = 1
-
-[node name="SettingsArea" type="Area2D" parent="VBoxContainer/Options/SettingsLabel" unique_id=1073049811]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Options/SettingsLabel/SettingsArea" unique_id=1763445522]
-position = Vector2(46, 17.5)
-shape = SubResource("RectangleShape2D_mjfn4")
-
 [node name="QuitLabel" type="Label" parent="VBoxContainer/Options" unique_id=884313157]
 self_modulate = Color(0, 0, 0, 1)
 clip_children = 2
@@ -558,10 +461,10 @@ shape = SubResource("RectangleShape2D_mjfn4")
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=903312959]
 z_index = -1
 layout_mode = 0
-offset_left = 442.0
-offset_top = 288.0
-offset_right = 730.0
-offset_bottom = 513.0
+offset_left = 489.0
+offset_top = 301.0
+offset_right = 669.0
+offset_bottom = 435.0
 texture = SubResource("GradientTexture2D_dnlm0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=357932377]
@@ -569,7 +472,5 @@ libraries/ = SubResource("AnimationLibrary_jix8l")
 
 [connection signal="input_event" from="VBoxContainer/Options/PlayLabel/PlayArea" to="." method="_on_play_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/Options/PlayLabel/PlayArea" to="." method="_on_play_area_mouse_entered"]
-[connection signal="input_event" from="VBoxContainer/Options/SettingsLabel/SettingsArea" to="." method="_on_settings_area_input_event"]
-[connection signal="mouse_entered" from="VBoxContainer/Options/SettingsLabel/SettingsArea" to="." method="_on_settings_area_mouse_entered"]
 [connection signal="input_event" from="VBoxContainer/Options/QuitLabel/QuitArea" to="." method="_on_quit_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/Options/QuitLabel/QuitArea" to="." method="_on_quit_area_mouse_entered"]
