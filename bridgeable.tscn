@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6mo3p1dioh2s"]
 
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_uo1tn"]
+[ext_resource type="Texture2D" uid="uid://cts6s3pybpsuy" path="res://cloud.png" id="1_uo1tn"]
 
 [sub_resource type="GDScript" id="GDScript_uo1tn"]
 resource_name = "expire"
@@ -25,7 +25,7 @@ func expire2():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
-size = Vector2(7.5, 7.5)
+size = Vector2(12, 5.75)
 
 [node name="bridgeable" type="RigidBody2D" unique_id=1626015072]
 mass = 0.007
@@ -34,11 +34,12 @@ freeze = true
 script = SubResource("GDScript_uo1tn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759565082]
-position = Vector2(0, 5.9604645e-08)
-scale = Vector2(0.056640625, 0.05664063)
+position = Vector2(-2.9802322e-07, -1.7881393e-07)
+scale = Vector2(0.375, 0.37500003)
 texture = ExtResource("1_uo1tn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=696245529]
+position = Vector2(0, 0.875)
 shape = SubResource("RectangleShape2D_tsws6")
 
 [node name="Timer" type="Timer" parent="." unique_id=27813274]
