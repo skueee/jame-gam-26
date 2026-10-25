@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://cayell83386wb" path="res://status_bar.gd" id="2_640wx"]
 [ext_resource type="Script" uid="uid://bp2eoup5etvdo" path="res://hearts_container.gd" id="4_640wx"]
+[ext_resource type="Texture2D" uid="uid://blm7x1dok6ro" path="res://hearth.png" id="5_a2258"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjfn4"]
 bg_color = Color(0, 0, 0, 1)
@@ -97,3 +98,4 @@ offset_top = 20.0
 offset_right = 1127.0
 offset_bottom = 96.0
 script = ExtResource("4_640wx")
+hearth = ExtResource("5_a2258")
