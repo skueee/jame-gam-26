@@ -144,6 +144,7 @@ position = Vector2(150, 37)
 [node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("3_kcwpe")]
 position = Vector2(174, 35)
 level = 6
+end = true
 
 [node name="platform" parent="." unique_id=622697389 instance=ExtResource("8_kcwpe")]
 position = Vector2(21, 54)
