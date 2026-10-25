@@ -25,7 +25,7 @@ Made by using Godot (GDscrip), and figma for art
 
 To test the project you have the following options 
 - Go on [itch.io](https://skueee.itch.io/inari-shrine)
-- Download the executable from the release tab (Windows only) and launch it
+- Download the executable from the release tab (Windows only) and launch it.
 
 
 ## Game
@@ -44,3 +44,9 @@ To test the project you have the following options
 - Goodluck fox and save us.
   
 ## Screenshots 
+
+<img width="1242" height="698" alt="1000348997" src="https://github.com/user-attachments/assets/fff2362a-3be2-4375-8421-916b7f953d99" />
+<img width="1258" height="1374" alt="1000349001" src="https://github.com/user-attachments/assets/faa7c729-9557-413a-b2cc-b193cde1945f" />
+<img width="1462" height="680" alt="1000349003" src="https://github.com/user-attachments/assets/6b079f02-c569-448f-8f72-d9adca43e46d" />
+<img width="1242" height="698" alt="1000348999" src="https://github.com/user-attachments/assets/ca376f66-87d9-412a-8f0b-ee3170facccf" />
+<img width="1462" height="680" alt="1000349005" src="https://github.com/user-attachments/assets/2e86f43b-351c-42d8-a0bb-52503766fbb1" />
