@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b0c0tw66q3rgp"]
 
 [ext_resource type="Texture2D" uid="uid://b28j1qtykchiy" path="res://assets/tilesets/grass.png" id="2_ugxsx"]
+[ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="3_gvcbt"]
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="3_yxwl1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45q7n"]
@@ -41,3 +42,7 @@ tile_set = SubResource("TileSet_gvcbt")
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("3_yxwl1")]
 position = Vector2(-2, 0)
+shrink_percent = 0
+
+[node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_gvcbt")]
+position = Vector2(30, 113)

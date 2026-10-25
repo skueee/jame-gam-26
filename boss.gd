@@ -7,7 +7,7 @@ var can_beam = true
 var can_projectile = true
 var died = false
 var dying = false
-var hp = 100
+var hp = 200
 
 @onready var timer: Timer = $Timer
 @onready var timer_2: Timer = $Timer2
@@ -24,13 +24,13 @@ func _ready() -> void:
 	timer_2.one_shot = true
 	timer_3.one_shot = true
 	timer_4.one_shot = true
-	timer.wait_time = 3
+	timer.wait_time = 2
 	timer.timeout.connect(enable_beam)
-	timer_2.wait_time = 1
+	timer_2.wait_time = 0.5
 	timer_2.timeout.connect(enable_projectile)
 	timer_3.wait_time = 1
 	timer_3.timeout.connect(beam)
-	timer_4.wait_time = 1
+	timer_4.wait_time = 1.5
 	timer_4.timeout.connect(unbeam)
 	deathtime.wait_time = 3
 	deathtime.timeout.connect(delete)
