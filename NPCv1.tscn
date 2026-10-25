@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52gvh"]
 size = Vector2(14, 16.25)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjfn4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sngle"]
 shader = ExtResource("2_sngle")
 shader_parameter/target_color = Color(0.25490198, 0.36862746, 0.60784316, 1)
 shader_parameter/replacement_color = Color(0.25490198, 0.36862746, 0.60784316, 1)
@@ -70,7 +70,7 @@ scale = Vector2(0.61572266, 0.61572266)
 texture = ExtResource("1_1powu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414780623]
-material = SubResource("ShaderMaterial_mjfn4")
+material = SubResource("ShaderMaterial_sngle")
 position = Vector2(0, -3)
 scale = Vector2(0.65625, 0.65625)
 texture = ExtResource("3_hkmw5")
