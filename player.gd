@@ -4,7 +4,7 @@ extends CharacterBody2D
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
 
 @export var acceleration := 150
-@export var friction := 1000000
+@export var friction := 2000
 @export var gravity := 300
 @export var max_speed := 500
 @export var max_fall := 1000

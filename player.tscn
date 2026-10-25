@@ -106,7 +106,6 @@ _data = {
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
 script = ExtResource("1_onrkg")
 acceleration = 200
-friction = 700
 gravity = 980
 max_speed = 600
 max_fall = 2000
