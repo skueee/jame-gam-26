@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://br7ggdqod8yod"]
 
 [ext_resource type="Script" uid="uid://4jwet6rufjd6" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://bsnftywy7a6qr" path="res://hud.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://b0tvxe76d1vqg" path="res://image.png" id="2_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
@@ -70,9 +71,12 @@ size = Vector2(21.375, 19)
 
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
 script = ExtResource("1_onrkg")
-acceleration = 400
+acceleration = 200
+friction = 700
 gravity = 980
+max_speed = 600
 max_fall = 2000
+shrink_percent = 50
 wall_jump_bounce = 200
 shield_force = 10.0
 
@@ -81,7 +85,6 @@ z_index = 15
 zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 20.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1202860240]
 position = Vector2(1.1920929e-07, 3.8146973e-06)
@@ -99,3 +102,7 @@ shape = SubResource("RectangleShape2D_ukc20")
 [node name="Timer2" type="Timer" parent="." unique_id=464568139]
 
 [node name="Timer3" type="Timer" parent="." unique_id=1805711362]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=733467934]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1741839738 instance=ExtResource("2_i3pqv")]
