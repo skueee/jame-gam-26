@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0wkj43ogchrw"]
 
-[ext_resource type="Texture2D" uid="uid://domuyuk0xngdx" path="res://assets/inari.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://c66mi42opikqd" path="res://assets/inari.png" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://trn5u6qkl3qf" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://8uw3omejvgjb" path="res://assets/titlescreen.png" id="2_jix8l"]
