@@ -45,6 +45,7 @@ func _ready() -> void:
 	bridge_timer.wait_time = 20
 	bridge_timer.timeout.connect(disable_bridge)
 	collision_shape_2d.disabled = false
+	hud.change_health(lives)
 
 
 func allow():

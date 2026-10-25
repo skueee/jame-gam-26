@@ -121,6 +121,7 @@ tile_set = SubResource("TileSet_ghrvs")
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("2_8ons7")]
 position = Vector2(-480, 31)
+lives = 5
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_tac4s")]
 position = Vector2(624, 312)
