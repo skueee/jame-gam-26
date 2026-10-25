@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpihko3n41aq6"]
 
-[ext_resource type="Script" path="res://bosskiller.gd" id="1_su0h8"]
+[ext_resource type="Script" uid="uid://fn8dyis1hwkk" path="res://bosskiller.gd" id="1_su0h8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wgdwq"]
 radius = 14.0
