@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d26ao1hpofmx7" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="1_37p78"]
 [ext_resource type="Script" uid="uid://cayell83386wb" path="res://status_bar.gd" id="2_640wx"]
+[ext_resource type="Script" uid="uid://bp2eoup5etvdo" path="res://hearts_container.gd" id="4_640wx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjfn4"]
 bg_color = Color(0, 0, 0, 1)
@@ -88,3 +89,11 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = SubResource("GradientTexture2D_mjfn4")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="." unique_id=251612960]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 1127.0
+offset_bottom = 96.0
+script = ExtResource("4_640wx")
