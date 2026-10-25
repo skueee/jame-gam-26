@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="jame-gam-26"
-run/main_scene="uid://dcxg0k4qxcsen"
+run/main_scene="uid://0wkj43ogchrw"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
