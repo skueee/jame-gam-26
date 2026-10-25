@@ -10,11 +10,14 @@ func _ready() -> void:
 func show_note(note: String):
 	%Text.text = note
 	show()
-	await $AnimationPlayer.play("open")
+	$AnimationPlayer.play("open")
+	await $AnimationPlayer.animation_finished
 
 
 func hide_note():
-	await $AnimationPlayer.play("close")
+	$AnimationPlayer.play("close")
+	await $AnimationPlayer.animation_finished
+	hide()
 
 
 func _process(_delta):
