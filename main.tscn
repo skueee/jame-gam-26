@@ -75,7 +75,6 @@ position = Vector2(61, 279)
 position = Vector2(948, 7)
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("1_ig7tw")]
-acceleration = 200
 friction = 800
 max_speed = 700
 

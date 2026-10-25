@@ -31,6 +31,7 @@ const THROWABLE: PackedScene = preload("res://throwable.tscn")
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var hud: Control = $CanvasLayer/HUD
 
 
 func _ready() -> void:
@@ -48,6 +49,7 @@ func allow():
 func enable_bridge(sec):
 	can_bridge = true
 	bridge_timer.start(sec)
+	hud.add_duration_status(sec, "Press shift to bridge")
 
 
 func disable_bridge():
@@ -173,5 +175,6 @@ func die(force: bool = false):
 	if lives > 1 and not force:
 		lives -= 1
 		shield()
+		hud.change_health(lives)
 		return
 	get_tree().call_deferred("reload_current_scene")

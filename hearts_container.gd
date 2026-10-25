@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 @export var hearth: Texture2D = load("res://icon.svg")
-@export var default_count: int = 3
+@export var default_count: int = 2
 @export var sprite_size: Vector2 = Vector2(64,64)
 
 func _ready():
