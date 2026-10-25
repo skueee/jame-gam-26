@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqvv5avn03b73"]
 
-[ext_resource type="Texture2D" uid="uid://8uw3omejvgjb" path="res://assets/titlescreen.png" id="1_dlbub"]
 [ext_resource type="Script" uid="uid://dxyqruli0yedl" path="res://endscreen.gd" id="1_k7cnj"]
 [ext_resource type="FontFile" uid="uid://c3tx7rmhdtoov" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="2_k7cnj"]
+[ext_resource type="Texture2D" uid="uid://dvlj2woabu71g" path="res://endscreen.png" id="2_nxgh7"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="3_nxgh7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
@@ -39,6 +39,259 @@ fill_to = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjfn4"]
 size = Vector2(173, 37.9375)
 
+[sub_resource type="Animation" id="Animation_k7cnj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/VBoxContainer:offset_transform_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/VBoxContainer:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer2:offset_transform_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/VBoxContainer2:offset_transform_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/VBoxContainer3:offset_transform_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/VBoxContainer3:offset_transform_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainer/VBoxContainer2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/VBoxContainer3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect2:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nxgh7"]
+resource_name = "open"
+length = 1.7666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/VBoxContainer:offset_transform_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.8333333, 0.9133335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/VBoxContainer:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.74333334),
+"transitions": PackedFloat32Array(0.40612614, 1),
+"update": 0,
+"values": [Vector2(-67.445, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 0.49333334),
+"transitions": PackedFloat32Array(0.40612632, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/VBoxContainer2:offset_transform_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.43, 1.1333333, 1.2533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/VBoxContainer2:offset_transform_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.43, 1.04),
+"transitions": PackedFloat32Array(0.40612614, 1),
+"update": 0,
+"values": [Vector2(-67.445, 0), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer/VBoxContainer3:offset_transform_enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.73333335, 1.4333333, 1.5533334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/VBoxContainer3:offset_transform_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.74, 1.3499999),
+"transitions": PackedFloat32Array(0.40612614, 1),
+"update": 0,
+"values": [Vector2(-67.445, 0), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainer/VBoxContainer2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.43, 0.79),
+"transitions": PackedFloat32Array(0.40612632, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/VBoxContainer3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.74, 1.1),
+"transitions": PackedFloat32Array(0.40612632, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect2:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.0666667),
+"transitions": PackedFloat32Array(0.6372805, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ywda"]
+_data = {
+&"RESET": SubResource("Animation_k7cnj"),
+&"open": SubResource("Animation_nxgh7")
+}
+
 [node name="endscreen" type="Control" unique_id=1085031392]
 layout_mode = 3
 anchors_preset = 15
@@ -49,26 +302,27 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_k7cnj")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=671397036]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1554126944]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.8509804, 0.83137256, 0.84705883, 1)
+offset_right = 1149.0
+offset_bottom = 650.0
+color = Color(0.8, 0.827451, 0.8980392, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1110400813]
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1110400813]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -309.00006
-offset_top = -237.5
-offset_right = 309.00006
-offset_bottom = 226.0
+offset_left = -447.5
+offset_top = -526.0
+offset_right = 411.8335
+offset_bottom = 118.5
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_dlbub")
+pivot_offset = Vector2(309.00006, 235.5)
+texture = ExtResource("2_nxgh7")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2081676777]
@@ -166,6 +420,15 @@ expand_mode = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" unique_id=1087874862]
 position = Vector2(27, 25.8125)
 shape = SubResource("RectangleShape2D_mjfn4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1046260054]
+libraries/ = SubResource("AnimationLibrary_5ywda")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=572510811]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0)
 
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_mouse_entered"]

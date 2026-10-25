@@ -2,6 +2,10 @@ extends Control
 
 var selection: int = 0
 
+func _ready() -> void:
+	$AnimationPlayer.play("open")
+	await $AnimationPlayer.animation_finished
+
 func click(index: int):
 	match index:
 		0:
