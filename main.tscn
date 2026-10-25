@@ -51,13 +51,29 @@ tile_set = SubResource("TileSet_tsws6")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Tilemap" unique_id=120889082]
 
+[node name="notesprite" parent="Tilemap" unique_id=1510563838 instance=ExtResource("5_dg77c")]
+position = Vector2(35, 77)
+note = "Greetings.
+wad / arrow keys to move
+space will not make you jump
+q/left mouse button click to attack
+shift/right mouse button click to bridge (requires cloud potion)
+That's all for controls
+
+Collect potions, the gray one will temporarily stop you from shrinking
+The cloud one will let you bridge.
+Avoid the wolves and talk to civillians.
+You can wall slide and wall jump.
+That's all you need to know.
+-leolevd"
+
 [node name="NPCv1" parent="." unique_id=1501047410 instance=ExtResource("3_h2yge")]
 z_index = 3
 position = Vector2(104, 74)
 npc_name = "Civillian"
 npc_speaktext = PackedStringArray("Hey little fox !", "You came down the forest after we were attacked !", "I saw the attackers going towards the Inari Shrine, to the right.", "SOme mischievous spirits have also been stealing potions, pick them up if you find any !")
 
-[node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("5_dg77c")]
+[node name="notesprite" parent="." unique_id=1199622670 instance=ExtResource("5_dg77c")]
 position = Vector2(1501, -20)
 note = "Youy're nothing without these potions, aren't you ?
 Without them, I'm sure that you will get small, small, and smaller, until you die. And I got the privilege to steal these.
