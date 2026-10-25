@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ckdexfpmexwah"]
 
-[ext_resource type="Texture2D" uid="uid://bxm6uplxfq81a" path="res://tree.png" id="1_brfkd"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uc1xx"]
+load_path = "res://.godot/imported/tree.png-e0869f9fb9c148a5baf00bb62a85d6ad.ctex"
 
 [node name="tree" type="Node2D" unique_id=595636129]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095440469]
 position = Vector2(-1.9073486e-06, -7.6293945e-06)
 scale = Vector2(0.044034094, 0.044034094)
-texture = ExtResource("1_brfkd")
+texture = SubResource("CompressedTexture2D_uc1xx")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dy4kqomsj10pk"]
 
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_y31su"]
+[ext_resource type="Texture2D" uid="uid://dksppu4q1h6v0" path="res://untitled-pixel-art@1x (1).png" id="1_y31su"]
+[ext_resource type="Script" uid="uid://cyr7gxq6kedwp" path="res://killenemy.gd" id="2_jiiek"]
 
 [sub_resource type="GDScript" id="GDScript_vhmpr"]
 resource_name = "expire"
@@ -21,19 +22,6 @@ func expire():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
 size = Vector2(7.5, 7.5)
 
-[sub_resource type="GDScript" id="GDScript_jiiek"]
-resource_name = "enemykillzone"
-script/source = "extends Area2D
-
-
-
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if not body.name.find(\"enemy\") == -1:
-		body.queue_free()
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmg3h"]
 size = Vector2(10, 10)
 
@@ -43,8 +31,8 @@ gravity_scale = 0.0
 script = SubResource("GDScript_vhmpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759565082]
-position = Vector2(0, 5.9604645e-08)
-scale = Vector2(0.056640625, 0.05664063)
+position = Vector2(2.3841858e-07, -7.1525574e-07)
+scale = Vector2(0.2783203, 0.27832034)
 texture = ExtResource("1_y31su")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=696245529]
@@ -54,7 +42,7 @@ shape = SubResource("RectangleShape2D_tsws6")
 wait_time = 5.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=667631236]
-script = SubResource("GDScript_jiiek")
+script = ExtResource("2_jiiek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1130720660]
 shape = SubResource("RectangleShape2D_wmg3h")
