@@ -12,8 +12,8 @@ var can_projectile = true
 @onready var booom: GPUParticles2D = $BOOOM
 @onready var deathtime: Timer = $deathtime
 var died = false
-var deathunlocked = false
 var dying = false
+var hp = 100
 func _ready() -> void:
 	timer.one_shot = true
 	timer_2.one_shot = true
@@ -98,22 +98,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func unlockdeath():
-	deathunlocked = true
+func delete():
 	tilemap.set_cell(Vector2i(3, -1), -1)
 	tilemap.set_cell(Vector2i(3, 0), -1)
 	tilemap.set_cell(Vector2i(3, 1), -1)
 	tilemap.set_cell(Vector2i(3, 2), -1)
-
-func delete():
 	tilemap.set_cell(Vector2i(7, -1), -1)
 	tilemap.set_cell(Vector2i(7, 0), -1)
 	tilemap.set_cell(Vector2i(7, 1), -1)
 	tilemap.set_cell(Vector2i(7, 2), -1)
 
 func die():
-	if not deathunlocked: return
-	dying = true
+	if hp > 0:
+		hp -= 10
+		print(hp)
+	else:
+		dying = true
 
 func beam():
 	beam_foreshadowing.visible = false
