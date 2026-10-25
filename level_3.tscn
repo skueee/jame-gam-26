@@ -155,6 +155,7 @@ position = Vector2(-226, -9)
 position = Vector2(-118, 74)
 npc_name = "Foxey"
 npc_speaktext = PackedStringArray("Hi!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper.", "Why would you want to get out though?", "It\'s so fun here, and it looks like I am getting smaller! :)")
+npc_color = Color(0.5882353, 0.85882354, 0.5686275, 1)
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("6_jvy75")]
 position = Vector2(624, 312)

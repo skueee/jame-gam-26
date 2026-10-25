@@ -1,8 +1,4 @@
 # Dialogue logic
-# To use, call display_text() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
-# For ex: display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))
-#                      The two lines that will be displayed                   Character     Sprite                 Color
-# Color, Character and Sprite are optional
 
 extends Control
 
@@ -18,7 +14,10 @@ var next_text_index: int
 @onready var _box: NinePatchRect = $DialogueBox
 
 
-# Main function to call, it display text and then hides the textbox
+## To use, call display_text() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
+## For ex: `display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))`
+##                        The two lines that will be displayed                   Character     Sprite                 Color
+## `Color`, `Character` and `Sprite` are optional
 func display_text(
 	lines: Array,
 	speaker: String = "",

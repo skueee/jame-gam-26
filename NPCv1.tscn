@@ -26,6 +26,12 @@ func _update_shader():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if $Sprite2D.material:
+		$Sprite2D.material = $Sprite2D.material.duplicate()
+	
+	if Engine.is_editor_hint():
+		return
+		
 	if not npc_name or not sprite or not npc_speaktext or not dialouge:
 		queue_free()
 	
@@ -37,7 +43,7 @@ func _process(_delta: float) -> void:
 		e.visible = true
 		var ed = Input.is_action_just_pressed(\"interact\")
 		if ed:
-			dialouge.display_text(npc_speaktext, npc_name, sprite.texture)
+			dialouge.display_text(npc_speaktext, npc_name, sprite.texture, npc_color)
 	else:
 		e.visible = false
 "
