@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="3_tac4s"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_qhsfq"]
 [ext_resource type="PackedScene" uid="uid://bqajfv0bq6an7" path="res://boss.tscn" id="5_8ons7"]
-[ext_resource type="PackedScene" uid="uid://bpihko3n41aq6" path="res://bosskiller.tscn" id="8_kcwpe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s24i2"]
 texture = ExtResource("1_br4so")
@@ -143,6 +142,3 @@ visible = false
 [node name="boss" parent="." unique_id=192901748 node_paths=PackedStringArray("tilemap") instance=ExtResource("5_8ons7")]
 position = Vector2(-222, -32)
 tilemap = NodePath("../Tilemap/TileMapLayer2")
-
-[node name="bosskiller" parent="." unique_id=665376800 instance=ExtResource("8_kcwpe")]
-position = Vector2(-98, 71)
