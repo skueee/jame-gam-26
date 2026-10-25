@@ -34,6 +34,9 @@ gradient = SubResource("Gradient_fu7sn")
 fill_from = Vector2(0.055555556, 0.08547009)
 fill_to = Vector2(0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjfn4"]
+size = Vector2(100, 33)
+
 [sub_resource type="Gradient" id="Gradient_nlkkf"]
 offsets = PackedFloat32Array(0, 0.5360231)
 colors = PackedColorArray(0, 0, 0, 0.12156863, 0, 0, 0, 0)
@@ -423,6 +426,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_fu7sn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=768646598]
@@ -495,6 +499,12 @@ offset_bottom = 33.0
 texture = SubResource("GradientTexture2D_mjfn4")
 expand_mode = 1
 
+[node name="PlayArea" type="Area2D" parent="VBoxContainer/Options/PlayLabel" unique_id=783195611]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Options/PlayLabel/PlayArea" unique_id=188257178]
+position = Vector2(23.5, 17.5)
+shape = SubResource("RectangleShape2D_mjfn4")
+
 [node name="SettingsLabel" type="Label" parent="VBoxContainer/Options" unique_id=1007502619]
 self_modulate = Color(0, 0, 0, 1)
 clip_children = 2
@@ -513,6 +523,12 @@ offset_right = 623.0
 offset_bottom = 32.0
 texture = SubResource("GradientTexture2D_mjfn4")
 expand_mode = 1
+
+[node name="SettingsArea" type="Area2D" parent="VBoxContainer/Options/SettingsLabel" unique_id=1073049811]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Options/SettingsLabel/SettingsArea" unique_id=1763445522]
+position = Vector2(46, 17.5)
+shape = SubResource("RectangleShape2D_mjfn4")
 
 [node name="QuitLabel" type="Label" parent="VBoxContainer/Options" unique_id=884313157]
 self_modulate = Color(0, 0, 0, 1)
@@ -533,6 +549,12 @@ offset_bottom = 27.0
 texture = SubResource("GradientTexture2D_mjfn4")
 expand_mode = 1
 
+[node name="QuitArea" type="Area2D" parent="VBoxContainer/Options/QuitLabel" unique_id=379141268]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Options/QuitLabel/QuitArea" unique_id=806213779]
+position = Vector2(23.5, 17.5)
+shape = SubResource("RectangleShape2D_mjfn4")
+
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=903312959]
 z_index = -1
 layout_mode = 0
@@ -544,3 +566,10 @@ texture = SubResource("GradientTexture2D_dnlm0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=357932377]
 libraries/ = SubResource("AnimationLibrary_jix8l")
+
+[connection signal="input_event" from="VBoxContainer/Options/PlayLabel/PlayArea" to="." method="_on_play_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/Options/PlayLabel/PlayArea" to="." method="_on_play_area_mouse_entered"]
+[connection signal="input_event" from="VBoxContainer/Options/SettingsLabel/SettingsArea" to="." method="_on_settings_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/Options/SettingsLabel/SettingsArea" to="." method="_on_settings_area_mouse_entered"]
+[connection signal="input_event" from="VBoxContainer/Options/QuitLabel/QuitArea" to="." method="_on_quit_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/Options/QuitLabel/QuitArea" to="." method="_on_quit_area_mouse_entered"]

@@ -63,3 +63,33 @@ func _process(_delta):
 		select(selection)
 	elif Input.is_action_just_pressed("uiselect"):
 		click(selection)
+
+
+func _on_play_area_mouse_entered() -> void:
+	selection = 0
+	select(selection)
+
+
+func _on_settings_area_mouse_entered() -> void:
+	selection = 1
+	select(selection)
+
+
+func _on_quit_area_mouse_entered() -> void:
+	selection = 2
+	select(selection)
+
+
+func _on_play_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		click(0)
+
+
+func _on_settings_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		click(1)
+
+
+func _on_quit_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		click(2)
