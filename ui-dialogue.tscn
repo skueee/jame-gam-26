@@ -49,6 +49,18 @@ font = ExtResource("5_0xpw0")
 font_size = 78
 font_color = Color(0.1764706, 0.15294118, 0.18431373, 1)
 
+[sub_resource type="FontVariation" id="FontVariation_dnlm0"]
+base_font = ExtResource("4_wuyp7")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_potab"]
+font = SubResource("FontVariation_dnlm0")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01xp2"]
 shader = ExtResource("3_isl28")
 shader_parameter/target_color = Color(0, 0, 0, 1)
@@ -122,6 +134,15 @@ offset_top = -195.00003
 offset_right = 419.49994
 offset_bottom = 139.49991
 texture = ExtResource("2_s7mfv")
+
+[node name="Helper" type="Label" parent="DialogueBox" unique_id=547120646]
+layout_mode = 0
+offset_left = 2352.5
+offset_top = 454.99997
+offset_right = 2694.5
+offset_bottom = 498.99997
+text = "Press SPACE to continue"
+label_settings = SubResource("LabelSettings_potab")
 
 [node name="Arrow" type="TextureRect" parent="." unique_id=302877005]
 material = SubResource("ShaderMaterial_01xp2")
