@@ -3,7 +3,11 @@
 ## Project Information 
 
 ### Team
-
+- Skuee - Dev and Musician
+- Leolevd - Dev
+- SalproKite - Dev
+- comrade-caelus - Artist and Musician
+- Kitty Cat - Artist
 
 
 ### Tech Stack
@@ -20,22 +24,23 @@ Made by using Godot (GDscrip), and figma for art
 ### Test
 
 To test the project you have the following options 
-- Go on itch.io
+- Go on [itch.io](https://skueee.itch.io/inari-shrine)
 - Download the executable from the release tab (Windows only) and launch it
 
 
 ## Game
 
 ### Controls
-- Press Shift to bridge,
+- Press Shift or Right mouse key to bridge,
 - Press A and D for left and right respectively.
 - Press W or Up arrow for Jump
-- Press
-- Press
+- Press Q or Left mouse key to attack.
 
 ### Lore
-You come out of your den after noticing shifts in your body. You realise an UFO has attackrd, it stealing the power of your shrine, turning you smaller second by second. You must race against time and reach the enemy and best him to regain your powers.
-But beware, dodge the wolves on the way being mind controlled and the shrinea help you get ahead.
-Spirits have been running around town stealing potions and dropping them. Take them if you see any, they will ease your loss of power for a few seconds. And some will even grant you the power of the clouds.
-Goodluck fox and save us.
+- You come out of your den after noticing shifts in your body. You realise an UFO has attacked, it stealing the power of your shrine, turning you smaller second by second. - You must race against time and reach the enemy and best him to regain your powers.
+- But beware, dodge the wolves on the -way being mind controlled and the shrine help you get ahead.
+- Spirits have been running around town stealing potions and dropping them. Take them if you see any, they will ease your loss of power for a few seconds. And some will even grant you the power of the clouds.
+- The Gods will save you one time, by a shield but remember ONLY ONCE.
+- Goodluck fox and save us.
   
+## Screenshots 
