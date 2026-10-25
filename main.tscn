@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://b28j1qtykchiy" path="res://assets/tilesets/grass.png" id="2_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cxglg451355nt" path="res://note.tscn" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://brwn17srsj6r2" path="res://notesprite.tscn" id="5_dg77c"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="7_272bh"]
@@ -55,7 +57,13 @@ position = Vector2(104, 74)
 npc_name = "Civillian"
 npc_speaktext = PackedStringArray("Welcome to the realm!", "My name is Ravvy, I am the farmer here", "Oh, you are searching for the potion?", "It\'s on the right, but be careful!")
 
+[node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("5_dg77c")]
+position = Vector2(1501, -20)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1243159890]
+
+[node name="Note" parent="CanvasLayer" unique_id=1435173420 groups=["note_ui"] instance=ExtResource("3_efxa6")]
+visible = false
 
 [node name="DialogBox" parent="CanvasLayer" unique_id=675358860 instance=ExtResource("4_1bvp3")]
 visible = false

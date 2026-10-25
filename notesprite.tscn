@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://brwn17srsj6r2"]
+
+[ext_resource type="Script" uid="uid://chd5rq8xijw12" path="res://notesprite.gd" id="1_cot8l"]
+[ext_resource type="Texture2D" uid="uid://dn43o5ypo7odw" path="res://note-sprite.png" id="1_ku5g6"]
+[ext_resource type="Texture2D" uid="uid://divk2sphin24j" path="res://e.png" id="3_74m6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjfn4"]
+size = Vector2(8, 6)
+
+[node name="notesprite" type="StaticBody2D" unique_id=1510563838]
+script = ExtResource("1_cot8l")
+
+[node name="NoteSprite" type="Sprite2D" parent="." unique_id=652401566]
+position = Vector2(1.0000013, 1.000001)
+rotation = -0.6978472
+scale = Vector2(0.43216103, 0.43216103)
+texture = ExtResource("1_ku5g6")
+
+[node name="e" type="Sprite2D" parent="." unique_id=966109866]
+position = Vector2(11, -10)
+scale = Vector2(0.61572266, 0.61572266)
+texture = ExtResource("3_74m6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=948720273]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_mjfn4")
