@@ -103,6 +103,7 @@ position_smoothing_enabled = true
 position = Vector2(-4, 10)
 scale = Vector2(1.2196171, 1.03125)
 sprite_frames = SubResource("SpriteFrames_4flbx")
+animation = &"WALL"
 autoplay = "default"
 offset = Vector2(4.1840725, -14.225571)
 

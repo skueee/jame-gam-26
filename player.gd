@@ -63,8 +63,8 @@ func _physics_process(_delta: float) -> void:
 	wall_slide = false
 	get_input()
 	set_velocit(_delta)
-	animate()
 	move_and_slide()
+	animate()
 	attack()
 	bridge()
 	if scale.x < 0.5:
@@ -72,16 +72,19 @@ func _physics_process(_delta: float) -> void:
 
 
 func animate():
-	if velocity.x:
-		sprite_2d.play("run")
-	else:
-		sprite_2d.play("default")
 	if wall_slide:
-		sprite_2d.play("WALL")
-		if sprite_2d.offset.x < 6:
-			sprite_2d.offset.x += 6
+			var wall_dir = get_wall_normal()
+			sprite_2d.play("WALL")
+			if wall_dir.x  < 0:
+				sprite_2d.offset.x = 10.184
+			elif wall_dir.x > 0:
+				sprite_2d.offset.x = -2.816
 	else:
 		sprite_2d.offset.x = 4.184
+		if velocity.x:
+			sprite_2d.play("run")
+		else:
+			sprite_2d.play("default")
 
 
 func get_input():
