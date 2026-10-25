@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ofg0hg83vd5w"]
 
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_2gl6x"]
+[ext_resource type="Texture2D" uid="uid://s64w6pjyb4d7" path="res://foxy-in-progress@1x (2).png" id="1_2gl6x"]
 
 [sub_resource type="GDScript" id="GDScript_wmg3h"]
 resource_name = "send"
@@ -26,7 +26,8 @@ script = SubResource("GDScript_wmg3h")
 shape = SubResource("RectangleShape2D_tsws6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124936677]
-scale = Vector2(0.2265625, 0.2265625)
+position = Vector2(9.536743e-07, -9.536743e-07)
+scale = Vector2(1.1874999, 1.1874999)
 texture = ExtResource("1_2gl6x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
