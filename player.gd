@@ -26,6 +26,7 @@ var jump := false
 var can_throw = true
 var wall_jump_lock := 0.0
 var can_bridge = false
+var wall_slide = false
 
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
@@ -59,6 +60,7 @@ func disable_bridge():
 func _physics_process(_delta: float) -> void:
 	wall_jump_lock -= _delta
 	scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
+	wall_slide = false
 	get_input()
 	set_velocit(_delta)
 	animate()
@@ -74,6 +76,12 @@ func animate():
 		sprite_2d.play("run")
 	else:
 		sprite_2d.play("default")
+	if wall_slide:
+		sprite_2d.play("WALL")
+		if sprite_2d.offset.x < 6:
+			sprite_2d.offset.x += 6
+	else:
+		sprite_2d.offset.x = 4.184
 
 
 func get_input():
@@ -152,6 +160,7 @@ func set_velocit(delta):
 			if velocity.y >= 0:
 				velocity.y = gravity * 0.07
 				velocity.y = min(velocity.y, max_fall)
+				wall_slide = true
 			else:
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
