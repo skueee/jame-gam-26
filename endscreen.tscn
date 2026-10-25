@@ -106,7 +106,8 @@ layout_mode = 2
 [node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1190885824]
 layout_mode = 2
 text = "- Developing: leolevd, SalproKite, skue
-- Art: cat-bouquet, KittyCat"
+- Art: cat-bouquet, KittyCat (although a little)
+- Music: cat-bouquet, skueee"
 label_settings = SubResource("LabelSettings_5ywda")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer" unique_id=1602117660]
