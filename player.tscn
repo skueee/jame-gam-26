@@ -70,10 +70,10 @@ size = Vector2(21.375, 19)
 
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
 script = ExtResource("1_onrkg")
-acceleration = 1
+acceleration = 200
 friction = 700
 gravity = 980
-max_speed = 1
+max_speed = 600
 max_fall = 2000
 shrink_percent = 50
 wall_jump_bounce = 200
