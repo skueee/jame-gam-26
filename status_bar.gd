@@ -3,9 +3,11 @@ extends ProgressBar
 @export var time_left: float = 0.0
 var is_active: bool = false
 
+
 func _ready():
 	value = 0
 	hide()
+
 
 func _process(delta):
 	if not is_active:
@@ -18,6 +20,7 @@ func _process(delta):
 		is_active = false
 		value = 0
 		hide()
+
 
 func add_status(duration: float, text: String = ""):
 	max_value = duration
