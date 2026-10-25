@@ -1,9 +1,10 @@
 extends Area2D
 
+@export var speed: float = 200.0
+
 var attacking = false
 var boss: CharacterBody2D
 
-@export var SPEED: float = 200.0
 @onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
 func _ready() -> void:
@@ -21,4 +22,4 @@ func _physics_process(delta: float) -> void:
 	if not attacking or not is_instance_valid(boss):
 		return
 	var direction = (boss.global_position - global_position).normalized()
-	global_position += direction * SPEED * delta
+	global_position += direction * speed * delta

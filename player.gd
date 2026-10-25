@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 # for player only
+const THROWABLE: PackedScene = preload("res://throwable.tscn")
+
 @export var acceleration := 150
 @export var friction := 1000000
 @export var gravity := 300
@@ -24,8 +26,6 @@ var jump := false
 var can_throw = true
 var wall_jump_lock := 0.0
 var can_bridge = false
-
-const THROWABLE: PackedScene = preload("res://throwable.tscn")
 
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3

@@ -1,8 +1,14 @@
 extends CharacterBody2D
-var can_beam = true
-var can_projectile = true
+
 @export var tilemap: TileMapLayer
 @export var SPEED: int = 100
+
+var can_beam = true
+var can_projectile = true
+var died = false
+var dying = false
+var hp = 100
+
 @onready var timer: Timer = $Timer
 @onready var timer_2: Timer = $Timer2
 @onready var timer_3: Timer = $Timer3
@@ -11,9 +17,7 @@ var can_projectile = true
 @onready var timer_4: Timer = $Timer4
 @onready var booom: GPUParticles2D = $BOOOM
 @onready var deathtime: Timer = $deathtime
-var died = false
-var dying = false
-var hp = 100
+
 func _ready() -> void:
 	timer.one_shot = true
 	timer_2.one_shot = true

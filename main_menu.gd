@@ -11,7 +11,7 @@ func select(index: int):
 		%PlayGradient.visible = true
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = false
-		
+
 		%PlayGradient.size = Vector2(550.0,26.0)
 		var tween = get_tree().create_tween()
 		tween.tween_property(%PlayGradient, "size", Vector2(1152.0,26.0), 1.0)
@@ -21,7 +21,7 @@ func select(index: int):
 		%PlayGradient.visible = false
 		%SettingsGradient.visible = true
 		%QuitGradient.visible = false
-		
+
 		%SettingsGradient.size = Vector2(520.0,25.0)
 		var tween = get_tree().create_tween()
 		tween.tween_property(%SettingsGradient, "size", Vector2(1152.0,25.0), 1.0)
@@ -31,7 +31,7 @@ func select(index: int):
 		%PlayGradient.visible = false
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = true
-		
+
 		%QuitGradient.size = Vector2(545.0,25.0)
 		var tween = get_tree().create_tween()
 		tween.tween_property(%QuitGradient, "size", Vector2(1152.0,25.0), 1.0)
@@ -80,16 +80,16 @@ func _on_quit_area_mouse_entered() -> void:
 	select(selection)
 
 
-func _on_play_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_play_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		click(0)
 
 
-func _on_settings_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_settings_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		click(1)
 
 
-func _on_quit_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_quit_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		click(2)
