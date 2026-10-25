@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dgqyse820jbfn" path="res://cave tileset final.png" id="2_0s5r2"]
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="3_7j8ne"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="4_7dov7"]
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="5_eoq84"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="6_7j8ne"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="7_7dov7"]
 [ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="8_15wb7"]
@@ -156,12 +155,6 @@ position = Vector2(-226, -9)
 position = Vector2(-118, 74)
 npc_name = "Foxey"
 npc_speaktext = PackedStringArray("Hi!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper.", "Why would you want to get out though?", "It\'s so fun here, and it looks like I am getting smaller! :)")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPCv1" unique_id=1552789725]
-position = Vector2(0, 2.861023e-06)
-scale = Vector2(0.109374896, 0.10937504)
-texture = ExtResource("5_eoq84")
-flip_h = true
 
 [node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("6_7j8ne")]
 position = Vector2(-118, 32)

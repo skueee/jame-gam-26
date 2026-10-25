@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dcxg0k4qxcsen"]
 
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://b28j1qtykchiy" path="res://assets/tilesets/grass.png" id="2_5vw27"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="3_kek77"]
@@ -55,10 +54,6 @@ z_index = 3
 position = Vector2(104, 74)
 npc_name = "Civillian"
 npc_speaktext = PackedStringArray("Welcome to the realm!", "My name is Ravvy, I am the farmer here", "Oh, you are searching for the potion?", "It\'s on the right, but be careful!")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPCv1" unique_id=2037732567]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_0xm2m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1243159890]
 

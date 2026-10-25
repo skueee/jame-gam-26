@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="3_kmy7e"]
 [ext_resource type="PackedScene" uid="uid://soxkjdhfhesa" path="res://NPCv1.tscn" id="4_833wy"]
 [ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="4_kmy7e"]
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="5_ghrvs"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="6_jvy75"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="7_g0tlw"]
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="8_keufu"]
@@ -156,12 +155,6 @@ position = Vector2(-226, -9)
 position = Vector2(-118, 74)
 npc_name = "Foxey"
 npc_speaktext = PackedStringArray("Hi!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper.", "Why would you want to get out though?", "It\'s so fun here, and it looks like I am getting smaller! :)")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPCv1" unique_id=1552789725]
-position = Vector2(0, 2.861023e-06)
-scale = Vector2(0.109374896, 0.10937504)
-texture = ExtResource("5_ghrvs")
-flip_h = true
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("6_jvy75")]
 position = Vector2(624, 312)
