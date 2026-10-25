@@ -172,6 +172,7 @@ visible = false
 
 [node name="notesprite" parent="CanvasLayer" unique_id=1510563838 instance=ExtResource("8_jvy75")]
 position = Vector2(1825, -3)
+note = "You don't want to stop do you? Drinking these potions to extend your life a bit longer, but when i steal them all what would you do? You will never catch me, why try then?"
 
 [node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("8_keufu")]
 position = Vector2(1898, -30)

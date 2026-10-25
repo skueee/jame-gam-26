@@ -206,3 +206,4 @@ level = 3
 
 [node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("12_xbcdb")]
 position = Vector2(1902, -3)
+note = "You still don't understand? Your magic is unrecoverable. Period. Spend your last minutes of life somwhere you want. Stop chasing something that you will never catch."
