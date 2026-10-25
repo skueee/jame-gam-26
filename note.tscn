@@ -1,0 +1,316 @@
+[gd_scene format=3 uid="uid://cxglg451355nt"]
+
+[ext_resource type="Script" uid="uid://8puly1li28v8" path="res://note.gd" id="1_wn01w"]
+[ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="2_lyp5m"]
+
+[sub_resource type="FontVariation" id="FontVariation_mjfn4"]
+base_font = ExtResource("2_lyp5m")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+
+[sub_resource type="FontVariation" id="FontVariation_potab"]
+base_font = ExtResource("2_lyp5m")
+variation_opentype = {
+2003072104: 110,
+2003265652: 400
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
+font = SubResource("FontVariation_potab")
+font_size = 14
+
+[sub_resource type="Animation" id="Animation_eo7dk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Note:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(397, 89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Note:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Note:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(447.5, 569)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.16862746)]
+}
+
+[sub_resource type="Animation" id="Animation_4lyw1"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.33333334),
+"transitions": PackedFloat32Array(1, 0.59460354),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3348389),
+"transitions": PackedFloat32Array(1.6245054, 1),
+"update": 0,
+"values": [Vector2(447.5, 565), Vector2(447.5, 588.12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Note:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.33333334, 0.9679882),
+"transitions": PackedFloat32Array(1.4142135, 1),
+"update": 0,
+"values": [Vector2(397, 89), Vector2(354.135, -374.07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Note:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.33333334, 0.9679882),
+"transitions": PackedFloat32Array(1.5691684, 1),
+"update": 0,
+"values": [0.0, -0.18500490071139933]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Note:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.32363325, 0.96666664),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6333333, 1),
+"transitions": PackedFloat32Array(0.43527526, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.16862746), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7dxni"]
+resource_name = "open"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Note:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(0.51763266, 1),
+"update": 0,
+"values": [Vector2(397, 659.1), Vector2(397, 89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Note:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(0.70710677, 1),
+"update": 0,
+"values": [-0.30892327760299615, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Note:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(0.4829682, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.7066667),
+"transitions": PackedFloat32Array(-3.605001, 1),
+"update": 0,
+"values": [Vector2(447.5, 550.215), Vector2(447.5, 565)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.51071227),
+"transitions": PackedFloat32Array(0.4999999, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667, 0.33333334),
+"transitions": PackedFloat32Array(0.6830202, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.16862746)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6aen"]
+_data = {
+&"RESET": SubResource("Animation_eo7dk"),
+&"close": SubResource("Animation_4lyw1"),
+&"open": SubResource("Animation_7dxni")
+}
+
+[node name="Note" type="Control" unique_id=1435173420]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wn01w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=618382273]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0.16862746)
+
+[node name="Note" type="ColorRect" parent="." unique_id=1510742735]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -235.0
+offset_right = 178.99884
+offset_bottom = 235.00159
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Note" unique_id=217300817]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 13.999996
+offset_top = 19.0
+offset_right = 336.16483
+offset_bottom = 451.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_mjfn4")
+bbcode_enabled = true
+text = "Lorem Ipsum Dolor Sit Amet"
+
+[node name="Label" type="Label" parent="." unique_id=1977383223]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.5
+offset_top = -79.0
+offset_right = 128.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press SPACE to close"
+label_settings = SubResource("LabelSettings_mjfn4")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=343797393]
+libraries/ = SubResource("AnimationLibrary_n6aen")
