@@ -10,7 +10,7 @@ func _ready() -> void:
 func select(index: int):
 	%PlayGradient.visible = (index == 0)
 	%QuitGradient.visible = (index == 1)
-	
+
 	match index:
 		0:
 			%PlayGradient.size = Vector2(550.0, 26.0)
@@ -67,6 +67,7 @@ func _on_quit_area_mouse_entered() -> void:
 func _on_play_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		click(0)
+
 
 func _on_quit_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:

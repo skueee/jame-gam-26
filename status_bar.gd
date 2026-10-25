@@ -30,6 +30,7 @@ func add_status(duration: float, text: String = ""):
 	$Label.text = text
 	show()
 
+
 func add_custom(val: int, max: int, text: String = ""):
 	max_value = max
 	value = val

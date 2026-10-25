@@ -2,6 +2,7 @@ extends Node
 
 var music: AudioStreamPlayer2D
 
+
 func _ready() -> void:
 	get_tree().scene_changed.connect(_on_scene_changed)
 

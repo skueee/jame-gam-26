@@ -5,8 +5,10 @@ extends StaticBody2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var note_screen: Control = get_tree().get_first_node_in_group("note_ui")
 
+
 func _process(_delta: float) -> void:
-	if not player: return
+	if not player:
+		return
 	var player_pos = player.global_position
 	var distance = global_position.distance_to(player_pos)
 	if distance < 28:

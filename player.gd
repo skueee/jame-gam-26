@@ -76,19 +76,19 @@ func _physics_process(_delta: float) -> void:
 		if scale.x < 0.5:
 			die()
 	else:
-		global_position = global_position.move_toward(start_pos, 300*_delta)
+		global_position = global_position.move_toward(start_pos, 300 * _delta)
 		if global_position == start_pos:
 			get_tree().call_deferred("reload_current_scene")
 
 
 func animate():
 	if wall_slide:
-			var wall_dir = get_wall_normal()
-			sprite_2d.play("WALL")
-			if wall_dir.x  < 0:
-				sprite_2d.offset.x = 10.184
-			elif wall_dir.x > 0:
-				sprite_2d.offset.x = -2.816
+		var wall_dir = get_wall_normal()
+		sprite_2d.play("WALL")
+		if wall_dir.x < 0:
+			sprite_2d.offset.x = 10.184
+		elif wall_dir.x > 0:
+			sprite_2d.offset.x = -2.816
 	else:
 		sprite_2d.offset.x = 4.184
 		if velocity.x:
