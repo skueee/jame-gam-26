@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxglg451355nt"]
 
 [ext_resource type="Script" uid="uid://8puly1li28v8" path="res://note.gd" id="1_wn01w"]
+[ext_resource type="Texture2D" uid="uid://ccjrnlhlta127" path="res://assets/note.png" id="2_eo7dk"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="2_lyp5m"]
 
 [sub_resource type="FontVariation" id="FontVariation_mjfn4"]
@@ -13,7 +14,7 @@ variation_opentype = {
 [sub_resource type="FontVariation" id="FontVariation_potab"]
 base_font = ExtResource("2_lyp5m")
 variation_opentype = {
-2003072104: 110,
+2003072104: 100,
 2003265652: 400
 }
 
@@ -269,7 +270,7 @@ offset_right = 1151.0
 offset_bottom = 649.0
 color = Color(0, 0, 0, 0.16862746)
 
-[node name="Note" type="ColorRect" parent="." unique_id=1510742735]
+[node name="Note" type="NinePatchRect" parent="." unique_id=1116351936]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -278,22 +279,40 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -179.0
 offset_top = -235.0
-offset_right = 178.99884
-offset_bottom = 235.00159
+offset_right = 178.99915
+offset_bottom = 235.00171
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_eo7dk")
+region_rect = Rect2(0, 0, 256, 256)
+patch_margin_left = 28
+patch_margin_top = 248
+patch_margin_right = 36
+patch_margin_bottom = 156
+axis_stretch_vertical = 1
 
 [node name="Text" type="RichTextLabel" parent="Note" unique_id=217300817]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 13.999996
-offset_top = 19.0
-offset_right = 336.16483
-offset_bottom = 451.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -206.5
+offset_right = 144.0
+offset_bottom = 206.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_mjfn4")
 bbcode_enabled = true
-text = "Lorem Ipsum Dolor Sit Amet"
+text = "Lorem Ipsum Dolor Sit Amet
+aberglhv
+grigjvoiùrjfrijfrhg
+fhnefoùehnzFOJIZFOLÙNBV
+FEENFMEH	bvughbqmrgfbn"
 
 [node name="Label" type="Label" parent="." unique_id=1977383223]
 layout_mode = 1
