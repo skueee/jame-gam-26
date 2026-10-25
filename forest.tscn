@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dvcy2gxci1n7a"]
+
+[ext_resource type="AudioStream" uid="uid://ckejm6khyotii" path="res://New Recording 2.mp3" id="1_lifw2"]
+
+[node name="forest" type="AudioStreamPlayer2D" unique_id=1478393512]
+stream = ExtResource("1_lifw2")
+autoplay = true
+max_distance = 10000000.0

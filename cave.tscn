@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://t0efgixdjs5j"]
+
+[ext_resource type="AudioStream" uid="uid://v02g4b5oqou3" path="res://inari-test1.wav" id="1_yhhov"]
+
+[node name="cave" type="AudioStreamPlayer2D" unique_id=1478393512]
+stream = ExtResource("1_yhhov")
+autoplay = true
+max_distance = 10000000.0
