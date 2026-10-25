@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="3_tac4s"]
 [ext_resource type="PackedScene" uid="uid://wl3x12oxss0l" path="res://ui-dialogue.tscn" id="4_qhsfq"]
 [ext_resource type="PackedScene" uid="uid://bqajfv0bq6an7" path="res://boss.tscn" id="5_8ons7"]
+[ext_resource type="PackedScene" uid="uid://cqk37vd4acnb4" path="res://platform.tscn" id="8_kcwpe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhsfq"]
 texture = ExtResource("1_br4so")
@@ -142,3 +143,6 @@ position = Vector2(150, 37)
 [node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("3_kcwpe")]
 position = Vector2(174, 35)
 level = 6
+
+[node name="platform" parent="." unique_id=622697389 instance=ExtResource("8_kcwpe")]
+position = Vector2(21, 54)
