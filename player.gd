@@ -28,7 +28,7 @@ var can_throw = true
 var wall_jump_lock := 0.0
 var can_bridge = false
 var wall_slide = false
-
+var start_pos = Vector2.ZERO
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -38,6 +38,7 @@ var wall_slide = false
 
 
 func _ready() -> void:
+	start_pos = global_position
 	throw_timer.wait_time = throw_cd
 	throw_timer.timeout.connect(allow)
 	throw_timer.start()
@@ -74,8 +75,8 @@ func _physics_process(_delta: float) -> void:
 		if scale.x < 0.5:
 			die()
 	else:
-		global_position = global_position.move_toward(Vector2.ZERO, 300*_delta)
-		if global_position == Vector2.ZERO:
+		global_position = global_position.move_toward(start_pos, 300*_delta)
+		if global_position == start_pos:
 			get_tree().call_deferred("reload_current_scene")
 
 
