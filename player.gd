@@ -14,8 +14,6 @@ extends CharacterBody2D
 @export var shield_force = 15.0
 @export var shield_radius = 15
 @export var lives = 2
-@export var bridge_cd = 0.3333
-
 var wall_jump := false
 var wall_direction: Vector2
 var last_direction := 1
@@ -23,15 +21,13 @@ var direction := 1.0
 var jump := false
 var can_throw = true
 var wall_jump_lock := 0.0
+@export var bridge_cd = 0.3333
 var can_bridge = false
-
-const THROWABLE: PackedScene = preload("res://throwable.tscn")
-
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
+
 @onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
-@onready var hud: Control = $CanvasLayer/HUD
 
 
 func _ready() -> void:
@@ -40,21 +36,15 @@ func _ready() -> void:
 	throw_timer.start()
 	bridge_timer.wait_time = 20
 	bridge_timer.timeout.connect(disable_bridge)
-
-
 func allow():
 	can_throw = true
-
 
 func enable_bridge(sec):
 	can_bridge = true
 	bridge_timer.start(sec)
-	hud.add_duration_status(sec, "Press shift to bridge")
-
 
 func disable_bridge():
 	can_bridge = false
-
 
 func _physics_process(_delta: float) -> void:
 	wall_jump_lock -= _delta
@@ -67,8 +57,7 @@ func _physics_process(_delta: float) -> void:
 	bridge()
 	if scale.x < 0.5:
 		die()
-
-
+	
 func animate():
 	if velocity.x:
 		sprite_2d.play("run")
@@ -91,8 +80,7 @@ func get_input():
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
-		if not can_bridge:
-			return
+		if not can_bridge: return
 		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
@@ -108,10 +96,9 @@ func attack():
 			return
 		can_throw = false
 		throw_timer.start()
-		var potion: RigidBody2D = THROWABLE.instantiate()
-		potion.global_position = Vector2(
-			global_position.x - (0 if last_direction == 1 else 5), global_position.y - 3
-		)
+		var throwable: PackedScene = load("res://throwable.tscn")
+		var potion: RigidBody2D = throwable.instantiate()
+		potion.global_position = Vector2(global_position.x - (0 if last_direction == 1 else 5), global_position.y -3)
 		get_parent().add_child(potion)
 		var throw_direction = Vector2(last_direction, 0)
 		var throw_force = 500.0
@@ -119,10 +106,12 @@ func attack():
 
 
 func shield():
+
+	var throwable: PackedScene = load("res://throwable.tscn")
 	var count = 14
 
 	for i in range(count):
-		var potion: RigidBody2D = THROWABLE.instantiate()
+		var potion: RigidBody2D = throwable.instantiate()
 		var angle = TAU * i / count
 		var offset = Vector2(cos(angle), sin(angle)) * shield_radius
 		potion.global_position = global_position + offset
@@ -150,7 +139,7 @@ func set_velocit(delta):
 			velocity.y = min(velocity.y, max_fall)
 		else:
 			if velocity.y >= 0:
-				velocity.y = gravity * 0.07
+				velocity.y = gravity* 0.07
 				velocity.y = min(velocity.y, max_fall)
 			else:
 				velocity.y += gravity * delta
@@ -159,22 +148,18 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
-
 func stopshrinking():
 	shrink_percent = 0
 	timey.wait_time = 15
 	timey.timeout.connect(resumeshrinking)
 	timey.start()
 
-
 func resumeshrinking():
 	shrink_percent = 165
-
 
 func die(force: bool = false):
 	if lives > 1 and not force:
 		lives -= 1
 		shield()
-		hud.change_health(lives)
 		return
 	get_tree().call_deferred("reload_current_scene")
