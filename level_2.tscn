@@ -155,8 +155,8 @@ position = Vector2(-226, -9)
 
 [node name="NPCv1" parent="." unique_id=1501047410 instance=ExtResource("4_7dov7")]
 position = Vector2(-118, 74)
-npc_name = "Foxey"
-npc_speaktext = PackedStringArray("Hi!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper.", "Why would you want to get out though?", "It\'s so fun here, and it looks like I am getting smaller! :)")
+npc_name = "Civillian"
+npc_speaktext = PackedStringArray("Hello there!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper and deeper.", "Also, our village was attacked yesterday and all our anti-shrinking potions were taken.", "Maybe the stealer left some behind though.")
 npc_color = Color(0.4509804, 0.37254903, 0.69411767, 1)
 
 [node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("6_7j8ne")]

@@ -155,8 +155,8 @@ position = Vector2(-226, -9)
 
 [node name="NPCv1" parent="." unique_id=1501047410 instance=ExtResource("4_833wy")]
 position = Vector2(-118, 74)
-npc_name = "Foxey"
-npc_speaktext = PackedStringArray("Hi!", "What? You want to get out?", "But this is the inner part of the forest.", "You are only going deeper.", "Why would you want to get out though?", "It\'s so fun here, and it looks like I am getting smaller! :)")
+npc_name = "Civillian kid"
+npc_speaktext = PackedStringArray("Hi!", "Have you seen that spirit?", "It was giant! Bigger than my dad!", "And took all the potions from our stashes.", "It didn\'t take me because I was at home watching through the window.", "But my dad got in hospital with third grade burns after the spirit attacked him :(")
 npc_color = Color(0.5882353, 0.85882354, 0.5686275, 1)
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("6_jvy75")]
