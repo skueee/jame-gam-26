@@ -55,10 +55,14 @@ tile_set = SubResource("TileSet_tsws6")
 z_index = 3
 position = Vector2(104, 74)
 npc_name = "Civillian"
-npc_speaktext = PackedStringArray("Welcome to the realm!", "My name is Ravvy, I am the farmer here", "Oh, you are searching for the potion?", "It\'s on the right, but be careful!")
+npc_speaktext = PackedStringArray("Hey little fox !", "You came down the forest after we were attacked !", "I saw the attackers going towards the Inari Shrine, to the right.", "SOme mischievous spirits have also been stealing potions, pick them up if you find any !")
 
 [node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("5_dg77c")]
 position = Vector2(1501, -20)
+note = "Youy're nothing without these potions, aren't you ?
+Without them, I'm sure that you will get small, small, and smaller, until you die. And I got the privilege to steal these.
+What will you do now ?
+   - A"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1243159890]
 
