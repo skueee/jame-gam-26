@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dodo7c4gm2vwo"]
+
+[ext_resource type="Texture2D" uid="uid://fpuj2jjcsile" path="res://trees_bg.png" id="1_t4gw0"]
+
+[node name="bg" type="Sprite2D" unique_id=1371404013]
+z_index = -100
+scale = Vector2(0.11401367, 0.11401367)
+texture = ExtResource("1_t4gw0")

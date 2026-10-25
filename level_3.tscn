@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="9_joegk"]
 [ext_resource type="PackedScene" uid="uid://cd65gro7b1s7v" path="res://enemy.tscn" id="11_833wy"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="12_833wy"]
+[ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="14_jvy75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15wb7"]
 texture = ExtResource("1_liaj6")
@@ -198,3 +199,56 @@ position = Vector2(1874, -10)
 
 [node name="Fireeffect2" parent="." unique_id=1985832657 instance=ExtResource("12_833wy")]
 position = Vector2(1922, -11)
+
+[node name="Node" type="Node" parent="." unique_id=1478434889]
+
+[node name="bg" parent="Node" unique_id=1371404013 instance=ExtResource("14_jvy75")]
+position = Vector2(-391, -31)
+
+[node name="bg2" parent="Node" unique_id=24448829 instance=ExtResource("14_jvy75")]
+position = Vector2(-160, -47.125)
+scale = Vector2(0.11401367, 0.12780762)
+
+[node name="bg3" parent="Node" unique_id=706396186 instance=ExtResource("14_jvy75")]
+position = Vector2(71, -49.625008)
+scale = Vector2(0.11401367, 0.13122559)
+
+[node name="bg4" parent="Node" unique_id=1063096017 instance=ExtResource("14_jvy75")]
+position = Vector2(301, -52.125)
+scale = Vector2(0.11401367, 0.1307373)
+
+[node name="bg5" parent="Node" unique_id=1551839820 instance=ExtResource("14_jvy75")]
+position = Vector2(560.125, -68.12501)
+scale = Vector2(0.14050294, 0.14929199)
+
+[node name="bg6" parent="Node" unique_id=2062914552 instance=ExtResource("14_jvy75")]
+position = Vector2(860.125, -59.625004)
+scale = Vector2(0.15808107, 0.14001465)
+
+[node name="bg7" parent="Node" unique_id=1699927023 instance=ExtResource("14_jvy75")]
+position = Vector2(1192.125, -73.625)
+scale = Vector2(0.16882327, 0.1546631)
+
+[node name="bg8" parent="Node" unique_id=300848699 instance=ExtResource("14_jvy75")]
+position = Vector2(1523.125, -68.625)
+scale = Vector2(0.1590576, 0.14880371)
+
+[node name="bg9" parent="Node" unique_id=1824634098 instance=ExtResource("14_jvy75")]
+position = Vector2(1836.125, -64.12501)
+scale = Vector2(0.14733887, 0.14929199)
+
+[node name="ColorRect" type="ColorRect" parent="Node" unique_id=2059086115]
+z_index = -200
+offset_left = -1068.0
+offset_top = -599.0
+offset_right = 2380.0
+offset_bottom = 826.0
+color = Color(0.17254902, 0.25882354, 0.17254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node" unique_id=126354731]
+z_index = -99
+offset_left = -1072.0
+offset_top = 85.0
+offset_right = 2207.0
+offset_bottom = 938.0
+color = Color(0.46809, 0.29614407, 0.30326638, 1)

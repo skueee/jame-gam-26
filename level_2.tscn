@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cxglg451355nt" path="res://note.tscn" id="11_yl73a"]
 [ext_resource type="PackedScene" uid="uid://brwn17srsj6r2" path="res://notesprite.tscn" id="12_xbcdb"]
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="12_yl73a"]
+[ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="14_s77qv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15wb7"]
 texture = ExtResource("1_n7ypv")
@@ -207,3 +208,56 @@ level = 3
 [node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("12_xbcdb")]
 position = Vector2(1902, -3)
 note = "You still don't understand? Your magic is unrecoverable. Period. Spend your last minutes of life somwhere you want. Stop chasing something that you will never catch."
+
+[node name="Node" type="Node" parent="." unique_id=1502748669]
+
+[node name="bg" parent="Node" unique_id=1371404013 instance=ExtResource("14_s77qv")]
+position = Vector2(-391, -31)
+
+[node name="bg2" parent="Node" unique_id=544697841 instance=ExtResource("14_s77qv")]
+position = Vector2(-160, -47.125)
+scale = Vector2(0.11401367, 0.12780762)
+
+[node name="bg3" parent="Node" unique_id=376747142 instance=ExtResource("14_s77qv")]
+position = Vector2(71, -49.625008)
+scale = Vector2(0.11401367, 0.13122559)
+
+[node name="bg4" parent="Node" unique_id=543682619 instance=ExtResource("14_s77qv")]
+position = Vector2(301, -52.125)
+scale = Vector2(0.11401367, 0.1307373)
+
+[node name="bg5" parent="Node" unique_id=664715455 instance=ExtResource("14_s77qv")]
+position = Vector2(560.125, -68.12501)
+scale = Vector2(0.14050294, 0.14929199)
+
+[node name="bg6" parent="Node" unique_id=1868179668 instance=ExtResource("14_s77qv")]
+position = Vector2(860.125, -59.625004)
+scale = Vector2(0.15808107, 0.14001465)
+
+[node name="bg7" parent="Node" unique_id=1012725716 instance=ExtResource("14_s77qv")]
+position = Vector2(1192.125, -73.625)
+scale = Vector2(0.16882327, 0.1546631)
+
+[node name="bg8" parent="Node" unique_id=591426503 instance=ExtResource("14_s77qv")]
+position = Vector2(1523.125, -68.625)
+scale = Vector2(0.1590576, 0.14880371)
+
+[node name="bg9" parent="Node" unique_id=441318451 instance=ExtResource("14_s77qv")]
+position = Vector2(1836.125, -64.12501)
+scale = Vector2(0.14733887, 0.14929199)
+
+[node name="ColorRect" type="ColorRect" parent="Node" unique_id=1855799264]
+z_index = -200
+offset_left = -1068.0
+offset_top = -599.0
+offset_right = 2380.0
+offset_bottom = 826.0
+color = Color(0.17254902, 0.25882354, 0.17254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node" unique_id=1875723918]
+z_index = -99
+offset_left = -1072.0
+offset_top = 85.0
+offset_right = 2207.0
+offset_bottom = 938.0
+color = Color(0.46809, 0.29614407, 0.30326638, 1)

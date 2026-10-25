@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b28j1qtykchiy" path="res://assets/tilesets/grass.png" id="2_ugxsx"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="3_gvcbt"]
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="3_yxwl1"]
+[ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="4_ugxsx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45q7n"]
 texture = ExtResource("2_ugxsx")
@@ -46,3 +47,56 @@ shrink_percent = 0
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_gvcbt")]
 position = Vector2(30, 113)
+
+[node name="Node" type="Node" parent="." unique_id=840524102]
+
+[node name="bg" parent="Node" unique_id=1371404013 instance=ExtResource("4_ugxsx")]
+position = Vector2(-391, -31)
+
+[node name="bg2" parent="Node" unique_id=591058833 instance=ExtResource("4_ugxsx")]
+position = Vector2(-160, -47.125)
+scale = Vector2(0.11401367, 0.12780762)
+
+[node name="bg3" parent="Node" unique_id=1583794905 instance=ExtResource("4_ugxsx")]
+position = Vector2(71, -49.625008)
+scale = Vector2(0.11401367, 0.13122559)
+
+[node name="bg4" parent="Node" unique_id=2089440270 instance=ExtResource("4_ugxsx")]
+position = Vector2(301, -52.125)
+scale = Vector2(0.11401367, 0.1307373)
+
+[node name="bg5" parent="Node" unique_id=1972137037 instance=ExtResource("4_ugxsx")]
+position = Vector2(560.125, -68.12501)
+scale = Vector2(0.14050294, 0.14929199)
+
+[node name="bg6" parent="Node" unique_id=709052896 instance=ExtResource("4_ugxsx")]
+position = Vector2(860.125, -59.625004)
+scale = Vector2(0.15808107, 0.14001465)
+
+[node name="bg7" parent="Node" unique_id=973899661 instance=ExtResource("4_ugxsx")]
+position = Vector2(1192.125, -73.625)
+scale = Vector2(0.16882327, 0.1546631)
+
+[node name="bg8" parent="Node" unique_id=131335756 instance=ExtResource("4_ugxsx")]
+position = Vector2(1523.125, -68.625)
+scale = Vector2(0.1590576, 0.14880371)
+
+[node name="bg9" parent="Node" unique_id=1474903892 instance=ExtResource("4_ugxsx")]
+position = Vector2(1836.125, -64.12501)
+scale = Vector2(0.14733887, 0.14929199)
+
+[node name="ColorRect" type="ColorRect" parent="Node" unique_id=584301504]
+z_index = -200
+offset_left = -1068.0
+offset_top = -599.0
+offset_right = 2380.0
+offset_bottom = 826.0
+color = Color(0.17254902, 0.25882354, 0.17254902, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node" unique_id=1111764872]
+z_index = -99
+offset_left = -1072.0
+offset_top = 85.0
+offset_right = 2207.0
+offset_bottom = 938.0
+color = Color(0.46809, 0.29614407, 0.30326638, 1)
