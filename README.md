@@ -12,20 +12,20 @@
 
 ### Tech Stack
 
-Made by using Godot (GDscrip), and figma for art
+Made by using Godot (GDscrip), Figma and LibreSprite for art, REAPER for music
 
 ### Make Your Own
-- Open GitHub Desktop, or any UI
+- Open GitHub Desktop, or any UI (or clone using git cli)
 - Select Clone repository option from the settings
 - Select this repository and clone
 - Now open Godot and navigate to the repository
 - Open project.godot file and your project is ready to edit
 
-### Test
+### Play
 
-To test the project you have the following options 
+To play the game you have the following options 
 - Go on [itch.io](https://skueee.itch.io/inari-shrine)
-- Download the executable from the release tab (Windows only) and launch it.
+- Download the executable from the [release](https://https://github.com/skueee/jame-gam-26/releases) tab and launch it.
 
 
 ## Game
