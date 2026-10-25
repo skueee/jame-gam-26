@@ -2,6 +2,7 @@ extends Control
 
 var selection := 0
 
+
 func _ready() -> void:
 	$AnimationPlayer.play("spawn")
 
@@ -12,9 +13,9 @@ func select(index: int):
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = false
 
-		%PlayGradient.size = Vector2(550.0,26.0)
+		%PlayGradient.size = Vector2(550.0, 26.0)
 		var tween = get_tree().create_tween()
-		tween.tween_property(%PlayGradient, "size", Vector2(1152.0,26.0), 1.0)
+		tween.tween_property(%PlayGradient, "size", Vector2(1152.0, 26.0), 1.0)
 		await tween.finished
 		tween.kill()
 	elif index == 1:
@@ -22,9 +23,9 @@ func select(index: int):
 		%SettingsGradient.visible = true
 		%QuitGradient.visible = false
 
-		%SettingsGradient.size = Vector2(520.0,25.0)
+		%SettingsGradient.size = Vector2(520.0, 25.0)
 		var tween = get_tree().create_tween()
-		tween.tween_property(%SettingsGradient, "size", Vector2(1152.0,25.0), 1.0)
+		tween.tween_property(%SettingsGradient, "size", Vector2(1152.0, 25.0), 1.0)
 		await tween.finished
 		tween.kill()
 	elif index == 2:
@@ -32,11 +33,12 @@ func select(index: int):
 		%SettingsGradient.visible = false
 		%QuitGradient.visible = true
 
-		%QuitGradient.size = Vector2(545.0,25.0)
+		%QuitGradient.size = Vector2(545.0, 25.0)
 		var tween = get_tree().create_tween()
-		tween.tween_property(%QuitGradient, "size", Vector2(1152.0,25.0), 1.0)
+		tween.tween_property(%QuitGradient, "size", Vector2(1152.0, 25.0), 1.0)
 		await tween.finished
 		tween.kill()
+
 
 func click(index: int):
 	match index:
@@ -44,6 +46,7 @@ func click(index: int):
 			get_tree().change_scene_to_file("res://main.tscn")
 		2:
 			get_tree().quit()
+
 
 func navigate(direction: int):
 	if selection + direction <= 2 and selection + direction >= 0:

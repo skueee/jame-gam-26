@@ -18,6 +18,7 @@ var hp = 100
 @onready var booom: GPUParticles2D = $BOOOM
 @onready var deathtime: Timer = $deathtime
 
+
 func _ready() -> void:
 	timer.one_shot = true
 	timer_2.one_shot = true
@@ -56,7 +57,13 @@ func navigate() -> Array:
 		direction = -1
 	else:
 		direction = 0
-	if max(player.global_position.x, global_position.x) - min(player.global_position.x, global_position.x) < 15:
+	if (
+		(
+			max(player.global_position.x, global_position.x)
+			- min(player.global_position.x, global_position.x)
+		)
+		< 15
+	):
 		beamattack = true
 	elif (
 		(
@@ -112,12 +119,14 @@ func delete():
 	tilemap.set_cell(Vector2i(7, 1), -1)
 	tilemap.set_cell(Vector2i(7, 2), -1)
 
+
 func die():
 	if hp > 0:
 		hp -= 10
 		print(hp)
 	else:
 		dying = true
+
 
 func beam():
 	beam_foreshadowing.visible = false
@@ -137,7 +146,7 @@ func projectile():
 	var projectile: PackedScene = load("res://bossesthrowable.tscn")
 	var instance: RigidBody2D = projectile.instantiate()
 	get_parent().add_child(instance)
-	instance.global_position = Vector2(global_position.x, global_position.y +24)
+	instance.global_position = Vector2(global_position.x, global_position.y + 24)
 	var direction = (player.global_position - instance.global_position).normalized()
 	var force = 300.0
 
