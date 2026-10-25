@@ -19,8 +19,10 @@ func _on_scene_changed() -> void:
 
 	var packed: PackedScene
 
-	if scene.name in ["level_4", "level_5"]:
+	if scene.name == "level_4":
 		packed = preload("res://cave.tscn")
+	elif scene.name == "level_5":
+		packed = preload("res://boss_music.tscn")
 	else:
 		packed = preload("res://forest.tscn")
 
