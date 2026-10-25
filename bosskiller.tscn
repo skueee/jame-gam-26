@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bpihko3n41aq6"]
+
+[ext_resource type="Script" path="res://bosskiller.gd" id="1_su0h8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgdwq"]
+radius = 14.0
+
+[sub_resource type="Gradient" id="Gradient_am6xk"]
+offsets = PackedFloat32Array(0.016431924, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3fdwx"]
+gradient = SubResource("Gradient_am6xk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ukc20"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 10, 0)
+color_initial_ramp = SubResource("GradientTexture1D_3fdwx")
+
+[node name="bosskiller" type="Area2D" unique_id=665376800]
+script = ExtResource("1_su0h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1760834786]
+shape = SubResource("CircleShape2D_wgdwq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2068931892]
+amount = 150
+speed_scale = 0.7
+explosiveness = 0.1
+process_material = SubResource("ParticleProcessMaterial_ukc20")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

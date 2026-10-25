@@ -65,31 +65,7 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
-size = Vector2(42, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hb8ge"]
-atlas = ExtResource("1_4gyqm")
-region = Rect2(0, 160, 32, 32)
+size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
 atlas = ExtResource("1_7k104")
@@ -181,13 +157,12 @@ func _on_body_entered(body: Node2D) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmg3h"]
-size = Vector2(54, 26)
+size = Vector2(34, 34)
 
 [node name="enemy" type="CharacterBody2D" unique_id=1733318048]
 script = SubResource("GDScript_y31su")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1252338013]
-position = Vector2(-5, 3.5)
 shape = SubResource("RectangleShape2D_tsws6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1387607883]
@@ -202,7 +177,6 @@ flip_h = true
 script = SubResource("GDScript_tsws6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=326967907]
-position = Vector2(-11, 4)
 shape = SubResource("RectangleShape2D_wmg3h")
 
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1481033239]
