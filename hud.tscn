@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bsnftywy7a6qr"]
+
+[ext_resource type="Script" uid="uid://d26ao1hpofmx7" path="res://hud.gd" id="1_8sq4i"]
+[ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://cayell83386wb" path="res://status_bar.gd" id="2_640wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjfn4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_potab"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_potab"]
+base_font = ExtResource("1_37p78")
+variation_opentype = {
+2003072104: 100,
+2003265652: 500
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
+font = SubResource("FontVariation_potab")
+
+[sub_resource type="Gradient" id="Gradient_64ctp"]
+offsets = PackedFloat32Array(0, 0.48414984)
+colors = PackedColorArray(0, 0, 0, 0.09019608, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mjfn4"]
+gradient = SubResource("Gradient_64ctp")
+fill = 1
+fill_from = Vector2(0.50427353, 1)
+fill_to = Vector2(0.5, 0)
+
+[node name="HUD" type="Control" unique_id=1741839738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8sq4i")
+
+[node name="StatusBar" type="ProgressBar" parent="." unique_id=1893527828]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -19.0
+offset_right = 153.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_mjfn4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_potab")
+value = 10.0
+show_percentage = false
+script = ExtResource("2_640wx")
+
+[node name="Label" type="Label" parent="StatusBar" unique_id=887035542]
+layout_mode = 0
+offset_top = -26.0
+offset_right = 306.0
+offset_bottom = -3.0
+text = "Press shift to bridge"
+label_settings = SubResource("LabelSettings_mjfn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StatusBar" unique_id=1352451469]
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.5
+offset_top = -112.0
+offset_right = 210.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_mjfn4")
