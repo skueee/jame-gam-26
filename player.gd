@@ -18,6 +18,7 @@ const THROWABLE: PackedScene = preload("res://throwable.tscn")
 @export var lives = 2
 @export var bridge_cd = 0.3333
 
+var is_dying := false
 var wall_jump := false
 var wall_direction: Vector2
 var last_direction := 1
@@ -33,6 +34,7 @@ var wall_slide = false
 @onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var hud: Control = $CanvasLayer/HUD
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
@@ -41,6 +43,7 @@ func _ready() -> void:
 	throw_timer.start()
 	bridge_timer.wait_time = 20
 	bridge_timer.timeout.connect(disable_bridge)
+	collision_shape_2d.disabled = false
 
 
 func allow():
@@ -58,17 +61,22 @@ func disable_bridge():
 
 
 func _physics_process(_delta: float) -> void:
-	wall_jump_lock -= _delta
-	scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
-	wall_slide = false
-	get_input()
-	set_velocit(_delta)
-	move_and_slide()
-	animate()
-	attack()
-	bridge()
-	if scale.x < 0.5:
-		die()
+	if not is_dying:
+		wall_jump_lock -= _delta
+		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
+		wall_slide = false
+		get_input()
+		set_velocit(_delta)
+		move_and_slide()
+		animate()
+		attack()
+		bridge()
+		if scale.x < 0.5:
+			die()
+	else:
+		global_position = global_position.move_toward(Vector2.ZERO, 300*_delta)
+		if global_position == Vector2.ZERO:
+			get_tree().call_deferred("reload_current_scene")
 
 
 func animate():
@@ -189,4 +197,7 @@ func die(force: bool = false):
 		shield.call_deferred()
 		hud.change_health(lives)
 		return
-	get_tree().call_deferred("reload_current_scene")
+	sprite_2d.play("heart")
+	sprite_2d.scale = Vector2(0.14, 0.14)
+	is_dying = true
+	collision_shape_2d.disabled = true
