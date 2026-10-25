@@ -6,13 +6,18 @@
 resource_name = "send"
 script/source = "extends Area2D
 @export var level: int = 2
+@export var end: bool = false
 
 
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == \"player\":
-		var path = \"res://level_\" + str(level) + \".tscn\"
+		var path: String
+		if end:
+			path = \"res://endscreen.tscn\"
+		else:
+			path = \"res://level_\" + str(level) + \".tscn\"
 		get_tree().call_deferred(\"change_scene_to_file\", path)
 "
 
