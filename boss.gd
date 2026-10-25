@@ -17,6 +17,8 @@ var hp = 200
 @onready var timer_4: Timer = $Timer4
 @onready var booom: GPUParticles2D = $BOOOM
 @onready var deathtime: Timer = $deathtime
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+@onready var hud: Control = player.get_node("CanvasLayer/HUD")
 
 
 func _ready() -> void:
@@ -34,6 +36,7 @@ func _ready() -> void:
 	timer_4.timeout.connect(unbeam)
 	deathtime.wait_time = 3
 	deathtime.timeout.connect(delete)
+	hud.add_custom_status(hp, 200, "BOSS")
 
 
 func enable_beam():
@@ -45,7 +48,6 @@ func enable_projectile():
 
 
 func navigate() -> Array:
-	var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 	var direction
 	var beamattack
 	var projectileattack
@@ -123,9 +125,10 @@ func delete():
 func die():
 	if hp > 0:
 		hp -= 10
-		print(hp)
+		hud.add_custom_status(hp, 200, "BOSS")
 	else:
 		dying = true
+		hud.hide()
 
 
 func beam():

@@ -6,6 +6,9 @@ extends Control
 func add_duration_status(duration: float, text: String = ""):
 	$StatusBar.add_status(duration, text)
 
+## Add a custom value on the bar
+func add_custom_status(status: int, max: int, text: String = ""):
+	$StatusBar.add_custom(status, max, text)
 
 ## Changes the number of hearths shown on screen
 func change_health(health):

@@ -16,7 +16,7 @@ func _process(delta):
 	time_left -= delta
 	value = time_left
 
-	if time_left <= 0:
+	if time_left <= 0 and is_active:
 		is_active = false
 		value = 0
 		hide()
@@ -27,5 +27,12 @@ func add_status(duration: float, text: String = ""):
 	time_left = duration
 	value = duration
 	is_active = duration
+	$Label.text = text
+	show()
+
+func add_custom(val: int, max: int, text: String = ""):
+	max_value = max
+	value = val
+	is_active = false
 	$Label.text = text
 	show()
