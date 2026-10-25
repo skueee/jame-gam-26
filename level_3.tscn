@@ -164,7 +164,7 @@ position = Vector2(624, 312)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=860154]
 
-[node name="Note" parent="CanvasLayer" unique_id=1435173420 groups=["ui_note"] instance=ExtResource("6_ghrvs")]
+[node name="Note" parent="CanvasLayer" unique_id=1435173420 groups=["note_ui"] instance=ExtResource("6_ghrvs")]
 visible = false
 
 [node name="DialogBox" parent="CanvasLayer" unique_id=675358860 instance=ExtResource("7_g0tlw")]

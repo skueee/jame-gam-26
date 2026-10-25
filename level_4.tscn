@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="7_s24i2"]
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="8_66w8i"]
 [ext_resource type="PackedScene" uid="uid://brwn17srsj6r2" path="res://notesprite.tscn" id="8_s24i2"]
+[ext_resource type="PackedScene" uid="uid://cxglg451355nt" path="res://note.tscn" id="9_66w8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s24i2"]
 texture = ExtResource("1_48hld")
@@ -151,3 +152,7 @@ position = Vector2(103, 37)
 [node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("8_s24i2")]
 position = Vector2(57, 45)
 note = "You are so stubborn, spirit fox. Well, I will take care of you myself. You can still turn back, and die calmly."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1786876493]
+
+[node name="Note" parent="CanvasLayer" unique_id=1435173420 groups=["note_ui"] instance=ExtResource("9_66w8i")]
