@@ -28,11 +28,11 @@ func _ready() -> void:
 	timer_4.one_shot = true
 	timer.wait_time = 2
 	timer.timeout.connect(enable_beam)
-	timer_2.wait_time = 0.5
+	timer_2.wait_time = 1.5
 	timer_2.timeout.connect(enable_projectile)
-	timer_3.wait_time = 1
+	timer_3.wait_time = 2
 	timer_3.timeout.connect(beam)
-	timer_4.wait_time = 1.5
+	timer_4.wait_time = 1
 	timer_4.timeout.connect(unbeam)
 	deathtime.wait_time = 3
 	deathtime.timeout.connect(delete)
@@ -67,7 +67,7 @@ func navigate() -> Array:
 		< 15
 	):
 		beamattack = true
-	elif (
+	if (
 		(
 			max(player.global_position.x, global_position.x)
 			- min(player.global_position.x, global_position.x)
@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 		can_beam = false
 		beam_foreshadowing.visible = true
 		timer_3.start()
-	elif projectileattack and can_projectile:
+	if projectileattack and can_projectile:
 		can_projectile = false
 		timer_2.start()
 		projectile()
@@ -151,6 +151,6 @@ func projectile():
 	get_parent().add_child(instance)
 	instance.global_position = Vector2(global_position.x, global_position.y + 24)
 	var direction = (player.global_position - instance.global_position).normalized()
-	var force = 300.0
+	var force = 250.0
 
 	instance.apply_central_impulse(direction * force)

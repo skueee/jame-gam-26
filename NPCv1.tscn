@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 	if not player: return
 	var player_pos = player.global_position
 	var distance = global_position.distance_to(player_pos)
-	if distance < 28:
+	if distance < 35:
 		e.visible = true
 		var ed = Input.is_action_just_pressed(\"interact\")
 		if ed:
@@ -55,7 +55,7 @@ size = Vector2(14, 16.25)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sngle"]
 shader = ExtResource("2_sngle")
 shader_parameter/target_color = Color(0.25490198, 0.36862746, 0.60784316, 1)
-shader_parameter/replacement_color = Color(0.25490198, 0.36862746, 0.60784316, 1)
+shader_parameter/replacement_color = Color(0.5882353, 0.85882354, 0.5686275, 1)
 shader_parameter/tolerance = 0.1
 
 [node name="NPCv1" type="StaticBody2D" unique_id=1501047410]
