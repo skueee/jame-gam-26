@@ -11,13 +11,14 @@ const THROWABLE: PackedScene = preload("res://throwable.tscn")
 @export var jump_strength = 300
 @export var shrink_percent := 165
 @export var wall_jump_bounce := 500
-@export var wall_stength := 300
+@export var wall_stength := 400
 @export var throw_cd := 0.1
 @export var shield_force = 15.0
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
-
+var curdir
+var wall_side = 0.0
 var is_dying := false
 var wall_jump := false
 var wall_direction: Vector2
@@ -66,7 +67,7 @@ func _physics_process(_delta: float) -> void:
 	if not is_dying:
 		wall_jump_lock -= _delta
 		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
-		wall_slide = false
+		#wall_slide = false
 		get_input()
 		set_velocit(_delta)
 		move_and_slide()
@@ -105,7 +106,7 @@ func get_input():
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			jump = true
-		elif is_on_wall() and wall_jump_lock <= 0:
+		elif (is_on_wall() or wall_slide) and wall_jump_lock <= 0:
 			wall_jump = true
 			wall_direction = get_wall_normal()
 
@@ -164,17 +165,29 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-
+	if is_on_floor():
+		wall_slide = false
+		curdir = null
 	if not is_on_floor():
-		if not is_on_wall():
+		if is_on_wall():
+			wall_side = -get_wall_normal().x
+		if not is_on_wall() and not wall_slide:
 			velocity.y += gravity * delta
 			velocity.y = min(velocity.y, max_fall)
+			print(curdir, "---", direction, "---", last_direction)
 		else:
-			if velocity.y >= 0:
-				velocity.y = gravity * 0.07
+			print(curdir, "---", direction, "---", last_direction, is_on_wall())
+			if not curdir:
+				curdir = last_direction
+			if wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+				print("continuing")
+				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
 				wall_slide = true
 			else:
+				print("stopping")
+				curdir = null
+				wall_slide = false
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
 	elif jump:
