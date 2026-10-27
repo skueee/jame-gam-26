@@ -48,6 +48,7 @@ func display_line(line: String):
 func show_text_box(
 	speaker: String = "", speaker_sprite: Texture2D = null, color: Color = Color("black")
 ):
+	get_tree().get_first_node_in_group("player").pauseshrinking()
 	dialog_active = true
 	visible = true
 	_speaker.visible = (speaker != "")
@@ -65,6 +66,7 @@ func hide_text_box():
 	dialog_active = false
 	visible = false
 	dialogue_finished.emit()
+	get_tree().get_first_node_in_group("player").resumeshrinking()
 
 
 ## Ensure that the dialogue is not finished, then show the next line
