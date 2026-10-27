@@ -122,7 +122,7 @@ tile_set = SubResource("TileSet_ghrvs")
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("2_l45re")]
 position = Vector2(-412, 26)
 shrink_percent = 130
-lives = 4
+lives = 3
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_c8stx")]
 position = Vector2(624, 312)

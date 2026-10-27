@@ -20,11 +20,10 @@ func set_movements(delta):
 		else:
 			timer_but_cheap = 0
 			jumping = true
-	if right.is_colliding():
+	if right.get_collider():
 		if right.get_collider().name != "player":
 			direction = -1
-	elif left.is_colliding():
-		
+	elif left.get_collider():
 		if left.get_collider().name != "player":
 			direction = 1
 
