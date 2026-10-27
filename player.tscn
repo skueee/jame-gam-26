@@ -103,7 +103,11 @@ _data = {
 &"death": SubResource("Animation_606se")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
+size = Vector2(24, 18)
+
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
+z_index = 999
 script = ExtResource("1_onrkg")
 acceleration = 200
 gravity = 980
@@ -123,7 +127,6 @@ position_smoothing_enabled = true
 position = Vector2(-4, 10)
 scale = Vector2(1.2196171, 1.03125)
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"heart"
 autoplay = "default"
 offset = Vector2(4.1840725, -14.225571)
 
@@ -143,3 +146,8 @@ shape = SubResource("RectangleShape2D_ukc20")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2142881881]
 libraries/ = SubResource("AnimationLibrary_u1c27")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1694452619]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1954974539]
+shape = SubResource("RectangleShape2D_tsws6")

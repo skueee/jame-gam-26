@@ -74,6 +74,7 @@ func _physics_process(_delta: float) -> void:
 		animate()
 		attack()
 		bridge()
+		
 		if scale.x < 0.5:
 			die()
 	else:
@@ -165,7 +166,7 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-	if is_on_floor():
+	if is_on_floor() or not onwall():
 		wall_slide = false
 		curdir = null
 	if not is_on_floor():
@@ -174,18 +175,14 @@ func set_velocit(delta):
 		if not is_on_wall() and not wall_slide:
 			velocity.y += gravity * delta
 			velocity.y = min(velocity.y, max_fall)
-			print(curdir, "---", direction, "---", last_direction)
 		else:
-			print(curdir, "---", direction, "---", last_direction, is_on_wall())
 			if not curdir:
 				curdir = last_direction
-			if wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
-				print("continuing")
+			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
 				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
 				wall_slide = true
 			else:
-				print("stopping")
 				curdir = null
 				wall_slide = false
 				velocity.y += gravity * delta
@@ -205,6 +202,12 @@ func stopshrinking():
 func resumeshrinking():
 	shrink_percent = 165
 
+func onwall():
+	var bods = $Area2D.get_overlapping_bodies()
+	for bod in bods:
+		if bod.name.find("Tile") != -1:
+			return true
+	return false
 
 func die(force: bool = false):
 	if lives > 1 and not force:
