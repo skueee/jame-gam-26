@@ -216,3 +216,9 @@ func die(force: bool = false):
 	sprite_2d.scale = Vector2(0.14, 0.14)
 	is_dying = true
 	collision_shape_2d.disabled = true
+
+
+func _process(delta: float) -> void:
+	# Inputs that aren't physics related
+	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
+		$CanvasLayer/PauseMenu.open()
