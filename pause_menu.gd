@@ -14,9 +14,11 @@ func open():
 	$AnimationPlayer.play("open")
 	await $AnimationPlayer.animation_finished
 	active = true
+	Engine.time_scale = 0
 
 ## Closes the pause menu
 func close():
+	Engine.time_scale = 1
 	active = false
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished

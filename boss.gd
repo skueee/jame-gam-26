@@ -36,7 +36,7 @@ func _ready() -> void:
 	timer_4.timeout.connect(unbeam)
 	deathtime.wait_time = 3
 	deathtime.timeout.connect(delete)
-	hud.add_custom_status(hp, 200, "BOSS")
+	hud.add_custom_status(hp, 200, "Sanuel, The spirit of Death")
 
 
 func enable_beam():
@@ -123,9 +123,9 @@ func delete():
 
 
 func die():
-	if hp > 0:
+	if hp > 10:
 		hp -= 10
-		hud.add_custom_status(hp, 200, "BOSS")
+		hud.add_custom_status(hp, 200, "Sanuel, The spirit of Death")
 	else:
 		dying = true
 		hud.hide()
