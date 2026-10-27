@@ -1,7 +1,7 @@
 extends HBoxContainer
 
-@export var hearth: Texture2D = load("res://icon.svg")
-@export var default_count: int = 2
+@export var hearth: Texture2D = load("res://icon.svg")   ## The texture of the hearts
+@export var default_count: int = 2   ## The count of hearts that will be shown at initialization.[br]It's a fallback if the player doesn't change the number of lives at initialization.
 @export var sprite_size: Vector2 = Vector2(64, 64)
 
 
@@ -11,7 +11,7 @@ func _ready():
 
 func set_lives(count: int) -> void:
 	for child in get_children():
-		child.queue_free()
+		child.queue_free()   # Deletes everything to replace it
 
 	for i in range(count):
 		var texture_rect = TextureRect.new()
