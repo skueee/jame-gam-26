@@ -30,6 +30,7 @@ var wall_jump_lock := 0.0
 var can_bridge = false
 var wall_slide = false
 var start_pos = Vector2.ZERO
+var saved_shrink_percent: int = shrink_percent
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -192,15 +193,20 @@ func set_velocit(delta):
 		jump = false
 
 
+## Stops shrinking for a set amount of time, 15 seconds.
 func stopshrinking():
+	saved_shrink_percent = shrink_percent
 	shrink_percent = 0
 	timey.wait_time = 15
 	timey.timeout.connect(resumeshrinking)
 	timey.start()
 
+## Stops shrinking indefinitely, until something restarts it with [method resumeshrinking].
+func pauseshrinking():
+	shrink_percent = 0
 
 func resumeshrinking():
-	shrink_percent = 165
+	shrink_percent = saved_shrink_percent
 
 func onwall():
 	var bods = $Area2D.get_overlapping_bodies()
