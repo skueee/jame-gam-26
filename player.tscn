@@ -110,16 +110,6 @@ size = Vector2(24, 18)
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player"]]
 z_index = 999
 script = ExtResource("1_onrkg")
-acceleration = 100
-friction = 600
-gravity = 980
-max_speed = 400
-max_fall = 2000
-jump_strength = 400
-shrink_percent = 50
-wall_jump_bounce = 50
-wall_stength = 200
-shield_force = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809773085]
 z_index = 15
