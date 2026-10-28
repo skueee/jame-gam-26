@@ -115,7 +115,7 @@ gravity = 980
 max_speed = 600
 max_fall = 2000
 shrink_percent = 50
-wall_jump_bounce = 200
+wall_jump_bounce = 100
 shield_force = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809773085]
