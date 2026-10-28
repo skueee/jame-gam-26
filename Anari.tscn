@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://rjvw8pt4wanj"]
+
+[ext_resource type="Script" uid="uid://dxg6cqmhxc5ut" path="res://anari.gd" id="1_atd5c"]
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_fxevo"]
+[ext_resource type="Script" uid="uid://noh3pkuuwso" path="res://killingzone.gd" id="3_gsthe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
+size = Vector2(64, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmg3h"]
+size = Vector2(74, 72)
+
+[node name="Anari" type="CharacterBody2D" unique_id=1544237020]
+collision_mask = 8
+script = ExtResource("1_atd5c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1244082868]
+position = Vector2(1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fxevo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=58584310]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_tsws6")
+
+[node name="killingzone" type="Area2D" parent="." unique_id=2135128492]
+script = ExtResource("3_gsthe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killingzone" unique_id=199088664]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_wmg3h")
+
+[connection signal="body_entered" from="killingzone" to="killingzone" method="_on_body_entered"]

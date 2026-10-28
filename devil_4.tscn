@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://djc0sbtuxj71v" path="res://dronmar_the_killer_lord.tscn" id="8_oltqf"]
 [ext_resource type="PackedScene" uid="uid://dmf45oskiyqdl" path="res://miniboss.tscn" id="9_5052g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s24i2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5lmm"]
 texture = ExtResource("1_b5lmm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -111,7 +111,7 @@ texture = ExtResource("1_b5lmm")
 [sub_resource type="TileSet" id="TileSet_ghrvs"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_s24i2")
+sources/0 = SubResource("TileSetAtlasSource_b5lmm")
 
 [node name="devil_3" type="Node2D" unique_id=415337881]
 
@@ -136,7 +136,7 @@ position = Vector2(624, 312)
 
 [node name="shrine" parent="." unique_id=1659972104 instance=ExtResource("4_hl2dp")]
 position = Vector2(80, 33)
-level = 3
+level = 5
 devil = true
 
 [node name="Fireeffect" parent="." unique_id=7705216 instance=ExtResource("5_qi5w8")]

@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dgqyse820jbfn" path="res://cave tileset final.png" id="1_ky83y"]
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="2_dmstm"]
+[ext_resource type="PackedScene" uid="uid://rjvw8pt4wanj" path="res://Anari.tscn" id="2_ojlbn"]
 [ext_resource type="PackedScene" uid="uid://cja51vxeisg5k" path="res://dropzone.tscn" id="3_hh0ym"]
 [ext_resource type="PackedScene" uid="uid://cqk37vd4acnb4" path="res://platform.tscn" id="4_dmstm"]
 [ext_resource type="PackedScene" uid="uid://dhceoonaopdoa" path="res://potion.tscn" id="5_hh0ym"]
 [ext_resource type="PackedScene" uid="uid://djvve1poxewdc" path="res://reverse_potion.tscn" id="6_mb77w"]
+[ext_resource type="PackedScene" uid="uid://bpihko3n41aq6" path="res://bosskiller.tscn" id="8_hs8ub"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb77w"]
 texture = ExtResource("1_ky83y")
@@ -125,8 +127,8 @@ max_speed = 500
 max_fall = 1000
 shrink_percent = 130
 wall_jump_bounce = 500
-shield_force = 15.0
-lives = 5
+shield_force = 160.0
+lives = 7
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_hh0ym")]
 position = Vector2(624, 312)
@@ -250,3 +252,12 @@ position = Vector2(-283, -470)
 
 [node name="Potion4" parent="." unique_id=1469644698 instance=ExtResource("6_mb77w")]
 position = Vector2(-217, -604)
+
+[node name="Anari" parent="." unique_id=1544237020 groups=["anari"] instance=ExtResource("2_ojlbn")]
+position = Vector2(-90, -150)
+offset = 200
+speed = 150
+shots_per_sec = 4.0
+
+[node name="bosskiller" parent="." unique_id=665376800 instance=ExtResource("8_hs8ub")]
+position = Vector2(-222, -1087)

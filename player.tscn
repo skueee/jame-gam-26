@@ -120,7 +120,7 @@ shield_force = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=809773085]
 z_index = 15
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
 
@@ -148,6 +148,23 @@ visible = false
 
 [node name="HUD" parent="CanvasLayer" unique_id=1741839738 instance=ExtResource("2_i3pqv")]
 
+[node name="Bang" type="Control" parent="CanvasLayer" unique_id=1822612213]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Bang" unique_id=710544650]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1116.0
+offset_bottom = 614.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2142881881]
 libraries/ = SubResource("AnimationLibrary_u1c27")
 
@@ -155,3 +172,5 @@ libraries/ = SubResource("AnimationLibrary_u1c27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1954974539]
 shape = SubResource("RectangleShape2D_tsws6")
+
+[node name="Timer4" type="Timer" parent="." unique_id=1514750518]
