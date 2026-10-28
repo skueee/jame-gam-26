@@ -24,6 +24,26 @@ func select(index: int):
 	%TitleGradient.visible = (index == 0)
 	%DevilGradient.visible = (index == 1)
 	%QuitGradient.visible = (index == 2)
+	
+	match index:
+		0:
+			%TitleGradient.size = Vector2(0.0, 36.0)
+			var tween = get_tree().create_tween()
+			tween.tween_property(%TitleGradient, "size", Vector2(167.0, 36.0), 0.2)
+			await tween.finished
+			tween.kill()
+		1:
+			%DevilGradient.size = Vector2(0.0, 36.0)
+			var tween = get_tree().create_tween()
+			tween.tween_property(%DevilGradient, "size", Vector2(139.0, 36.0), 0.2)
+			await tween.finished
+			tween.kill()
+		2:
+			%QuitGradient.size = Vector2(0.0, 26.5)
+			var tween = get_tree().create_tween()
+			tween.tween_property(%QuitGradient, "size", Vector2(63.0, 26.5), 0.2)
+			await tween.finished
+			tween.kill()
 
 
 ## Sets the right index number
@@ -34,7 +54,7 @@ func navigate(direction: int):
 	elif selection + direction >= 2:
 		selection = 0
 	elif selection + direction <= 0:
-		selection = 1
+		selection = 2
 
 
 func _process(_delta):
