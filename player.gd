@@ -78,6 +78,7 @@ func _physics_process(_delta: float) -> void:
 		bridge()
 		
 		if scale.x < 0.5:
+			scale = Vector2(1.0,1.0)
 			die()
 	else:
 		global_position = global_position.move_toward(start_pos, 300 * _delta)

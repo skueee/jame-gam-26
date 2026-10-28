@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djc0sbtuxj71v"]
+
+[ext_resource type="Script" uid="uid://c3xqpescny2y8" path="res://dronmar_the_killer_lord.gd" id="1_evflo"]
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_q5meu"]
+[ext_resource type="Script" uid="uid://cnq0h3omj6y2c" path="res://killzone.gd" id="3_qjblp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
+size = Vector2(84, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmg3h"]
+size = Vector2(81, 14)
+
+[node name="Dronmar, the Killer Lord boss" type="CharacterBody2D" unique_id=1302426644]
+script = ExtResource("1_evflo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013329259]
+shape = SubResource("RectangleShape2D_tsws6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=882983617]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.6640625, 0.6640625)
+texture = ExtResource("1_q5meu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=126922655]
+script = ExtResource("3_qjblp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=219110534]
+position = Vector2(-0.5, 44)
+shape = SubResource("RectangleShape2D_wmg3h")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

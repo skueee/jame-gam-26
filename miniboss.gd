@@ -8,11 +8,12 @@ var jump_velocity = 450
 var speed = 300
 var hp = 150
 var timer_but_cheap = 0
+@export var thename = "Spikynox, Apostle of Destructions"
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var hud: Control = player.get_node("CanvasLayer/HUD")
 @export var tilemap: TileMapLayer
 func _ready() -> void:
-	hud.add_custom_status(hp, 150, "Spikynox, Apostle of Destructions")
+	hud.add_custom_status(hp, 150, thename)
 func set_movements(delta):
 	if is_on_floor():
 		if timer_but_cheap < 0.2:
@@ -26,7 +27,10 @@ func set_movements(delta):
 	elif left.get_collider():
 		if left.get_collider().name != "player":
 			direction = 1
-
+func forcejumpaway():
+	direction *= -1
+	velocity.y = jump_velocity * -1
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	set_movements(delta)
@@ -45,7 +49,7 @@ func _physics_process(delta: float) -> void:
 func die():
 	if hp > 10:
 		hp -= 10
-		hud.add_custom_status(hp, 150, "Spikynox, Apostle of Destructions")
+		hud.add_custom_status(hp, 150, thename)
 	else:
 		tilemap.set_cell(Vector2i(2, -1), -1)
 		tilemap.set_cell(Vector2i(2, 0), -1)
