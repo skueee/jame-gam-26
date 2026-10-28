@@ -333,12 +333,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -355.0
-offset_top = -261.0
+offset_top = -292.0
 offset_right = 355.0
-offset_bottom = 103.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 18
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=510507618]
 layout_mode = 2
@@ -374,7 +374,7 @@ label_settings = SubResource("LabelSettings_5ywda")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer" unique_id=138722780]
 layout_mode = 2
-theme_override_constants/separation = -2
+theme_override_constants/separation = -4
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=1862827894]
 clip_children = 2
@@ -395,6 +395,29 @@ expand_mode = 1
 [node name="TitleArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/TitleLabel" unique_id=470714098]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" unique_id=1661954459]
+position = Vector2(72.5, 18.03125)
+shape = SubResource("RectangleShape2D_mjfn4")
+
+[node name="DevilLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=804220544]
+clip_children = 2
+layout_mode = 2
+text = "Devil levels"
+label_settings = SubResource("LabelSettings_potab")
+
+[node name="DevilGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=931750837]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 164.0
+offset_bottom = 39.0
+texture = SubResource("GradientTexture2D_g3ojq")
+expand_mode = 1
+
+[node name="DevilArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=1935141693]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" unique_id=294965906]
 position = Vector2(72.5, 18.03125)
 shape = SubResource("RectangleShape2D_mjfn4")
 
@@ -432,5 +455,7 @@ color = Color(0, 0, 0, 0)
 
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_mouse_entered"]
+[connection signal="input_event" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_mouse_entered"]
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_mouse_entered"]
