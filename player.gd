@@ -189,6 +189,9 @@ func stopshrinking():
 	timey.start()
 
 
+func reverseshrinking(seconds):
+	scale = scale/((1-(shrink_percent/6000.0)) ** seconds)
+
 func resumeshrinking():
 	shrink_percent = 165
 

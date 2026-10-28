@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bdssw3vtf8yxf" path="res://cloud_potion.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://djvve1poxewdc" path="res://reverse_potion.tscn" id="14_w48qg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("2_5vw27")
@@ -170,5 +171,8 @@ offset_top = 85.0
 offset_right = 2207.0
 offset_bottom = 938.0
 color = Color(0.46809, 0.29614407, 0.30326638, 1)
+
+[node name="Potion2" parent="." unique_id=877409574 instance=ExtResource("14_w48qg")]
+position = Vector2(231, 67)
 
 [editable path="enemy"]
