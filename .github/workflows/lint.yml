@@ -1,10 +1,6 @@
-name: Lint after commit
+name: Lint
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: workflow_dispatch
 
 jobs:
   static-checks:

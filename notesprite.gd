@@ -1,5 +1,9 @@
 extends StaticBody2D
+## Script for the note sprites
+## It needs a note.gd node in the note_ui group to work
 
+## The text that will be shown on the notes.
+## [br][br]It supports BBCode ! [br][url]https://docs.godotengine.org/en/latest/tutorials/ui/bbcode_in_richtextlabel.html[/url]
 @export_multiline var note: String = "Lorem Ipsum"
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")

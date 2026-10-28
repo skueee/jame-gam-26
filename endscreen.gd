@@ -1,5 +1,6 @@
 extends Control
 
+## The current selection. 0 is the element the most at the top. 
 var selection: int = 0
 
 
@@ -10,17 +11,20 @@ func _ready() -> void:
 
 func click(index: int):
 	match index:
-		0:
+		0:  # Return to title button
 			get_tree().change_scene_to_file("res://main_menu.tscn")
-		1:
+		1:  # Quit button
 			get_tree().quit()
 
 
+## Changes the visibility of the gradient depending on the selection
 func select(index: int):
 	%TitleGradient.visible = (index == 0)
 	%QuitGradient.visible = (index == 1)
 
 
+## Sets the right index number
+## This is ass code
 func navigate(direction: int):
 	if selection + direction <= 1 and selection + direction >= 0:
 		selection += direction

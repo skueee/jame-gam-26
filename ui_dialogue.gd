@@ -1,6 +1,11 @@
-# Dialogue logic
-
 extends Control
+## Script that shows the dialogue UI and handles the dialogue logic
+##
+## It will:
+##         - show the dialogue box
+##         - listen to inputs
+##         - hide the box when finished
+
 
 signal dialogue_finished
 
@@ -13,11 +18,15 @@ var next_text_index: int
 @onready var _dialogue: RichTextLabel = $DialogueBox/Text
 @onready var _box: NinePatchRect = $DialogueBox
 
-
-## To use, call display_text() with your lines in an array, the speaker, the speaker sprite (a Texture2D)
-## For ex: `display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))`
-##                        The two lines that will be displayed                   Character     Sprite                 Color
-## `Color`, `Character` and `Sprite` are optional
+## Displays the DialogBox with lines in an array and an optional speaker, sprite and border color
+##
+## [br][br]Example:
+## [code]display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))[/code]
+## 
+## [br][br][param lines]: An array with the lines that will be spoken by the character.
+## [br][param speaker]: The speaker's name (optional).
+## [br][param speaker_sprite]: The speaker's sprite (optional).
+## [br][param color]: The color of the border of the DialogBox (optional, defaults to black)
 func display_text(
 	lines: Array,
 	speaker: String = "",
@@ -30,15 +39,16 @@ func display_text(
 	next_text_index = 1
 
 
-# Just displays a line on the Text label
+## Function to display a line on the dialogue label
 func display_line(line: String):
 	_dialogue.text = line
 
 
-# Shows the dialogue and assigns everything
+## Shows the dialoguebox and assigns everything
 func show_text_box(
 	speaker: String = "", speaker_sprite: Texture2D = null, color: Color = Color("black")
 ):
+	get_tree().get_first_node_in_group("player").pauseshrinking()
 	dialog_active = true
 	visible = true
 	_speaker.visible = (speaker != "")
@@ -51,14 +61,15 @@ func show_text_box(
 	_box.material.set_shader_parameter("replacement_color", color)
 
 
-# Hides the dialogue
+## Hides the dialoguebox
 func hide_text_box():
 	dialog_active = false
 	visible = false
 	dialogue_finished.emit()
+	get_tree().get_first_node_in_group("player").resumeshrinking()
 
 
-# Ensure that the dialogue is not finished, then show the next line
+## Ensure that the dialogue is not finished, then show the next line
 func go_to_next_text():
 	if next_text_index < current_text.size():
 		display_line(current_text[next_text_index])
@@ -67,7 +78,7 @@ func go_to_next_text():
 		hide_text_box()
 
 
-# Just checks if there is input
+## Handles input
 func _process(_delta: float) -> void:
 	if dialog_active and Input.is_action_just_pressed("continue"):
 		go_to_next_text()

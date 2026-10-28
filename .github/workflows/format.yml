@@ -1,4 +1,4 @@
-name: Format when needed
+name: Format
 
 on: 'workflow_dispatch'
 

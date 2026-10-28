@@ -11,13 +11,14 @@ const THROWABLE: PackedScene = preload("res://throwable.tscn")
 @export var jump_strength = 300
 @export var shrink_percent := 165
 @export var wall_jump_bounce := 500
-@export var wall_stength := 300
+@export var wall_stength := 400
 @export var throw_cd := 0.1
 @export var shield_force = 15.0
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
-
+var curdir
+var wall_side = 0.0
 var is_dying := false
 var wall_jump := false
 var wall_direction: Vector2
@@ -29,6 +30,7 @@ var wall_jump_lock := 0.0
 var can_bridge = false
 var wall_slide = false
 var start_pos = Vector2.ZERO
+var saved_shrink_percent: int = shrink_percent
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -66,13 +68,14 @@ func _physics_process(_delta: float) -> void:
 	if not is_dying:
 		wall_jump_lock -= _delta
 		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
-		wall_slide = false
+		#wall_slide = false
 		get_input()
 		set_velocit(_delta)
 		move_and_slide()
 		animate()
 		attack()
 		bridge()
+		
 		if scale.x < 0.5:
 			die()
 	else:
@@ -105,7 +108,7 @@ func get_input():
 	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			jump = true
-		elif is_on_wall() and wall_jump_lock <= 0:
+		elif (is_on_wall() or wall_slide) and wall_jump_lock <= 0:
 			wall_jump = true
 			wall_direction = get_wall_normal()
 
@@ -164,17 +167,25 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-
+	if is_on_floor() or not onwall():
+		wall_slide = false
+		curdir = null
 	if not is_on_floor():
-		if not is_on_wall():
+		if is_on_wall():
+			wall_side = -get_wall_normal().x
+		if not is_on_wall() and not wall_slide:
 			velocity.y += gravity * delta
 			velocity.y = min(velocity.y, max_fall)
 		else:
-			if velocity.y >= 0:
-				velocity.y = gravity * 0.07
+			if not curdir:
+				curdir = last_direction
+			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
 				wall_slide = true
 			else:
+				curdir = null
+				wall_slide = false
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
 	elif jump:
@@ -182,19 +193,30 @@ func set_velocit(delta):
 		jump = false
 
 
+## Stops shrinking for a set amount of time, 15 seconds.
 func stopshrinking():
+	saved_shrink_percent = shrink_percent
 	shrink_percent = 0
 	timey.wait_time = 15
 	timey.timeout.connect(resumeshrinking)
 	timey.start()
 
+## Stops shrinking indefinitely, until something restarts it with [method resumeshrinking].
+func pauseshrinking():
+	shrink_percent = 0
 
 func reverseshrinking(seconds):
 	scale = scale/((1-(shrink_percent/6000.0)) ** seconds)
 
 func resumeshrinking():
-	shrink_percent = 165
+	shrink_percent = saved_shrink_percent
 
+func onwall():
+	var bods = $Area2D.get_overlapping_bodies()
+	for bod in bods:
+		if bod.name.find("Tile") != -1:
+			return true
+	return false
 
 func die(force: bool = false):
 	if lives > 1 and not force:
@@ -206,3 +228,9 @@ func die(force: bool = false):
 	sprite_2d.scale = Vector2(0.14, 0.14)
 	is_dying = true
 	collision_shape_2d.disabled = true
+
+
+func _process(delta: float) -> void:
+	# Inputs that aren't physics related
+	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
+		$CanvasLayer/PauseMenu.open()

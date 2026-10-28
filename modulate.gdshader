@@ -1,8 +1,11 @@
 // Color modulation
+// Add this to a node to change one of it's color
 
 shader_type canvas_item;
 
+// The color that will be replaced
 uniform vec4 target_color : source_color;
+// The replacement
 uniform vec4 replacement_color : source_color;
 uniform float tolerance = 0.1;
 
