@@ -1,31 +1,22 @@
 extends CharacterBody2D
-## Player script
-##
-## [br][br]Please only edit export values from the editor if they need to be edited for the level only or for debug.
-## [br]Otherwise, edit them from the script.
 
 # for player only
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
 
-@export var acceleration := 1000
-@export var friction := 10000
-@export var gravity := 1150
-@export var max_speed := 175
-@export var max_fall := 2000
-@export var jump_strength = 400
-@export var shrink_percent := 50
-@export var wall_jump_bounce := 300
-@export var wall_stength := 330.0
-@export var air_acceleration := 700.0
-@export var air_friction := 500.0
-@export var wall_jump_lock_time := 0.2
-@export var wall_slide_speed := 0.08
+@export var acceleration := 150
+@export var friction := 2000
+@export var gravity := 300
+@export var max_speed := 500
+@export var max_fall := 1000
+@export var jump_strength = 300
+@export var shrink_percent := 165
+@export var wall_jump_bounce := 500
+@export var wall_stength := 400
 @export var throw_cd := 0.1
-@export var shield_force = 10.0
+@export var shield_force = 15.0
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
-
 var curdir
 var wall_side = 0.0
 var is_dying := false
@@ -40,7 +31,6 @@ var can_bridge = false
 var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
-
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -122,8 +112,6 @@ func get_input():
 		elif (is_on_wall() or wall_slide) and wall_jump_lock <= 0:
 			wall_jump = true
 			wall_direction = get_wall_normal()
-			if wall_direction == Vector2.ZERO:
-				wall_direction = Vector2(-wall_side, 0)
 
 
 func bridge():
@@ -174,16 +162,12 @@ func set_velocit(delta):
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
 		wall_jump = false
-		wall_jump_lock = wall_jump_lock_time
+		wall_jump_lock = 0.2
 	elif wall_jump_lock <= 0:
 		if direction:
-			var rate = acceleration
-			if velocity.x != 0 and sign(direction) != sign(velocity.x):
-				rate = friction   # turn around
-			velocity.x = move_toward(velocity.x, direction * max_speed, rate * delta)
+			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
-			var fric: float = friction if is_on_floor() else air_friction
-			velocity.x = move_toward(velocity.x, 0, fric * delta)
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
 	if is_on_floor() or not onwall():
 		wall_slide = false
 		curdir = null
@@ -197,7 +181,7 @@ func set_velocit(delta):
 			if not curdir:
 				curdir = last_direction
 			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
-				velocity.y = gravity * wall_slide_speed
+				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
 				wall_slide = true
 			else:
