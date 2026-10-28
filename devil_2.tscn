@@ -127,7 +127,7 @@ max_fall = 1000
 shrink_percent = 130
 wall_jump_bounce = 500
 shield_force = 15.0
-lives = 3
+lives = 4
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_664u7")]
 position = Vector2(624, 312)
@@ -144,8 +144,7 @@ position = Vector2(103, 37)
 
 [node name="notesprite" parent="." unique_id=1510563838 instance=ExtResource("6_hpevd")]
 position = Vector2(57, 45)
-note = "Well done. A solid KO against my apostles. Very well done spirit fox.
-Let's see what else you've got.
+note = "Not bad, but Dronmar wasn't that good anyways. Good luck, because you will need it badly.
 - Anora"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1786876493]
@@ -154,4 +153,5 @@ Let's see what else you've got.
 
 [node name="Dronmar, the Killer Lord boss" parent="." unique_id=1302426644 node_paths=PackedStringArray("tilemap") instance=ExtResource("8_y71u8")]
 position = Vector2(-168, -147)
+hpmax = 180
 tilemap = NodePath("../Tilemap/TileMapLayer2")

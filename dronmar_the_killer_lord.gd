@@ -23,8 +23,6 @@ func set_movements(delta):
 		direction = -1
 	else:
 		direction = 1
-	if abs(player.global_position.x - global_position.x) < 50:
-		direction = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	set_movements(delta)
