@@ -37,6 +37,7 @@ var saved_shrink_percent: int = shrink_percent
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var hud: Control = $CanvasLayer/HUD
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+var collected: Array
 
 
 func _ready() -> void:
@@ -234,3 +235,8 @@ func _process(delta: float) -> void:
 	# Inputs that aren't physics related
 	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
 		$CanvasLayer/PauseMenu.open()
+
+
+
+func _collected(name):
+	return collected.has(name)

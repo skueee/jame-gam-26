@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://r6goipkxw78d"]
+
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_1vvux"]
+
+[sub_resource type="GDScript" id="GDScript_iu8q0"]
+script/source = "extends Area2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var timer: Timer = $Timer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var cooldown := false
+@export var id := \"anything\"
+@export var time := 1
+@export var target : Vector2
+var positionstart : Vector2
+
+func _ready() -> void:
+	timer.timeout.connect(done)
+	positionstart = global_position
+
+
+
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"player\":
+		if body.collected(id):
+			var tween = create_tween()
+			tween.tween_property(self, \"global_position\", target, time)
+			await tween.finished
+			timer.start()
+
+
+
+func done():
+	var tween = create_tween()
+	tween.tween_property(self, \"position\", positionstart, time)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5sa"]
+size = Vector2(20, 123)
+
+[node name="Area 2D" type="Area2D" unique_id=599681023]
+script = SubResource("GDScript_iu8q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239762656]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_qr5sa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981456343]
+scale = Vector2(0.16406249, 1)
+texture = ExtResource("1_1vvux")
+
+[node name="Timer" type="Timer" parent="." unique_id=1683419400]
+wait_time = 6.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
