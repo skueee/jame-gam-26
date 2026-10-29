@@ -34,6 +34,13 @@ func death():
 	queue_free()
 
 func projectile():
+	if randi_range(1, 43) == 42:
+		var projectile: PackedScene = load("res://theranger.tscn")
+		var instance: CharacterBody2D = projectile.instantiate()
+		get_parent().add_child(instance)
+		instance.state = "chasing"
+		instance.livetime = 5
+		instance.max_speed = 200
 	var projectile: PackedScene = load("res://bossesthrowable.tscn")
 	var instance: RigidBody2D = projectile.instantiate()
 	get_parent().add_child(instance)

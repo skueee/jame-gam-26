@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4mxlk2it25gx" path="res://torch.tscn" id="5_qi5w8"]
 [ext_resource type="PackedScene" uid="uid://brwn17srsj6r2" path="res://notesprite.tscn" id="6_03bll"]
 [ext_resource type="PackedScene" uid="uid://cxglg451355nt" path="res://note.tscn" id="7_x1ibj"]
-[ext_resource type="PackedScene" uid="uid://djc0sbtuxj71v" path="res://dronmar_the_killer_lord.tscn" id="8_oltqf"]
-[ext_resource type="PackedScene" uid="uid://dmf45oskiyqdl" path="res://miniboss.tscn" id="9_5052g"]
+[ext_resource type="PackedScene" uid="uid://x4mv0jqh14tb" path="res://theranger.tscn" id="8_td0ay"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5lmm"]
 texture = ExtResource("1_b5lmm")
@@ -154,12 +153,7 @@ note = "Well well well, you destroyed the best combo, which SHOULD HAVE KILLED Y
 
 [node name="Note" parent="CanvasLayer" unique_id=1435173420 groups=["note_ui"] instance=ExtResource("7_x1ibj")]
 
-[node name="Dronmar, the Killer Lord boss" parent="." unique_id=1302426644 node_paths=PackedStringArray("tilemap") instance=ExtResource("8_oltqf")]
-position = Vector2(-168, -147)
-hpmax = 180
-tilemap = NodePath("../Tilemap/TileMapLayer2")
-
-[node name="miniboss" parent="." unique_id=953159103 node_paths=PackedStringArray("tilemap") instance=ExtResource("9_5052g")]
-position = Vector2(-19, -127)
-secondary = true
+[node name="theranger" parent="." unique_id=176813700 node_paths=PackedStringArray("ultimate_target", "tilemap") instance=ExtResource("8_td0ay")]
+position = Vector2(-92, -6)
+ultimate_target = NodePath("../player")
 tilemap = NodePath("../Tilemap/TileMapLayer2")

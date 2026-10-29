@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://x4mv0jqh14tb"]
+
+[ext_resource type="Script" uid="uid://cegtjyiot37gg" path="res://theranger_ai.gd" id="1_7mxp2"]
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_v2kbr"]
+[ext_resource type="Script" uid="uid://2mc131ieb5fu" path="res://soulzone.gd" id="3_7tuhq"]
+[ext_resource type="Script" uid="uid://bccusm2lu3dla" path="res://soultrail.gd" id="3_l0s57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvton"]
+size = Vector2(10, 9.5)
+
+[sub_resource type="Gradient" id="Gradient_7tuhq"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mxp2"]
+size = Vector2(15, 15)
+
+[node name="theranger" type="CharacterBody2D" unique_id=176813700]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_7mxp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916559594]
+shape = SubResource("RectangleShape2D_jvton")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=439791349]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("1_v2kbr")
+
+[node name="soultrail" type="CPUParticles2D" parent="." unique_id=819749552]
+amount = 100
+lifetime = 0.7
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 10)
+initial_velocity_max = 10.0
+color_initial_ramp = SubResource("Gradient_7tuhq")
+script = ExtResource("3_l0s57")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=516196899]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_7tuhq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=495245077]
+shape = SubResource("RectangleShape2D_7mxp2")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
