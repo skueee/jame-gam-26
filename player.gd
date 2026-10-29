@@ -3,17 +3,17 @@ extends CharacterBody2D
 # for player only
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
 var banging = false
-@export var acceleration := 150
+@export var acceleration := 200
 @export var friction := 2000
-@export var gravity := 300
-@export var max_speed := 500
-@export var max_fall := 1000
+@export var gravity := 980
+@export var max_speed := 600
+@export var max_fall := 2000
 @export var jump_strength = 300
-@export var shrink_percent := 165
-@export var wall_jump_bounce := 500
+@export var shrink_percent := 50
+@export var wall_jump_bounce := 100
 @export var wall_stength := 400
 @export var throw_cd := 0.1
-@export var shield_force = 15.0
+@export var shield_force = 10.0
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
