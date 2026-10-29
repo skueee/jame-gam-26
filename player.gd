@@ -35,6 +35,7 @@ var can_bridge = false
 var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
+var god_mode := false
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -122,12 +123,13 @@ func get_input():
 		last_direction = direction
 		$Sprite2D.flip_h = direction < 0
 	if Input.is_action_just_pressed("up"):
-		if is_on_floor():
+		if is_on_floor() || god_mode:
 			jump = true
 		elif (is_on_wall() or wall_slide) and wall_jump_lock <= 0:
 			wall_jump = true
 			wall_direction = get_wall_normal()
-
+	if Input.is_action_just_pressed("God"):
+		god_mode = not god_mode
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
@@ -173,6 +175,7 @@ func shield():
 
 
 func set_velocit(delta):
+	
 	if wall_jump:
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
@@ -186,26 +189,30 @@ func set_velocit(delta):
 	if is_on_floor() or not onwall():
 		wall_slide = false
 		curdir = null
-	if not is_on_floor():
-		if is_on_wall():
-			wall_side = -get_wall_normal().x
-		if not is_on_wall() and not wall_slide:
-			velocity.y += gravity * delta
-			velocity.y = min(velocity.y, max_fall)
-		else:
-			if not curdir:
-				curdir = last_direction
-			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
-				velocity.y = gravity * 0.02
-				velocity.y = min(velocity.y, max_fall)
-				wall_slide = true
-			else:
-				curdir = null
-				wall_slide = false
+	if not god_mode:
+		if not is_on_floor():
+			if is_on_wall():
+				wall_side = -get_wall_normal().x
+			if not is_on_wall() and not wall_slide:
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
+			else:
+				if not curdir:
+					curdir = last_direction
+				if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+					velocity.y = gravity * 0.02
+					velocity.y = min(velocity.y, max_fall)
+					wall_slide = true
+				else:
+					curdir = null
+					wall_slide = false
+					velocity.y += gravity * delta
+					velocity.y = min(velocity.y, max_fall)
+		elif jump:
+			velocity.y = 0 - jump_strength
+			jump = false
 	elif jump:
-		velocity.y = 0 - jump_strength
+		position.y -= 10
 		jump = false
 
 func camerashake():
