@@ -6,7 +6,6 @@
 script/source = "extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var cooldown := false
 @export var id := \"anything\"
@@ -26,7 +25,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == \"player\":
-		if body.collected(id):
+		if body._collected(id):
 			var tween = create_tween()
 			tween.tween_property(self, \"global_position\", target, time)
 			await tween.finished
@@ -42,7 +41,12 @@ func done():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5sa"]
 size = Vector2(20, 123)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vvux"]
+size = Vector2(9.999999, 123)
+
 [node name="Area 2D" type="Area2D" unique_id=599681023]
+z_index = -1
+scale = Vector2(0.2, 0.2)
 script = SubResource("GDScript_iu8q0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239762656]
@@ -55,5 +59,12 @@ texture = ExtResource("1_1vvux")
 
 [node name="Timer" type="Timer" parent="." unique_id=1683419400]
 wait_time = 6.0
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=947330378]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=330020818]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_1vvux")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

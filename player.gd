@@ -240,4 +240,5 @@ func _process(delta: float) -> void:
 
 
 func _collected(name):
+	
 	return collected.has(name)

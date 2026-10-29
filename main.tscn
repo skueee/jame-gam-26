@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://djvve1poxewdc" path="res://reverse_potion.tscn" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://r6goipkxw78d" path="res://Door.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://qru0qxwg0jvs" path="res://key.tscn" id="16_2cqfq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c57u"]
 texture = ExtResource("2_5vw27")
@@ -100,7 +102,12 @@ position = Vector2(61, 279)
 position = Vector2(948, 7)
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("1_ig7tw")]
+acceleration = 100
+friction = 600
 max_speed = 700
+jump_strength = 400
+wall_jump_bounce = 50
+wall_stength = 200
 
 [node name="cloud_potion" parent="." unique_id=1756372684 instance=ExtResource("10_4c57u")]
 position = Vector2(1172, 70)
@@ -174,5 +181,13 @@ color = Color(0.46809, 0.29614407, 0.30326638, 1)
 
 [node name="Potion2" parent="." unique_id=877409574 instance=ExtResource("14_w48qg")]
 position = Vector2(231, 67)
+
+[node name="Area 2D" parent="." unique_id=599681023 instance=ExtResource("15_vivmo")]
+position = Vector2(1186, 69)
+time = 2
+target = Vector2(1186, 53)
+
+[node name="Node2D" parent="." unique_id=1173175132 instance=ExtResource("16_2cqfq")]
+position = Vector2(191, 72)
 
 [editable path="enemy"]
