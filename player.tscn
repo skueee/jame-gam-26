@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://br7ggdqod8yod"]
 
 [ext_resource type="Script" uid="uid://4jwet6rufjd6" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ekvamffs7yvg" path="res://camera_2d.gd" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://cd8h1hwp6yg84" path="res://untitled-autosave@1x.png" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://bsnftywy7a6qr" path="res://hud.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://coag43q060uec" path="res://untitled-autosave-sheet (8).png" id="3_sweqy"]
@@ -123,6 +124,8 @@ z_index = 15
 zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
+script = ExtResource("2_1jxqw")
+short = 0.2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1202860240]
 position = Vector2(-4, 10)

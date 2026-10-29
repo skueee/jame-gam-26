@@ -17,6 +17,7 @@ func _ready() -> void:
 	hud.add_custom_status(hp, hpmax, thename)
 func set_movements(delta):
 	if is_on_floor():
+		player.camerashake()
 		jumping = true
 	var notdirection = global_position.direction_to(player.global_position)
 	if notdirection.x < 0:

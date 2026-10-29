@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dffplr7uhhi3m" path="res://killermice.gd" id="1_ofth0"]
 [ext_resource type="Script" uid="uid://bko5pkb61rbd4" path="res://killermouse.gd" id="1_ufoou"]
-[ext_resource type="Texture2D" uid="uid://vd23lob5eakg" path="res://mouse.png" id="3_ufoou"]
+[ext_resource type="Texture2D" uid="uid://juaw2gdi6lvs" path="res://untitled-pixel-art@1x (4).png" id="3_ufoou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcr3d"]
 size = Vector2(7, 5)

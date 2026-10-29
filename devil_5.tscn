@@ -128,7 +128,7 @@ max_fall = 1000
 shrink_percent = 130
 wall_jump_bounce = 500
 shield_force = 160.0
-lives = 7
+lives = 6
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_hh0ym")]
 position = Vector2(624, 312)

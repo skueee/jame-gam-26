@@ -74,7 +74,7 @@ func disable_bridge():
 
 func _physics_process(_delta: float) -> void:
 	if banging:
-		bang_rect.modulate.a += 2 * _delta
+		bang_rect.modulate.a += 1 * _delta
 	if not is_dying:
 		wall_jump_lock -= _delta
 		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
@@ -203,8 +203,12 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
+func camerashake():
+	$Camera2D.shake(true)
+
 func bigbang():
 	banging = true
+	$Camera2D.shake()
 	timer_4.start()
 
 ## Stops shrinking for a set amount of time, 15 seconds.
