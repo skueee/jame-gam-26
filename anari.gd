@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var player: CharacterBody2D
 var targety: int
+var shots = 0
 @export var offset = 100
 @export var speed = 200
 @export var shots_per_sec: float = 2
@@ -34,7 +35,10 @@ func death():
 	queue_free()
 
 func projectile():
-	if randi_range(1, 43) == 42:
+	shots += 1
+	print(shots)
+	if shots == 50:
+		shots = 0
 		var projectile: PackedScene = load("res://theranger.tscn")
 		var instance: CharacterBody2D = projectile.instantiate()
 		get_parent().add_child(instance)

@@ -122,13 +122,9 @@ tile_set = SubResource("TileSet_ojlbn")
 
 [node name="player" parent="." unique_id=1888012525 instance=ExtResource("2_dmstm")]
 position = Vector2(-412, 26)
-acceleration = 150
-max_speed = 500
-max_fall = 1000
 shrink_percent = 130
-wall_jump_bounce = 500
 shield_force = 160.0
-lives = 6
+lives = 7
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_hh0ym")]
 position = Vector2(624, 312)

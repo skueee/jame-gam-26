@@ -63,7 +63,7 @@ func _ready() -> void:
 	Engine.time_scale = 1
 
 func final():
-	get_tree().change_scene_to_file("res://endscreen.tscn")
+	get_tree().change_scene_to_file("res://endscreendevil.tscn")
 
 func allow():
 	can_throw = true
