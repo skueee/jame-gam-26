@@ -17,6 +17,10 @@ var banging = false
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
+@export var supersense_cd = 10
+var supercdtimer = 5
+var supertimer = 0
+var supersensing = false
 var curdir
 var wall_side = 0.0
 var is_dying := false
@@ -54,6 +58,7 @@ func _ready() -> void:
 	timer_4.one_shot = true
 	timer_4.wait_time = 5
 	timer_4.timeout.connect(final)
+	Engine.time_scale = 1
 
 func final():
 	get_tree().change_scene_to_file("res://endscreen.tscn")
@@ -250,6 +255,22 @@ func die(force: bool = false):
 
 
 func _process(delta: float) -> void:
+	supercdtimer += delta
+	if Input.is_action_just_pressed("supersense"):
+		if supercdtimer < supersense_cd: return
+		if not supersensing:
+			
+			supersensing = true
+			Engine.time_scale = 0.5
+			hud.add_duration_status(5, "Super Sensing")
+	if supersensing:
+		if supertimer < 5:
+			supertimer += delta
+		else:
+			supercdtimer = 0
+			supersensing = false
+			Engine.time_scale = 1
+		
 	# Inputs that aren't physics related
 	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
 		$CanvasLayer/PauseMenu.open()
