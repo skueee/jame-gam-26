@@ -209,10 +209,7 @@ func set_velocit(delta):
 					wall_slide = false
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
-			else:
-				if not curdir:
-					curdir = last_direction
-				if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
 					velocity.y = gravity * 0.02
 					velocity.y = min(velocity.y, max_fall)
 					wall_slide = true
