@@ -36,6 +36,7 @@ var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
 var god_mode := false
+var bridgeable: PackedScene = preload("res://bridgeable.tscn")
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -91,7 +92,7 @@ func _physics_process(_delta: float) -> void:
 		animate()
 		attack()
 		bridge()
-		
+
 		if scale.x < 0.5:
 			scale = Vector2(1.0,1.0)
 			die()
@@ -135,7 +136,6 @@ func bridge():
 	if Input.is_action_just_pressed("bridge"):
 		if not can_bridge:
 			return
-		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
 		get_parent().add_child(bridge_instance)
@@ -175,7 +175,8 @@ func shield():
 
 
 func set_velocit(delta):
-	
+	var on_floor = is_on_floor()
+	var on_wall = is_on_wall()
 	if wall_jump:
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
@@ -186,14 +187,26 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-	if is_on_floor() or not onwall():
+	if on_floor or not on_wall:
 		wall_slide = false
 		curdir = null
 	if not god_mode:
-		if not is_on_floor():
-			if is_on_wall():
+		if not on_floor:
+			if on_wall:
 				wall_side = -get_wall_normal().x
-			if not is_on_wall() and not wall_slide:
+			if not on_wall and not wall_slide:
+				velocity.y += gravity * delta
+				velocity.y = min(velocity.y, max_fall)
+			else:
+				if not curdir:
+					curdir = last_direction
+				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+					velocity.y = gravity * 0.02
+					velocity.y = min(velocity.y, max_fall)
+					wall_slide = true
+				else:
+					curdir = null
+					wall_slide = false
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
 			else:
@@ -241,13 +254,6 @@ func reverseshrinking(seconds):
 func resumeshrinking():
 	shrink_percent = saved_shrink_percent
 
-func onwall():
-	var bods = $Area2D.get_overlapping_bodies()
-	for bod in bods:
-		if bod.name.find("Tile") != -1:
-			return true
-	return false
-
 func die(force: bool = false):
 	if banging: return
 	if lives > 1 and not force:
@@ -266,7 +272,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("supersense"):
 		if supercdtimer < supersense_cd: return
 		if not supersensing:
-			
+
 			supersensing = true
 			Engine.time_scale = 0.5
 			hud.add_duration_status(5, "Super Sensing")
@@ -277,7 +283,7 @@ func _process(delta: float) -> void:
 			supercdtimer = 0
 			supersensing = false
 			Engine.time_scale = 1
-		
+
 	# Inputs that aren't physics related
 	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
 		$CanvasLayer/PauseMenu.open()
@@ -285,5 +291,5 @@ func _process(delta: float) -> void:
 
 
 func _collected(name):
-	
+
 	return collected.has(name)

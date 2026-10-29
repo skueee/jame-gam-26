@@ -8,6 +8,7 @@ var can_projectile = true
 var died = false
 var dying = false
 var hp = 200
+var projectile_load = preload("res://bossesthrowable.tscn")
 
 @onready var timer: Timer = $Timer
 @onready var timer_2: Timer = $Timer2
@@ -146,8 +147,7 @@ func unbeam():
 
 func projectile():
 	var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-	var projectile: PackedScene = load("res://bossesthrowable.tscn")
-	var instance: RigidBody2D = projectile.instantiate()
+	var instance: RigidBody2D = projectile_load.instantiate()
 	get_parent().add_child(instance)
 	instance.global_position = Vector2(global_position.x, global_position.y + 24)
 	var direction = (player.global_position - instance.global_position).normalized()
