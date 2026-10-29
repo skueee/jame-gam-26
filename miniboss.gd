@@ -8,6 +8,7 @@ var jump_velocity = 450
 var speed = 300
 var hp = 150
 var timer_but_cheap = 0
+@export var secondary = false
 @export var thename = "Spikynox, Apostle of Destructions"
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var hud: Control = player.get_node("CanvasLayer/HUD")
@@ -51,6 +52,9 @@ func die():
 		hp -= 10
 		hud.add_custom_status(hp, 150, thename)
 	else:
+		if secondary:
+			queue_free()
+			return
 		tilemap.set_cell(Vector2i(2, -1), -1)
 		tilemap.set_cell(Vector2i(2, 0), -1)
 		tilemap.set_cell(Vector2i(2, 1), -1)

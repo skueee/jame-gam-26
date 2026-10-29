@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # for player only
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
-
+var banging = false
 @export var acceleration := 150
 @export var friction := 2000
 @export var gravity := 300
@@ -17,6 +17,10 @@ const THROWABLE: PackedScene = preload("res://throwable.tscn")
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
+@export var supersense_cd = 10
+var supercdtimer = 5
+var supertimer = 0
+var supersensing = false
 var curdir
 var wall_side = 0.0
 var is_dying := false
@@ -38,6 +42,8 @@ var saved_shrink_percent: int = shrink_percent
 @onready var hud: Control = $CanvasLayer/HUD
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 var collected: Array
+@onready var timer_4: Timer = $Timer4
+@onready var bang_rect: ColorRect = $CanvasLayer/Bang/ColorRect
 
 
 func _ready() -> void:
@@ -49,7 +55,13 @@ func _ready() -> void:
 	bridge_timer.timeout.connect(disable_bridge)
 	collision_shape_2d.disabled = false
 	hud.change_health(lives)
+	timer_4.one_shot = true
+	timer_4.wait_time = 5
+	timer_4.timeout.connect(final)
+	Engine.time_scale = 1
 
+func final():
+	get_tree().change_scene_to_file("res://endscreen.tscn")
 
 func allow():
 	can_throw = true
@@ -66,6 +78,8 @@ func disable_bridge():
 
 
 func _physics_process(_delta: float) -> void:
+	if banging:
+		bang_rect.modulate.a += 1 * _delta
 	if not is_dying:
 		wall_jump_lock -= _delta
 		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
@@ -194,6 +208,13 @@ func set_velocit(delta):
 		velocity.y = 0 - jump_strength
 		jump = false
 
+func camerashake():
+	$Camera2D.shake(true)
+
+func bigbang():
+	banging = true
+	$Camera2D.shake()
+	timer_4.start()
 
 ## Stops shrinking for a set amount of time, 15 seconds.
 func stopshrinking():
@@ -221,6 +242,7 @@ func onwall():
 	return false
 
 func die(force: bool = false):
+	if banging: return
 	if lives > 1 and not force:
 		lives -= 1
 		shield.call_deferred()
@@ -233,6 +255,22 @@ func die(force: bool = false):
 
 
 func _process(delta: float) -> void:
+	supercdtimer += delta
+	if Input.is_action_just_pressed("supersense"):
+		if supercdtimer < supersense_cd: return
+		if not supersensing:
+			
+			supersensing = true
+			Engine.time_scale = 0.5
+			hud.add_duration_status(5, "Super Sensing")
+	if supersensing:
+		if supertimer < 5:
+			supertimer += delta
+		else:
+			supercdtimer = 0
+			supersensing = false
+			Engine.time_scale = 1
+		
 	# Inputs that aren't physics related
 	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
 		$CanvasLayer/PauseMenu.open()

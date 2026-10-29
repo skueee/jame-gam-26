@@ -38,24 +38,12 @@ func _on_body_entered(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmg3h"]
 size = Vector2(10, 10)
 
-[sub_resource type="Gradient" id="Gradient_awui4"]
-offsets = PackedFloat32Array(0, 0.9976526)
+[sub_resource type="Gradient" id="Gradient_fauyr"]
+offsets = PackedFloat32Array(0, 0.99429655)
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_awui4"]
-gradient = SubResource("Gradient_awui4")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsws6"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 4.3
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_max = 30.0
-gravity = Vector3(0, -20, 0)
-color_ramp = SubResource("GradientTexture1D_awui4")
-
 [node name="throwable" type="RigidBody2D" unique_id=1626015072]
+collision_mask = 4
 mass = 0.007
 gravity_scale = 0.0
 script = SubResource("GDScript_vhmpr")
@@ -77,8 +65,15 @@ script = SubResource("GDScript_jiiek")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1130720660]
 shape = SubResource("RectangleShape2D_wmg3h")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1331888717]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=571186468]
 amount = 150
-process_material = SubResource("ParticleProcessMaterial_tsws6")
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+color_ramp = SubResource("Gradient_fauyr")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

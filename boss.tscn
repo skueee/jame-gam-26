@@ -43,19 +43,9 @@ shader_parameter/inner_color = Color(0.38431373, 0.6039216, 1, 1)
 shader_parameter/edge_color = Color(0.35686275, 0.43137255, 0.88235295, 1)
 shader_parameter/border_thickness = 0.03
 
-[sub_resource type="Gradient" id="Gradient_lnbgr"]
-colors = PackedColorArray(0.6745098, 0.19215687, 0.19215687, 1, 0.9843137, 0.9490196, 0.21176471, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lnbgr"]
-gradient = SubResource("Gradient_lnbgr")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsws6"]
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 70, 0)
-color_ramp = SubResource("GradientTexture1D_lnbgr")
+[sub_resource type="Gradient" id="Gradient_o1i15"]
+offsets = PackedFloat32Array(0, 0.74334604, 0.9296578)
+colors = PackedColorArray(0.7921569, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1)
 
 [node name="boss" type="CharacterBody2D" unique_id=192901748 groups=["boss"]]
 script = ExtResource("1_6xxrv")
@@ -98,15 +88,22 @@ texture = ExtResource("1_0bnu1")
 
 [node name="Timer4" type="Timer" parent="." unique_id=481846107]
 
-[node name="BOOOM" type="GPUParticles2D" parent="." unique_id=1031202535]
+[node name="deathtime" type="Timer" parent="." unique_id=1338319265]
+
+[node name="BOOOM" type="CPUParticles2D" parent="." unique_id=459830226]
 emitting = false
-amount = 1000
-lifetime = 3.0
+amount = 800
+lifetime = 2.5
 one_shot = true
 explosiveness = 1.0
-randomness = 0.21
-process_material = SubResource("ParticleProcessMaterial_tsws6")
-
-[node name="deathtime" type="Timer" parent="." unique_id=1338319265]
+randomness = 0.27
+lifetime_randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 60)
+initial_velocity_min = 80.0
+initial_velocity_max = 140.0
+color_ramp = SubResource("Gradient_o1i15")
 
 [connection signal="body_entered" from="beam" to="beam" method="_on_body_entered"]

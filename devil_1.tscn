@@ -105,6 +105,7 @@ texture = ExtResource("1_xdw4e")
 7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:4/0 = 0
 8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ghrvs"]
 physics_layer_0/collision_layer = 3
@@ -154,6 +155,7 @@ Let's see what else you've got.
 
 [node name="miniboss2" parent="." unique_id=953159103 node_paths=PackedStringArray("tilemap") instance=ExtResource("8_qpojl")]
 position = Vector2(-64, -50)
+secondary = true
 thename = "Spikernox, Apostle of Ruins"
 tilemap = NodePath("../Tilemap/TileMapLayer2")
 
