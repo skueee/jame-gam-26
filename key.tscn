@@ -9,10 +9,11 @@ script/source = "extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _process(delta: float) -> void:
-	var nodes = get_tree().get_nodes_in_group(\"players\")
-	nodes = nodes[0]
-	if not nodes.collected.has(id):
-		toggle(true)
+	var nodes = get_tree().get_nodes_in_group(\"player\")
+	if nodes.size() > 0:
+		nodes = nodes[0]
+		if not nodes.collected.has(id):
+			toggle(true)
 
 
 
@@ -26,7 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func toggle(state):
 	visible = state
-	collision_shape_2d.disabled = not state
+	collision_shape_2d.set_deferred(\"disabled\", not state)
 	
 "
 
@@ -34,6 +35,7 @@ func toggle(state):
 size = Vector2(179, 38)
 
 [node name="Node2D" type="Area2D" unique_id=1173175132]
+scale = Vector2(0.1, 0.1)
 script = SubResource("GDScript_qr5sa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581871055]
