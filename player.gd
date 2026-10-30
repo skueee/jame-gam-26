@@ -36,6 +36,10 @@ var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
 var god_mode := false
+var shop := false
+var close_shop := false
+var instance
+var shop_scene = preload("res://Shop.tscn")
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -45,6 +49,10 @@ var god_mode := false
 var collected: Array
 @onready var timer_4: Timer = $Timer4
 @onready var bang_rect: ColorRect = $CanvasLayer/Bang/ColorRect
+@onready var speed_boost: Timer = $"Speed Boost"
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
+@onready var camera_2d: Camera2D = $Camera2D
+
 
 
 func _ready() -> void:
@@ -60,6 +68,33 @@ func _ready() -> void:
 	timer_4.wait_time = 5
 	timer_4.timeout.connect(final)
 	Engine.time_scale = 1
+	Die.speed_booster.connect(boost_speed)
+	Die.greater_jump.connect(greater_jump)
+	Die.extra_life.connect(extra_life)
+
+
+func extra_life():
+	lives += 1
+	hud.change_health(lives)
+
+
+func greater_jump():
+	await Die.pause_close
+	jump_strength *= 1.5
+	hud.add_duration_status(10, "Jump Boosterss")
+	await get_tree().create_timer(10).timeout
+	jump_strength *= 0.6667
+
+func boost_speed():
+	await Die.pause_close
+	max_speed *= 1.5
+	acceleration *= 1.5
+	hud.add_duration_status(10, "Speed Booster")
+	await get_tree().create_timer(10).timeout
+	max_speed *= 0.667
+	acceleration *= 0.667
+
+
 
 func final():
 	get_tree().change_scene_to_file("res://endscreen.tscn")
@@ -81,24 +116,37 @@ func disable_bridge():
 func _physics_process(_delta: float) -> void:
 	if banging:
 		bang_rect.modulate.a += 1 * _delta
-	if not is_dying:
-		wall_jump_lock -= _delta
-		scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
-		#wall_slide = false
-		get_input()
-		set_velocit(_delta)
-		move_and_slide()
-		animate()
-		attack()
-		bridge()
-		
-		if scale.x < 0.5:
-			scale = Vector2(1.0,1.0)
-			die()
+	if not shop:
+		if not is_dying:
+			wall_jump_lock -= _delta
+			scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
+			#wall_slide = false
+			get_input()
+			set_velocit(_delta)
+			move_and_slide()
+			animate()
+			attack()
+			bridge()
+			
+			if scale.x < 0.5:
+				scale = Vector2(1.0,1.0)
+				die()
+		else:
+			global_position = global_position.move_toward(start_pos, 300 * _delta)
+			if global_position == start_pos:
+				get_tree().call_deferred("reload_current_scene")
 	else:
-		global_position = global_position.move_toward(start_pos, 300 * _delta)
-		if global_position == start_pos:
-			get_tree().call_deferred("reload_current_scene")
+		if close_shop:
+			instance.queue_free()
+			close_shop = false
+			shop = false
+			camera_2d.zoom = Vector2(3, 3)
+
+func open_shop():
+	instance = shop_scene.instantiate()
+	add_child(instance)
+	camera_2d.zoom = Vector2.ONE
+	
 
 
 func animate():
@@ -130,6 +178,14 @@ func get_input():
 			wall_direction = get_wall_normal()
 	if Input.is_action_just_pressed("God"):
 		god_mode = not god_mode
+	if Input.is_action_just_pressed("ui_pause"):
+		if shop:
+			close_shop = true
+		else:
+			pass
+	if Input.is_action_just_pressed('Shop'):
+		shop = true
+		open_shop()
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
@@ -259,7 +315,8 @@ func die(force: bool = false):
 	sprite_2d.scale = Vector2(0.14, 0.14)
 	is_dying = true
 	collision_shape_2d.disabled = true
-
+	Die.emit_signal("die")
+	Die.coins = 0
 
 func _process(delta: float) -> void:
 	supercdtimer += delta

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://djvve1poxewdc" path="res://reverse_potion.tscn" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://bfo17vd5kf88c" path="res://coins.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://r6goipkxw78d" path="res://Door.tscn" id="15_vivmo"]
 [ext_resource type="PackedScene" uid="uid://qru0qxwg0jvs" path="res://key.tscn" id="16_2cqfq"]
 
@@ -178,6 +179,15 @@ offset_top = 85.0
 offset_right = 2207.0
 offset_bottom = 938.0
 color = Color(0.46809, 0.29614407, 0.30326638, 1)
+
+[node name="Area2D" parent="Node" unique_id=1136422402 instance=ExtResource("14_yaehf")]
+position = Vector2(153, 75)
+
+[node name="Area2D2" parent="Node" unique_id=1073570668 instance=ExtResource("14_yaehf")]
+position = Vector2(328, 28)
+
+[node name="Area2D3" parent="Node" unique_id=1916796506 instance=ExtResource("14_yaehf")]
+position = Vector2(646, -22)
 
 [node name="Potion2" parent="." unique_id=877409574 instance=ExtResource("14_w48qg")]
 position = Vector2(231, 67)

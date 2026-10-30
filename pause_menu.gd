@@ -5,6 +5,8 @@ var selection := 0
 
 var active: bool = false
 
+var shop = preload('res://Shop.tscn')
+
 func _ready() -> void:
 	hide() # We don't want it to trigger at startup
 
@@ -23,6 +25,7 @@ func close():
 	active = false
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished
+	Die.pause_close.emit()
 	hide()
 	get_tree().get_first_node_in_group("player").resumeshrinking()
 

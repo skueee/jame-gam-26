@@ -1,0 +1,401 @@
+[gd_scene format=3 uid="uid://b738fu6y4sygc"]
+
+[ext_resource type="Texture2D" uid="uid://cjhgjqc18ngwi" path="res://trees_gbv2.png" id="1_7ae35"]
+[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_c53l5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr5sa"]
+
+[sub_resource type="GDScript" id="GDScript_qr5sa"]
+script/source = "extends HBoxContainer
+
+@export var namei:= \"Speed Booster\"
+@export var cost := 2
+@export var code := \"speed_booster\"
+
+@onready var label: Label = $Label
+@onready var label_2: Label = $Label2
+@onready var button: Button = $Button
+
+func _ready() -> void:
+	label.text = str(cost) + \"X\"
+	label_2.text = namei
+
+
+func _process(delta: float) -> void:
+	if Die.coins < cost:
+		button.disabled = true
+	else:
+		button.disabled = false
+
+
+
+
+func _on_button_pressed() -> void:
+	Die.coins -= cost
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv1b8"]
+
+[node name="Control" type="Control" unique_id=1480724099]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=602408093]
+repeat_size = Vector2(1974, 0)
+autoscroll = Vector2(-60, 0)
+repeat_times = 6
+
+[node name="TextureRect" type="Control" parent="Parallax2D" unique_id=324387171]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.0
+offset_top = -326.5
+offset_right = 842.0
+offset_bottom = 326.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Parallax2D/TextureRect" unique_id=1112713014]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -987.0
+offset_top = -329.0
+offset_right = 987.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D/TextureRect/HBoxContainer" unique_id=946748707]
+layout_mode = 2
+texture = ExtResource("1_7ae35")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Parallax2D/TextureRect/HBoxContainer" unique_id=517983665]
+layout_mode = 2
+texture = ExtResource("1_7ae35")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Parallax2D/TextureRect/HBoxContainer" unique_id=220375354]
+layout_mode = 2
+texture = ExtResource("1_7ae35")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=680313124]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = -321.0
+offset_right = 410.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=9108722]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=884694251]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32156864, 1, 0.40392157, 1)
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qr5sa")
+text = "SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=264499824]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Segment" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=566243927]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment" unique_id=1470732763]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment" unique_id=121889092]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment" unique_id=1378958560]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment" unique_id=1633553605]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment" unique_id=1090029505]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment" unique_id=1272790483]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[node name="Segment2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1918226230]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+namei = "Pause Shrink"
+cost = 5
+code = "stop_shrinking"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment2" unique_id=1481727180]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment2" unique_id=838731289]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment2" unique_id=1470647674]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment2" unique_id=1303613037]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment2" unique_id=1730583049]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment2" unique_id=194320998]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[node name="Segment3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=97401030]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+namei = "Jump Boost"
+cost = 5
+code = "greater_jump"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment3" unique_id=1513014878]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment3" unique_id=598433294]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment3" unique_id=904992070]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment3" unique_id=1430199227]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment3" unique_id=1902853981]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment3" unique_id=314009023]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[node name="Segment4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=843123598]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+namei = "Bridge Potion"
+cost = 7
+code = "bridge_ability"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment4" unique_id=615663629]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment4" unique_id=1801553630]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment4" unique_id=1765864756]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment4" unique_id=1436824197]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment4" unique_id=1498584306]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment4" unique_id=1663345661]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[node name="Segment6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=463942384]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+namei = "Reverse Shrink"
+cost = 7
+code = "reverse_shrink"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment6" unique_id=531121953]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment6" unique_id=1223564562]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment6" unique_id=1116462609]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment6" unique_id=1583212654]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment6" unique_id=137357891]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment6" unique_id=1336701746]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[node name="Segment5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=362282433]
+layout_mode = 2
+script = SubResource("GDScript_qr5sa")
+namei = "Extra Life"
+cost = 10
+code = "extra_life"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Segment5" unique_id=1945339851]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "99X"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Segment5" unique_id=522782661]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_c53l5")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Segment5" unique_id=1253694094]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Segment5" unique_id=178729933]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "SPEED BOOSTER"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/Segment5" unique_id=1994493972]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Segment5" unique_id=1085454896]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "BUY"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment/Button" to="MarginContainer/VBoxContainer/Segment" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment2/Button" to="MarginContainer/VBoxContainer/Segment2" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment3/Button" to="MarginContainer/VBoxContainer/Segment3" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment4/Button" to="MarginContainer/VBoxContainer/Segment4" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment6/Button" to="MarginContainer/VBoxContainer/Segment6" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Segment5/Button" to="MarginContainer/VBoxContainer/Segment5" method="_on_button_pressed"]
