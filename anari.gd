@@ -45,6 +45,7 @@ func projectile():
 		instance.state = "chasing"
 		instance.livetime = 5
 		instance.max_speed = 200
+		instance.global_position = global_position
 	var projectile: PackedScene = load("res://bossesthrowable.tscn")
 	var instance: RigidBody2D = projectile.instantiate()
 	get_parent().add_child(instance)
