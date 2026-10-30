@@ -383,8 +383,7 @@ layout_mode = 2
 [node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer3" unique_id=1649031670]
 layout_mode = 2
 text = "Honestly didnt think anyone would beat Anari except for me so
-if you really did im very very proud of you.
-DM me in slack about your achievment - im @leolevd"
+if you really did im very very proud of you."
 label_settings = SubResource("LabelSettings_5ywda")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer" unique_id=138722780]
