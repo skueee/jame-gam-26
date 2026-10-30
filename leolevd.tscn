@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dmp4qlmhmskda"]
+
+[ext_resource type="Shader" uid="uid://da7uy3l8m4t1h" path="res://leolevd.gdshader" id="1_42r7y"]
+[ext_resource type="Texture2D" uid="uid://c6ft58fg5iqjd" path="res://leolevd.png" id="2_1lcig"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg3h"]
+shader = ExtResource("1_42r7y")
+shader_parameter/distortion = 0.015
+shader_parameter/glitch_speed = 10.0
+shader_parameter/color_shift = 0.008
+shader_parameter/red_blue_mix = 0.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42r7y"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lcig"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqs85"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjy4g"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyw2o"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtu65"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc3cj"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bak7i"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jilhw"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7skvb"]
+atlas = ExtResource("2_1lcig")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsws6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42r7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lcig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqs85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjy4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyw2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtu65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc3cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bak7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jilhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7skvb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 41.0
+}]
+
+[node name="leolevd" type="CharacterBody2D" unique_id=1495174518]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=188926081]
+
+[node name="Node" type="Node" parent="." unique_id=1824759352]
+
+[node name="Node2" type="Node" parent="." unique_id=1507490728]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=739116010]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=274016732]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=703718932]
+material = SubResource("ShaderMaterial_wmg3h")
+scale = Vector2(2.625, 2.625)
+sprite_frames = SubResource("SpriteFrames_tsws6")
+autoplay = "default"
+frame_progress = 0.21044181
