@@ -106,7 +106,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
-size = Vector2(24, 18)
+size = Vector2(28, 18)
 
 [node name="player" type="CharacterBody2D" unique_id=1888012525 groups=["player", "players"]]
 z_index = 999

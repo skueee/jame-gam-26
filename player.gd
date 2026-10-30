@@ -232,10 +232,12 @@ func shield():
 
 		potion.apply_central_impulse(throw_direction * shield_force)
 
+func onwall():
+	if str($Area2D.get_overlapping_bodies()).find("Tile")  != -1:
+		return true
+	return false
 
 func set_velocit(delta):
-	var on_floor = is_on_floor()
-	var on_wall = is_on_wall()
 	if wall_jump:
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
@@ -246,42 +248,29 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-	if on_floor or not on_wall:
+	if is_on_floor() or not onwall():
 		wall_slide = false
 		curdir = null
-	if not god_mode:
-		if not on_floor:
-			if on_wall:
-				wall_side = -get_wall_normal().x
-			if not on_wall and not wall_slide:
-				velocity.y += gravity * delta
+	if not is_on_floor():
+		if is_on_wall():
+			wall_side = -get_wall_normal().x
+		if not is_on_wall() and not wall_slide:
+			velocity.y += gravity * delta
+			velocity.y = min(velocity.y, max_fall)
+		else:
+			if not curdir:
+				curdir = last_direction
+			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
+				wall_slide = true
 			else:
-				if not curdir:
-					curdir = last_direction
-				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
-					velocity.y = gravity * 0.02
-					velocity.y = min(velocity.y, max_fall)
-					wall_slide = true
-				else:
-					curdir = null
-					wall_slide = false
+				curdir = null
+				wall_slide = false
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
-				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
-					velocity.y = gravity * 0.02
-					velocity.y = min(velocity.y, max_fall)
-					wall_slide = true
-				else:
-					curdir = null
-					wall_slide = false
-					velocity.y += gravity * delta
-					velocity.y = min(velocity.y, max_fall)
-		elif jump:
-			velocity.y = 0 - jump_strength
-			jump = false
 	elif jump:
-		position.y -= 10
+		velocity.y = 0 - jump_strength
 		jump = false
 
 func camerashake():
