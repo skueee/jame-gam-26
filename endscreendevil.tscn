@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://38hihosa1ul8"]
 
-[ext_resource type="Script" uid="uid://oytfymdlxxh7" path="res://endscreendevil.gd" id="1_2c7x6"]
+[ext_resource type="Script" uid="uid://dxyqruli0yedl" path="res://endscreen.gd" id="1_2c7x6"]
 [ext_resource type="Texture2D" uid="uid://dvlj2woabu71g" path="res://endscreen.png" id="2_fcf4b"]
 [ext_resource type="FontFile" uid="uid://c3tx7rmhdtoov" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="3_eip3c"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="4_w2jgr"]
@@ -38,6 +38,15 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjfn4"]
 size = Vector2(173, 37.9375)
+
+[sub_resource type="Gradient" id="Gradient_k7cnj"]
+offsets = PackedFloat32Array(0.12890625, 0.86167145)
+colors = PackedColorArray(1, 0.078431375, 0.22745098, 1, 1, 0.6901961, 0.5254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nxgh7"]
+gradient = SubResource("Gradient_k7cnj")
+fill_from = Vector2(0.055555556, 0.08547009)
+fill_to = Vector2(0, 1)
 
 [sub_resource type="Animation" id="Animation_k7cnj"]
 length = 0.001
@@ -345,13 +354,15 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1896092169]
 layout_mode = 2
-text = "Congratulations, you won again !"
+text = "Congratulations, you won !"
 label_settings = SubResource("LabelSettings_mjfn4")
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1476089011]
 layout_mode = 2
-text = "After defeating Anari, you returned to your forest, knowing that now villages are safe. 
-Fight with anari strenghened you, and made you ready to face your crush. Probably."
+text = "After defeating Anari, you returned to your forest and got a great sleep,
+knowing, that now the villagers are safe.
+But something else troubled your mind, so you returned to that
+civillian kid, and cured his father, who was barely alive, from the burns."
 label_settings = SubResource("LabelSettings_5ywda")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=159911548]
@@ -360,7 +371,8 @@ layout_mode = 2
 [node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=1190885824]
 layout_mode = 2
 text = "- Developing: leolevd, SalproKite, skue
-- Devil levels were made fully by leolevd
+- btw leolevd developed the devil levels and
+i copied the endscreen but no one cares
 - Art: cat-bouquet, KittyCat (although a little)
 - Music: cat-bouquet, skueee"
 label_settings = SubResource("LabelSettings_5ywda")
@@ -370,9 +382,9 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer3" unique_id=1649031670]
 layout_mode = 2
-text = "Didnt think anyone cud go that far, honestly.
-So you either cheating or a superskilled pro player
-and im proud of you in both situations"
+text = "Honestly didnt think anyone would beat Anari except for me so
+if you really did im very very proud of you.
+DM me in slack about your achievment - im @leolevd"
 label_settings = SubResource("LabelSettings_5ywda")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer" unique_id=138722780]
@@ -398,6 +410,29 @@ expand_mode = 1
 [node name="TitleArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/TitleLabel" unique_id=470714098]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" unique_id=1661954459]
+position = Vector2(72.5, 18.03125)
+shape = SubResource("RectangleShape2D_mjfn4")
+
+[node name="DevilLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=804220544]
+clip_children = 2
+layout_mode = 2
+text = "Retry devil levels?"
+label_settings = SubResource("LabelSettings_potab")
+
+[node name="DevilGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=931750837]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 136.0
+offset_bottom = 39.0
+texture = SubResource("GradientTexture2D_nxgh7")
+expand_mode = 1
+
+[node name="DevilArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=1935141693]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" unique_id=294965906]
 position = Vector2(72.5, 18.03125)
 shape = SubResource("RectangleShape2D_mjfn4")
 
@@ -435,5 +470,7 @@ color = Color(0, 0, 0, 0)
 
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_mouse_entered"]
+[connection signal="input_event" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_mouse_entered"]
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_mouse_entered"]

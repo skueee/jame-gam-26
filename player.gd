@@ -277,6 +277,7 @@ func _process(delta: float) -> void:
 		if supertimer < 5:
 			supertimer += delta
 		else:
+			supertimer = 0
 			supercdtimer = 0
 			supersensing = false
 			Engine.time_scale = 1

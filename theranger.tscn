@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://x4mv0jqh14tb"]
 
 [ext_resource type="Script" uid="uid://cegtjyiot37gg" path="res://theranger_ai.gd" id="1_7mxp2"]
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_v2kbr"]
+[ext_resource type="Texture2D" uid="uid://c4xxawet6q0cf" path="res://soul.png" id="2_l0s57"]
 [ext_resource type="Script" uid="uid://2mc131ieb5fu" path="res://soulzone.gd" id="3_7tuhq"]
 [ext_resource type="Script" uid="uid://bccusm2lu3dla" path="res://soultrail.gd" id="3_l0s57"]
 
@@ -15,6 +15,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 1)
 size = Vector2(15, 15)
 
 [node name="theranger" type="CharacterBody2D" unique_id=176813700]
+z_index = 20
 collision_layer = 64
 collision_mask = 64
 script = ExtResource("1_7mxp2")
@@ -23,9 +24,9 @@ script = ExtResource("1_7mxp2")
 shape = SubResource("RectangleShape2D_jvton")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=439791349]
-position = Vector2(1.9073486e-06, 1.9073486e-06)
-scale = Vector2(0.078125, 0.078125)
-texture = ExtResource("1_v2kbr")
+z_index = 1
+scale = Vector2(0.62499994, 0.62499994)
+texture = ExtResource("2_l0s57")
 
 [node name="soultrail" type="CPUParticles2D" parent="." unique_id=819749552]
 amount = 100
