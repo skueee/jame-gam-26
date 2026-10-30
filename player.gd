@@ -3,17 +3,17 @@ extends CharacterBody2D
 # for player only
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
 var banging = false
-@export var acceleration := 150
+@export var acceleration := 200
 @export var friction := 2000
-@export var gravity := 300
-@export var max_speed := 500
-@export var max_fall := 1000
+@export var gravity := 980
+@export var max_speed := 600
+@export var max_fall := 2000
 @export var jump_strength = 300
-@export var shrink_percent := 165
-@export var wall_jump_bounce := 500
+@export var shrink_percent := 50
+@export var wall_jump_bounce := 100
 @export var wall_stength := 400
 @export var throw_cd := 0.1
-@export var shield_force = 15.0
+@export var shield_force = 10.0
 @export var shield_radius = 15
 @export var lives = 2
 @export var bridge_cd = 0.3333
@@ -40,6 +40,7 @@ var shop := false
 var close_shop := false
 var instance
 var shop_scene = preload("res://Shop.tscn")
+var bridgeable: PackedScene = preload("res://bridgeable.tscn")
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -97,7 +98,7 @@ func boost_speed():
 
 
 func final():
-	get_tree().change_scene_to_file("res://endscreen.tscn")
+	get_tree().change_scene_to_file("res://endscreendevil.tscn")
 
 func allow():
 	can_throw = true
@@ -191,7 +192,6 @@ func bridge():
 	if Input.is_action_just_pressed("bridge"):
 		if not can_bridge:
 			return
-		var bridgeable: PackedScene = load("res://bridgeable.tscn")
 		var bridge_instance: RigidBody2D = bridgeable.instantiate()
 		bridge_instance.global_position = Vector2(global_position.x, global_position.y + 10)
 		get_parent().add_child(bridge_instance)
@@ -231,7 +231,8 @@ func shield():
 
 
 func set_velocit(delta):
-	
+	var on_floor = is_on_floor()
+	var on_wall = is_on_wall()
 	if wall_jump:
 		velocity.x = wall_direction.x * wall_jump_bounce
 		velocity.y = -wall_stength
@@ -242,20 +243,29 @@ func set_velocit(delta):
 			velocity.x = move_toward(velocity.x, direction * max_speed, delta * acceleration)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
-	if is_on_floor() or not onwall():
+	if on_floor or not on_wall:
 		wall_slide = false
 		curdir = null
 	if not god_mode:
-		if not is_on_floor():
-			if is_on_wall():
+		if not on_floor:
+			if on_wall:
 				wall_side = -get_wall_normal().x
-			if not is_on_wall() and not wall_slide:
+			if not on_wall and not wall_slide:
 				velocity.y += gravity * delta
 				velocity.y = min(velocity.y, max_fall)
 			else:
 				if not curdir:
 					curdir = last_direction
-				if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+					velocity.y = gravity * 0.02
+					velocity.y = min(velocity.y, max_fall)
+					wall_slide = true
+				else:
+					curdir = null
+					wall_slide = false
+				velocity.y += gravity * delta
+				velocity.y = min(velocity.y, max_fall)
+				if on_wall and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
 					velocity.y = gravity * 0.02
 					velocity.y = min(velocity.y, max_fall)
 					wall_slide = true
@@ -297,13 +307,6 @@ func reverseshrinking(seconds):
 func resumeshrinking():
 	shrink_percent = saved_shrink_percent
 
-func onwall():
-	var bods = $Area2D.get_overlapping_bodies()
-	for bod in bods:
-		if bod.name.find("Tile") != -1:
-			return true
-	return false
-
 func die(force: bool = false):
 	if banging: return
 	if lives > 1 and not force:
@@ -323,7 +326,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("supersense"):
 		if supercdtimer < supersense_cd: return
 		if not supersensing:
-			
+
 			supersensing = true
 			Engine.time_scale = 0.5
 			hud.add_duration_status(5, "Super Sensing")
@@ -331,10 +334,11 @@ func _process(delta: float) -> void:
 		if supertimer < 5:
 			supertimer += delta
 		else:
+			supertimer = 0
 			supercdtimer = 0
 			supersensing = false
 			Engine.time_scale = 1
-		
+
 	# Inputs that aren't physics related
 	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
 		$CanvasLayer/PauseMenu.open()
@@ -342,5 +346,5 @@ func _process(delta: float) -> void:
 
 
 func _collected(name):
-	
+
 	return collected.has(name)
