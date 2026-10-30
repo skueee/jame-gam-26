@@ -1,12 +1,12 @@
 extends CharacterBody2D
 # this will be the most complex ai byfar (foreshadowing?)
 @export var ultimate_target: CharacterBody2D
-@export var max_speed: int = 300
-@export var acceleration: int = 300
+@export var max_speed: int = 350
+@export var acceleration: int = 350
 @export var slowingss: int = 8000
 @export var tilemap: TileMapLayer
 @onready var start_y = global_position.y
-@export var shots_per_sec: float = 5
+@export var shots_per_sec: float = 6
 var statespassed = 0
 var targetstates = 6
 var deltatimer = 0
@@ -32,12 +32,13 @@ func summon():
 	instance.global_position = Vector2(global_position.x + randi_range(-50, 50), global_position.y)
 
 func die():
-	pass
+	get_tree().change_scene_to_file("res://endscreendevilevil.tscn")
 
 func choosestate():
 	statespassed += 1
 	if statespassed == targetstates:
 		die()
+	ultimate_target.hud.add_custom_status(10, 10, "State " + str(statespassed))
 	if randi_range(1, 2) == 1:
 		state = "chasing"
 	elif randi_range(1, 4) <= 3:
@@ -56,6 +57,7 @@ func projectile():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	ultimate_target.hud.add_custom_status(10.0-timer3, 10.0, "State " + str(statespassed))
 	var directionx = 0
 	var directiony = 0
 	var direction_to_go = Vector2(0,0)

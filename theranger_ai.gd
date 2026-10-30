@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var slowingss: int = 8000
 @export var livetime: int = 15
 @export var tilemap: TileMapLayer
+@export var onehit = false
+var hit = false
 var timer = 0
 var timer2 = 0
 var timer3 = 0
@@ -24,6 +26,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if hit:
+		state = "decaying"
 	if timer < livetime:
 		timer += delta
 	else:

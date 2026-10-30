@@ -108,7 +108,7 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_b5lmm")
 
-[node name="devil_4" type="Node2D" unique_id=415337881]
+[node name="devil_ultimate" type="Node2D" unique_id=415337881]
 
 [node name="Tilemap" type="Node" parent="." unique_id=211231091]
 
@@ -123,8 +123,9 @@ max_speed = 500
 max_fall = 1000
 shrink_percent = 10
 wall_jump_bounce = 500
-shield_force = 15.0
-lives = 4
+shield_force = 170.0
+shield_count = 0
+lives = 7
 
 [node name="Dropzone" parent="." unique_id=12974247 instance=ExtResource("3_7h3qt")]
 position = Vector2(624, 312)

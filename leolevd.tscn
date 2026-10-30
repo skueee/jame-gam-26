@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://dmp4qlmhmskda"]
 
-[ext_resource type="Script" uid="uid://noh3pkuuwso" path="res://killingzone.gd" id="1_1lcig"]
 [ext_resource type="Shader" uid="uid://52o1qbpc5qp0" path="res://leolevd.gdshader" id="1_42r7y"]
 [ext_resource type="Script" uid="uid://qf4ucjv55v56" path="res://leolevd.gd" id="1_jqs85"]
 [ext_resource type="Texture2D" uid="uid://c6ft58fg5iqjd" path="res://leolevd.png" id="2_1lcig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bfle"]
 size = Vector2(43, 42)
+
+[sub_resource type="GDScript" id="GDScript_jqs85"]
+resource_name = "kill"
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"player\":
+		body.die()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42r7y"]
 size = Vector2(51, 54)
@@ -111,7 +120,7 @@ shape = SubResource("RectangleShape2D_6bfle")
 [node name="Node2" type="Node" parent="." unique_id=1507490728]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739116010]
-script = ExtResource("1_1lcig")
+script = SubResource("GDScript_jqs85")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=274016732]
 position = Vector2(0.5, 0)

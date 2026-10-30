@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://38hihosa1ul8"]
 
-[ext_resource type="Script" uid="uid://dxyqruli0yedl" path="res://endscreen.gd" id="1_2c7x6"]
+[ext_resource type="Script" uid="uid://oytfymdlxxh7" path="res://endscreendevil.gd" id="1_2c7x6"]
 [ext_resource type="Texture2D" uid="uid://dvlj2woabu71g" path="res://endscreen.png" id="2_fcf4b"]
 [ext_resource type="FontFile" uid="uid://c3tx7rmhdtoov" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="3_eip3c"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="4_w2jgr"]
@@ -324,10 +324,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -447.5
-offset_top = -526.0
-offset_right = 411.8335
-offset_bottom = 118.5
+offset_left = -383.5
+offset_top = -386.0
+offset_right = 475.8335
+offset_bottom = 258.5
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(309.00006, 235.5)
@@ -341,10 +341,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -292.0
-offset_right = 355.0
-offset_bottom = 100.0
+offset_left = -348.0
+offset_top = -313.0
+offset_right = 363.0
+offset_bottom = 265.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 18
@@ -416,7 +416,7 @@ shape = SubResource("RectangleShape2D_mjfn4")
 [node name="DevilLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=804220544]
 clip_children = 2
 layout_mode = 2
-text = "Retry devil levels?"
+text = "Face the ultimate megaboss which you totally won't beat?"
 label_settings = SubResource("LabelSettings_potab")
 
 [node name="DevilGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=931750837]

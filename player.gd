@@ -15,6 +15,7 @@ var banging = false
 @export var throw_cd := 0.1
 @export var shield_force = 10.0
 @export var shield_radius = 15
+@export var shield_count = 14
 @export var lives = 2
 @export var bridge_cd = 0.3333
 @export var supersense_cd = 10
@@ -220,11 +221,12 @@ func attack():
 
 
 func shield():
-	var count = 14
-
-	for i in range(count):
+	
+	if not shield_count:
+		return
+	for i in range(shield_count):
 		var potion: RigidBody2D = THROWABLE.instantiate()
-		var angle = TAU * i / count
+		var angle = TAU * i / shield_count
 		var offset = Vector2(cos(angle), sin(angle)) * shield_radius
 		potion.global_position = global_position + offset
 		get_parent().add_child(potion)
