@@ -3,6 +3,12 @@
 [ext_resource type="Shader" uid="uid://da7uy3l8m4t1h" path="res://leolevd.gdshader" id="1_42r7y"]
 [ext_resource type="Texture2D" uid="uid://c6ft58fg5iqjd" path="res://leolevd.png" id="2_1lcig"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bfle"]
+size = Vector2(43, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42r7y"]
+size = Vector2(49, 48)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wmg3h"]
 shader = ExtResource("1_42r7y")
 shader_parameter/distortion = 0.015
@@ -91,6 +97,8 @@ animations = [{
 [node name="leolevd" type="CharacterBody2D" unique_id=1495174518]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=188926081]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_6bfle")
 
 [node name="Node" type="Node" parent="." unique_id=1824759352]
 
@@ -99,6 +107,8 @@ animations = [{
 [node name="Area2D" type="Area2D" parent="." unique_id=739116010]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=274016732]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_42r7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=703718932]
 material = SubResource("ShaderMaterial_wmg3h")
