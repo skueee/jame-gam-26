@@ -41,6 +41,7 @@ var close_shop := false
 var instance
 var shop_scene = preload("res://Shop.tscn")
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
+var tmp : Vector2
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
@@ -115,6 +116,9 @@ func disable_bridge():
 
 
 func _physics_process(_delta: float) -> void:
+	print(shop)
+	print('and')
+	print(close_shop)
 	if banging:
 		bang_rect.modulate.a += 1 * _delta
 	if not shop:
@@ -138,16 +142,20 @@ func _physics_process(_delta: float) -> void:
 				get_tree().call_deferred("reload_current_scene")
 	else:
 		if close_shop:
+			print("here")
 			instance.queue_free()
 			close_shop = false
 			shop = false
 			camera_2d.zoom = Vector2(3, 3)
+			position = tmp
 
 func open_shop():
+	print('here')
+	tmp = position
+	global_position = camera_2d.get_screen_center_position()
 	instance = shop_scene.instantiate()
 	add_child(instance)
 	camera_2d.zoom = Vector2.ONE
-	
 
 
 func animate():
@@ -179,11 +187,6 @@ func get_input():
 			wall_direction = get_wall_normal()
 	if Input.is_action_just_pressed("God"):
 		god_mode = not god_mode
-	if Input.is_action_just_pressed("ui_pause"):
-		if shop:
-			close_shop = true
-		else:
-			pass
 	if Input.is_action_just_pressed('Shop'):
 		shop = true
 		open_shop()
@@ -338,10 +341,12 @@ func _process(delta: float) -> void:
 			supercdtimer = 0
 			supersensing = false
 			Engine.time_scale = 1
-
-	# Inputs that aren't physics related
-	if Input.is_action_just_pressed("ui_pause") and !$CanvasLayer/PauseMenu.active:
-		$CanvasLayer/PauseMenu.open()
+	if Input.is_action_just_pressed("ui_pause"):
+		if shop:
+			close_shop = true
+		else:
+			if!$CanvasLayer/PauseMenu.active:
+				$CanvasLayer/PauseMenu.open()
 
 
 
