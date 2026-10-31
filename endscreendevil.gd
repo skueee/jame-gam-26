@@ -1,6 +1,6 @@
 extends Control
 
-## The current selection. 0 is the element the most at the top. 
+## The current selection. 0 is the element the most at the top.
 var selection: int = 0
 
 
@@ -24,7 +24,7 @@ func select(index: int):
 	%TitleGradient.visible = (index == 0)
 	%DevilGradient.visible = (index == 1)
 	%QuitGradient.visible = (index == 2)
-	
+
 	match index:
 		0:
 			%TitleGradient.size = Vector2(0.0, 36.0)

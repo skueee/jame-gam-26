@@ -1,15 +1,21 @@
 extends CharacterBody2D
-var player: CharacterBody2D
-var targety: int
-var shots = 0
+
 @export var offset = 100
 @export var speed = 200
 @export var shots_per_sec: float = 2
+
+var player: CharacterBody2D
+var targety: int
+var shots = 0
 var deltatimer = 0
-@onready var deltatimer_cooldown = 1 / shots_per_sec 
 var direction = 0
+
+@onready var deltatimer_cooldown = 1 / shots_per_sec
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+
+
 func _physics_process(delta: float) -> void:
 	if not player: return
 	var playery = player.global_position.y

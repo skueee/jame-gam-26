@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # for player only
 const THROWABLE: PackedScene = preload("res://throwable.tscn")
-var banging = false
+
 @export var acceleration := 200
 @export var friction := 2000
 @export var gravity := 980
@@ -19,6 +19,8 @@ var banging = false
 @export var lives = 2
 @export var bridge_cd = 0.3333
 @export var supersense_cd = 10
+
+var banging = false
 var supercdtimer = 5
 var supertimer = 0
 var supersensing = false
@@ -43,19 +45,19 @@ var instance
 var shop_scene = preload("res://Shop.tscn")
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
 var tmp : Vector2
+var collected: Array
+
 @onready var bridge_timer: Timer = $Timer2
 @onready var timey: Timer = $Timer3
 @onready var throw_timer = $Timer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var hud: Control = $CanvasLayer/HUD
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-var collected: Array
 @onready var timer_4: Timer = $Timer4
 @onready var bang_rect: ColorRect = $CanvasLayer/Bang/ColorRect
 @onready var speed_boost: Timer = $"Speed Boost"
 @onready var pause_menu: Control = $CanvasLayer/PauseMenu
 @onready var camera_2d: Camera2D = $Camera2D
-
 
 
 func _ready() -> void:
@@ -133,7 +135,7 @@ func _physics_process(_delta: float) -> void:
 			animate()
 			attack()
 			bridge()
-			
+
 			if scale.x < 0.5:
 				scale = Vector2(1.0,1.0)
 				die()
@@ -221,7 +223,7 @@ func attack():
 
 
 func shield():
-	
+
 	if not shield_count:
 		return
 	for i in range(shield_count):

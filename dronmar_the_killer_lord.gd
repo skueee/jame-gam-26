@@ -1,21 +1,27 @@
 extends CharacterBody2D
+
+@export var hpmax = 200
+@export var tilemap: TileMapLayer
+@export var thename = "Dronmar, the Killer Lord"
+
 var direction = -1
 var jumping = 0
-@onready var left: RayCast2D = $left
-@onready var right: RayCast2D = $right
 var gravity = 780
 var jump_velocity = 600
 var speed = 150
-@export var hpmax = 200
 var hp = hpmax
 var timer_but_cheap = 0
-@export var thename = "Dronmar, the Killer Lord"
+
+@onready var left: RayCast2D = $left
+@onready var right: RayCast2D = $right
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var hud: Control = player.get_node("CanvasLayer/HUD")
-@export var tilemap: TileMapLayer
+
+
 func _ready() -> void:
 	hud.add_custom_status(hp, hpmax, thename)
-func set_movements(delta):
+
+func set_movements(_delta):
 	if is_on_floor():
 		player.camerashake()
 		jumping = true
@@ -24,6 +30,7 @@ func set_movements(delta):
 		direction = -1
 	else:
 		direction = 1
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	set_movements(delta)
@@ -37,8 +44,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
+
 func forcejumpaway():
 	pass
+
 func die():
 	if hp > 10:
 		print("ouch")

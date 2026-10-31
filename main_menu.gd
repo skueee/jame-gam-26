@@ -1,6 +1,6 @@
 extends Control
 
-## The current selection. 0 is the element the most at the top. 
+## The current selection. 0 is the element the most at the top.
 var selection := 0
 
 

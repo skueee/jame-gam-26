@@ -1,15 +1,19 @@
 extends Camera2D
+
 @export var shaketime = 5
 @export var shaketensivity = 50
 @export var short = 0.5
 
 var timer = 0
 var shaking = false
+var pos: Vector2 = Vector2(0,0)
+
 func shake(isshort = false):
 	shaking = true
 	if isshort:
 		shaketime = short
-var pos: Vector2 = Vector2(0,0)
+
+
 func _ready() -> void:
 	pos = position
 

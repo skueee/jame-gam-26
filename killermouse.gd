@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-@onready var right: RayCast2D = $right
-@onready var left: RayCast2D = $left
 var speed = 300
 var direction = -1
+
+@onready var right: RayCast2D = $right
+@onready var left: RayCast2D = $left
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

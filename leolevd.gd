@@ -1,22 +1,27 @@
 extends CharacterBody2D
 # this will be the most complex ai byfar (foreshadowing?)
+
 @export var ultimate_target: CharacterBody2D
 @export var max_speed: int = 350
 @export var acceleration: int = 350
 @export var slowingss: int = 8000
 @export var tilemap: TileMapLayer
-@onready var start_y = global_position.y
 @export var shots_per_sec: float = 6
+
 var statespassed = 0
 var targetstates = 6
 var deltatimer = 0
-@onready var deltatimer_cooldown = 1 / shots_per_sec 
 var timer = 0
 var timer2 = 0
 var timer3 = 0
 var state = "idle"
 var states = ["idle", "chasing", "shooting", "summoning"]
 var target_pos = Vector2(0,0)
+
+@onready var start_y = global_position.y
+@onready var deltatimer_cooldown = 1 / shots_per_sec
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not ultimate_target:

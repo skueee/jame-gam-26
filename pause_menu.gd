@@ -1,6 +1,6 @@
 extends Control
 
-## The current selection. 0 is the element the most at the top. 
+## The current selection. 0 is the element the most at the top.
 var selection := 0
 
 var active: bool = false
@@ -74,7 +74,7 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 2
-		
+
 func _process(_delta):
 	if Input.is_action_just_pressed("uidown") and active:
 		navigate(1)
