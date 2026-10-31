@@ -37,7 +37,7 @@ fill_from = Vector2(0.055555556, 0.08547009)
 fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjfn4"]
-size = Vector2(173, 37.9375)
+size = Vector2(219.5, 37.9375)
 
 [sub_resource type="Gradient" id="Gradient_k7cnj"]
 offsets = PackedFloat32Array(0.12890625, 0.86167145)
@@ -407,27 +407,25 @@ expand_mode = 1
 position = Vector2(72.5, 18.03125)
 shape = SubResource("RectangleShape2D_mjfn4")
 
-[node name="DevilLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=804220544]
+[node name="RetryLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=804220544]
 clip_children = 2
 layout_mode = 2
 text = "Retry the fight?"
 label_settings = SubResource("LabelSettings_potab")
 
-[node name="DevilGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=931750837]
+[node name="RetryGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer4/RetryLabel" unique_id=931750837]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = -3.0
-offset_top = 3.0
-offset_right = 136.0
-offset_bottom = 39.0
+offset_right = 214.5
+offset_bottom = 41.0
 texture = SubResource("GradientTexture2D_nxgh7")
 expand_mode = 1
 
-[node name="DevilArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/DevilLabel" unique_id=1935141693]
+[node name="RetryArea" type="Area2D" parent="VBoxContainer/VBoxContainer4/RetryLabel" unique_id=1935141693]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" unique_id=294965906]
-position = Vector2(72.5, 18.03125)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer4/RetryLabel/RetryArea" unique_id=294965906]
+position = Vector2(95.75, 18.03125)
 shape = SubResource("RectangleShape2D_mjfn4")
 
 [node name="QuitLabel" type="Label" parent="VBoxContainer/VBoxContainer4" unique_id=1498752529]
@@ -458,13 +456,15 @@ libraries/ = SubResource("AnimationLibrary_5ywda")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=572510811]
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 649.0
+offset_left = 32.0
+offset_top = -1.0
+offset_right = 1182.0
+offset_bottom = 648.0
 color = Color(0, 0, 0, 0)
 
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/TitleLabel/TitleArea" to="." method="_on_title_area_mouse_entered"]
-[connection signal="input_event" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_input_event"]
-[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/DevilLabel/DevilArea" to="." method="_on_devil_area_mouse_entered"]
+[connection signal="input_event" from="VBoxContainer/VBoxContainer4/RetryLabel/RetryArea" to="." method="_on_devil_area_input_event"]
+[connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/RetryLabel/RetryArea" to="." method="_on_devil_area_mouse_entered"]
 [connection signal="input_event" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_input_event"]
 [connection signal="mouse_entered" from="VBoxContainer/VBoxContainer4/QuitLabel/QuitArea" to="." method="_on_quit_area_mouse_entered"]

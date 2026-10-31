@@ -13,7 +13,7 @@ func click(index: int):
 	match index:
 		0:  # Return to title button
 			get_tree().change_scene_to_file("res://main_menu.tscn")
-		1:  # Devil levels button
+		1:  # Restart battle button
 			get_tree().change_scene_to_file("res://devil_ultimate!!!!.tscn")
 		2:  # Quit button
 			get_tree().quit()
@@ -22,7 +22,7 @@ func click(index: int):
 ## Changes the visibility of the gradient depending on the selection
 func select(index: int):
 	%TitleGradient.visible = (index == 0)
-	%DevilGradient.visible = (index == 1)
+	%RetryGradient.visible = (index == 1)
 	%QuitGradient.visible = (index == 2)
 	
 	match index:
@@ -33,9 +33,9 @@ func select(index: int):
 			await tween.finished
 			tween.kill()
 		1:
-			%DevilGradient.size = Vector2(0.0, 36.0)
+			%RetryGradient.size = Vector2(0.0, 36.0)
 			var tween = get_tree().create_tween()
-			tween.tween_property(%DevilGradient, "size", Vector2(139.0, 36.0), 0.2)
+			tween.tween_property(%RetryGradient, "size", Vector2(214.5, 36.0), 0.2)
 			await tween.finished
 			tween.kill()
 		2:
