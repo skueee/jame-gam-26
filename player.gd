@@ -74,6 +74,8 @@ func _ready() -> void:
 	Die.speed_booster.connect(boost_speed)
 	Die.greater_jump.connect(greater_jump)
 	Die.extra_life.connect(extra_life)
+	Die.stop_shrinking.connect(stopshrinking)
+	Die.reverse_shrink.connect(reverseshrinking, 10)
 
 
 func extra_life():
@@ -89,7 +91,7 @@ func greater_jump():
 	jump_strength *= 0.6667
 
 func boost_speed():
-	await Die.pause_close
+	await Die.shop_close
 	max_speed *= 1.5
 	acceleration *= 1.5
 	hud.add_duration_status(10, "Speed Booster")
@@ -117,9 +119,6 @@ func disable_bridge():
 
 
 func _physics_process(_delta: float) -> void:
-	print(shop)
-	print('and')
-	print(close_shop)
 	if banging:
 		bang_rect.modulate.a += 1 * _delta
 	if not shop:
@@ -143,7 +142,7 @@ func _physics_process(_delta: float) -> void:
 				get_tree().call_deferred("reload_current_scene")
 	else:
 		if close_shop:
-			print("here")
+			Die.shop_close.emit()
 			instance.queue_free()
 			close_shop = false
 			shop = false
@@ -151,7 +150,6 @@ func _physics_process(_delta: float) -> void:
 			position = tmp
 
 func open_shop():
-	print('here')
 	tmp = position
 	global_position = camera_2d.get_screen_center_position()
 	instance = shop_scene.instantiate()
@@ -273,6 +271,7 @@ func set_velocit(delta):
 				velocity.y = min(velocity.y, max_fall)
 	elif jump:
 		velocity.y = 0 - jump_strength
+		Die.total_jump += 1
 		jump = false
 
 func camerashake():
@@ -338,6 +337,9 @@ func _process(delta: float) -> void:
 		else:
 			if!$CanvasLayer/PauseMenu.active:
 				$CanvasLayer/PauseMenu.open()
+	
+	
+	
 
 
 

@@ -8,5 +8,14 @@ signal greater_jump
 signal bridge_ability
 signal extra_life
 signal reverse_shrink
-signal pause_close 
+signal shop_close
+var total_jump := 0
+var total_cloud_potions := 0
+var total_stop_shrink_potions := 0
+var total_reverse_shrink_potions := 0
+var total_coins := 0
+var total_keys_collected:= 0
+var total_wolf_slain := 0
+var total_times_telported := 0
+
 var coins := 0  

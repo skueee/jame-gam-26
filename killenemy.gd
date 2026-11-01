@@ -3,6 +3,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	if not body.name.find("enemy") == -1:
+		Die.total_wolf_slain += 1
 		body.queue_free()
 	elif body.name.find("boss") != -1:
 		body.die()

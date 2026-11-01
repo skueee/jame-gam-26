@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == \"player\":
 		body.collected.append(id)
+		Die.total_keys_collected += 1
 		toggle(false)
 
 

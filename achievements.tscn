@@ -1,0 +1,402 @@
+[gd_scene format=3 uid="uid://76kd40hxeo11"]
+
+[ext_resource type="Texture2D" uid="uid://cjhgjqc18ngwi" path="res://trees_gbv2.png" id="1_nr1wc"]
+[ext_resource type="Script" uid="uid://bh7gm0bkbhgfq" path="res://progress_bar.gd" id="2_e00ml"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv1b8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qr5sa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qr5sa"]
+texture = SubResource("CanvasTexture_qr5sa")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_50mcm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afmmk"]
+texture = SubResource("CanvasTexture_50mcm")
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=817268557]
+
+[node name="Achievements" type="Control" parent="." unique_id=1303590198]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax2D" type="Parallax2D" parent="Achievements" unique_id=1851417632]
+repeat_size = Vector2(1974, 655)
+autoscroll = Vector2(-60, 0)
+repeat_times = 6
+
+[node name="TextureRect" type="Control" parent="Achievements/Parallax2D" unique_id=2036101402]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.0
+offset_top = -326.5
+offset_right = 842.0
+offset_bottom = 326.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Achievements/Parallax2D/TextureRect" unique_id=498020543]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -987.0
+offset_top = -329.0
+offset_right = 987.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Achievements/Parallax2D/TextureRect/HBoxContainer" unique_id=1506893729]
+layout_mode = 2
+texture = ExtResource("1_nr1wc")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Achievements/Parallax2D/TextureRect/HBoxContainer" unique_id=1817464492]
+layout_mode = 2
+texture = ExtResource("1_nr1wc")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Achievements/Parallax2D/TextureRect/HBoxContainer" unique_id=1773267492]
+layout_mode = 2
+texture = ExtResource("1_nr1wc")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Achievements" unique_id=1522705361]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.5
+offset_top = -325.0
+offset_right = 411.5
+offset_bottom = 555.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Achievements/MarginContainer" unique_id=730088879]
+custom_maximum_size = Vector2(-1, 648)
+layout_mode = 2
+theme_override_colors/scroll_hint_vertical_color = Color(0, 0, 0.9098039, 1)
+theme_override_colors/scroll_hint_horizontal_color = Color(1, 0, 0, 1)
+theme_override_constants/scrollbar_h_separation = 600
+theme_override_constants/scrollbar_v_separation = 600
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Achievements/MarginContainer/ScrollContainer" unique_id=853739850]
+layout_mode = 2
+theme_override_constants/separation = 31
+
+[node name="Achievemens" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1584664243]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32156864, 1, 0.40392157, 1)
+theme_override_font_sizes/font_size = 40
+text = "Achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1487917446]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2135024711]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Jump Expert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=247710467]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=130402712]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+script = ExtResource("2_e00ml")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=895623341]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1194087971]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Jump God"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=578852822]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1905442150]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=636303826]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1303972425]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Anger the Witch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=665026033]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=37375077]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1531037666]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=376758663]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "On Clouds    "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=818873986]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1799816349]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2073425641]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1803889878]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Praise The Lord"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=785626454]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1262087676]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=912959503]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=67357873]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Money!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=815327940]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=410024316]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=714287277]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1585789565]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Rich Fox"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1033967468]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=289878441]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1177311479]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=433981974]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Wolf Slayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1123759546]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=658994774]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1428600752]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=344838480]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Cloud Surfer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=292862034]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=882663504]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=174004503]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1321725396]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "Key and Locke"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1875483188]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=201646959]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 90.0

@@ -25,7 +25,6 @@ func close():
 	active = false
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished
-	Die.pause_close.emit()
 	hide()
 	get_tree().get_first_node_in_group("player").resumeshrinking()
 

@@ -20,6 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 			path = \"res://devil_\" + str(level) + \".tscn\"
 		else:
 			path = \"res://level_\" + str(level) + \".tscn\"
+		Die.total_times_telported += 1
 		get_tree().call_deferred(\"change_scene_to_file\", path)
 "
 
