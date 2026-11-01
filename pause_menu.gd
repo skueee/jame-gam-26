@@ -5,7 +5,6 @@ var selection := 0
 
 var active: bool = false
 
-var shop = preload('res://Shop.tscn')
 
 func _ready() -> void:
 	hide() # We don't want it to trigger at startup
