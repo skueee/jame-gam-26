@@ -18,4 +18,7 @@ var total_keys_collected:= 0
 var total_wolf_slain := 0
 var total_times_telported := 0
 
-var coins := 0  
+var coins := 0:
+	set(value):
+		var hud: Control = get_tree().get_first_node_in_group("players").find_children("HUD")[0]
+		hud.set_coins(value)

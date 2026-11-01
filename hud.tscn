@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cayell83386wb" path="res://status_bar.gd" id="2_640wx"]
 [ext_resource type="Script" uid="uid://bp2eoup5etvdo" path="res://hearts_container.gd" id="4_640wx"]
 [ext_resource type="Texture2D" uid="uid://blm7x1dok6ro" path="res://hearth.png" id="5_a2258"]
+[ext_resource type="Script" uid="uid://cmp2nufdax47r" path="res://coins_container.gd" id="6_rftc2"]
+[ext_resource type="Texture2D" uid="uid://di7emp8slrmel" path="res://coin.png" id="7_61f8s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjfn4"]
 bg_color = Color(0, 0, 0, 1)
@@ -36,6 +38,65 @@ gradient = SubResource("Gradient_64ctp")
 fill = 1
 fill_from = Vector2(0.50427353, 1)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_g5cag"]
+base_font = ExtResource("1_37p78")
+variation_opentype = {
+2003072104: 75,
+2003265652: 500
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_potab"]
+font = SubResource("FontVariation_g5cag")
+font_size = 65
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g10ll"]
+atlas = ExtResource("7_61f8s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpiub"]
+atlas = ExtResource("7_61f8s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amv7k"]
+atlas = ExtResource("7_61f8s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fv7p"]
+atlas = ExtResource("7_61f8s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u2vk"]
+atlas = ExtResource("7_61f8s")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjfn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g10ll")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpiub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amv7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fv7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u2vk")
+}],
+"loop": 0,
+"name": &"spin",
+"speed": 2.0
+}]
 
 [node name="HUD" type="Control" unique_id=1741839738]
 layout_mode = 3
@@ -95,7 +156,32 @@ texture = SubResource("GradientTexture2D_mjfn4")
 layout_mode = 0
 offset_left = 17.0
 offset_top = 20.0
-offset_right = 1127.0
+offset_right = 601.0
 offset_bottom = 96.0
 script = ExtResource("4_640wx")
 hearth = ExtResource("5_a2258")
+
+[node name="CoinsContainer" type="HBoxContainer" parent="." unique_id=276409805]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_top = 24.0
+offset_right = -20.0
+offset_bottom = 104.0
+grow_horizontal = 0
+script = ExtResource("6_rftc2")
+
+[node name="Label" type="Label" parent="CoinsContainer" unique_id=1557645493]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_potab")
+horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CoinsContainer" unique_id=109614671]
+position = Vector2(-26.999992, 41)
+scale = Vector2(2.5975, 2.5975)
+sprite_frames = SubResource("SpriteFrames_mjfn4")
+animation = &"spin"
+frame_progress = 0.7091121
