@@ -20,5 +20,6 @@ var total_times_telported := 0
 
 var coins := 0:
 	set(value):
+		coins = value
 		var hud: Control = get_tree().get_first_node_in_group("players").find_children("HUD")[0]
 		hud.set_coins(value)
