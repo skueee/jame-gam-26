@@ -92,10 +92,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4u2vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpiub")
 }],
 "loop": 0,
 "name": &"spin",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [node name="HUD" type="Control" unique_id=1741839738]
@@ -184,4 +187,3 @@ position = Vector2(-26.999992, 41)
 scale = Vector2(2.5975, 2.5975)
 sprite_frames = SubResource("SpriteFrames_mjfn4")
 animation = &"spin"
-frame_progress = 0.7091121
