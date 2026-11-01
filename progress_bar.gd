@@ -6,12 +6,12 @@ extends ProgressBar
 
 func _ready() -> void:
 	max_value = achieve
-
+	value = Die.get(code)
 
 func _process(delta: float) -> void:
 	
 	if value < max_value:
-		value = Die[code]
+		value = Die.get(code)
 	else:
 		var orgstyle = get_theme_stylebox("fill") as StyleBoxTexture
 		var new_style = orgstyle.duplicate()

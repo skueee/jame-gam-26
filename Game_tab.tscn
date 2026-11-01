@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://p4b1jmyn7ffg"]
+
+[ext_resource type="Texture2D" uid="uid://cjhgjqc18ngwi" path="res://trees_gbv2.png" id="1_ig4hc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr5sa"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=715594777]
+
+[node name="Control" type="Control" parent="." unique_id=961900129]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 652.0
+
+[node name="Parallax2D" type="Parallax2D" parent="Control" unique_id=1927621922]
+scroll_offset = Vector2(100, 320)
+repeat_size = Vector2(1974, 655)
+autoscroll = Vector2(-60, 0)
+repeat_times = 6
+
+[node name="TextureRect" type="Control" parent="Control/Parallax2D" unique_id=2027582282]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.0
+offset_top = -326.5
+offset_right = 842.0
+offset_bottom = 326.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Parallax2D/TextureRect" unique_id=1852949731]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -987.0
+offset_top = -329.0
+offset_right = 987.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Parallax2D/TextureRect/HBoxContainer" unique_id=1124910335]
+layout_mode = 2
+texture = ExtResource("1_ig4hc")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Parallax2D/TextureRect/HBoxContainer" unique_id=2049097657]
+layout_mode = 2
+texture = ExtResource("1_ig4hc")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Parallax2D/TextureRect/HBoxContainer" unique_id=1360311981]
+layout_mode = 2
+texture = ExtResource("1_ig4hc")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=393797554]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 61.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr5sa")
+text = "X"

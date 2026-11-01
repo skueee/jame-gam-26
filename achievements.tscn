@@ -140,6 +140,8 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
 script = ExtResource("2_e00ml")
+code = "total_jump"
+achieve = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=895623341]
 layout_mode = 2
@@ -169,6 +171,8 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_jump"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=636303826]
 layout_mode = 2
@@ -197,6 +201,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_stop_shrink_potions"
+achieve = 10
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1531037666]
 layout_mode = 2
@@ -226,6 +233,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_cloud_potions"
+achieve = 10
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2073425641]
 layout_mode = 2
@@ -255,6 +265,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_times_telported"
+achieve = 1
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=912959503]
 layout_mode = 2
@@ -284,6 +297,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_coins"
+achieve = 20
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=714287277]
 layout_mode = 2
@@ -313,6 +329,8 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_coins"
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1177311479]
 layout_mode = 2
@@ -342,6 +360,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_wolf_slain"
+achieve = 5
 
 [node name="HBoxContainer9" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1428600752]
 layout_mode = 2
@@ -371,6 +392,9 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_cloud_potions"
+achieve = 25
 
 [node name="HBoxContainer10" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=174004503]
 layout_mode = 2
@@ -400,3 +424,6 @@ theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
 theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
 step = 1.0
 value = 90.0
+script = ExtResource("2_e00ml")
+code = "total_keys_collected"
+achieve = 10

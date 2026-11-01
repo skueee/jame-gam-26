@@ -43,8 +43,8 @@ var shop := false
 var close_shop := false
 var instance
 var shop_scene = preload("res://Shop.tscn")
+var achievements_scene = preload("res://achievements.tscn")
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
-var tmp : Vector2
 var collected: Array
 
 @onready var bridge_timer: Timer = $Timer2
@@ -148,15 +148,14 @@ func _physics_process(_delta: float) -> void:
 			instance.queue_free()
 			close_shop = false
 			shop = false
-			camera_2d.zoom = Vector2(3, 3)
-			position = tmp
 
 func open_shop():
-	tmp = position
-	global_position = camera_2d.get_screen_center_position()
 	instance = shop_scene.instantiate()
 	add_child(instance)
-	camera_2d.zoom = Vector2.ONE
+
+func open_achievements():
+	instance = achievements_scene.instantiate()
+	add_child(instance)
 
 
 func animate():
@@ -190,7 +189,7 @@ func get_input():
 		god_mode = not god_mode
 	if Input.is_action_just_pressed('Shop'):
 		shop = true
-		open_shop()
+		open_achievements()
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
