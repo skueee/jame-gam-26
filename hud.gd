@@ -2,9 +2,9 @@ extends Control
 
 
 ## Adds a status to the StatusBar that will finish after a certain duration
-## 
+##
 ##[br][br][param duration]: The duration of the status. The bar will hide after that.
-##[br][param text]: The text shown at the top of the progressbar, usually a little thing to help the player know what is happening (Optional). 
+##[br][param text]: The text shown at the top of the progressbar, usually a little thing to help the player know what is happening (Optional).
 func add_duration_status(duration: float, text: String = ""):
 	$StatusBar.add_status(duration, text)
 

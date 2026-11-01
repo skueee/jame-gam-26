@@ -1,20 +1,26 @@
 extends CharacterBody2D
+
+@export var secondary = false
+@export var thename = "Spikynox, Apostle of Destructions"
+@export var tilemap: TileMapLayer
+
 var direction = -1
 var jumping = 0
-@onready var left: RayCast2D = $left
-@onready var right: RayCast2D = $right
 var gravity = 780
 var jump_velocity = 450
 var speed = 300
 var hp = 150
 var timer_but_cheap = 0
-@export var secondary = false
-@export var thename = "Spikynox, Apostle of Destructions"
+
+@onready var left: RayCast2D = $left
+@onready var right: RayCast2D = $right
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var hud: Control = player.get_node("CanvasLayer/HUD")
-@export var tilemap: TileMapLayer
+
+
 func _ready() -> void:
 	hud.add_custom_status(hp, 150, thename)
+
 func set_movements(delta):
 	if is_on_floor():
 		if timer_but_cheap < 0.2:
@@ -28,10 +34,11 @@ func set_movements(delta):
 	elif left.get_collider():
 		if left.get_collider().name != "player":
 			direction = 1
+
 func forcejumpaway():
 	direction *= -1
 	velocity.y = jump_velocity * -1
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	set_movements(delta)

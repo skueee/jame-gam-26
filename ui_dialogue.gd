@@ -22,7 +22,7 @@ var next_text_index: int
 ##
 ## [br][br]Example:
 ## [code]display_text(["Never gonna give you up","Never gonne let you down"],"Rick Astley",load("res://icon.svg"),Color("ffffffff"))[/code]
-## 
+##
 ## [br][br][param lines]: An array with the lines that will be spoken by the character.
 ## [br][param speaker]: The speaker's name (optional).
 ## [br][param speaker_sprite]: The speaker's sprite (optional).

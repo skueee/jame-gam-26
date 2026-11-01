@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c28wdkwp8xfxp"]
 
-[ext_resource type="Script" uid="uid://oytfymdlxxh7" path="res://endscreendevil.gd" id="1_kqk0n"]
+[ext_resource type="Script" uid="uid://oytfymdlxxh7" path="res://endscreendevilevil.gd" id="1_kqk0n"]
 [ext_resource type="Texture2D" uid="uid://dvlj2woabu71g" path="res://endscreen.png" id="2_o2w16"]
 [ext_resource type="FontFile" uid="uid://c3tx7rmhdtoov" path="res://assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.ttf" id="3_mh6lh"]
 [ext_resource type="FontFile" uid="uid://xdb1w43prjim" path="res://assets/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="4_ot5mj"]
@@ -301,7 +301,7 @@ _data = {
 &"open": SubResource("Animation_nxgh7")
 }
 
-[node name="endscreen" type="Control" unique_id=1085031392]
+[node name="EndscreenDevilEvil" type="Control" unique_id=1085031392]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
