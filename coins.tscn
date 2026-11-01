@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfo17vd5kf88c"]
 
-[ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_tsooq"]
+[ext_resource type="Texture2D" uid="uid://di7emp8slrmel" path="res://coin.png" id="1_tsooq"]
 
 [sub_resource type="GDScript" id="GDScript_1jxqw"]
 script/source = "extends Area2D
@@ -30,18 +30,58 @@ func _on_body_entered(body: Node2D) -> void:
 		toggle(false)
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5sa"]
-size = Vector2(125, 125)
+[sub_resource type="AtlasTexture" id="AtlasTexture_665jj"]
+atlas = ExtResource("1_tsooq")
+region = Rect2(0, 0, 16, 16)
 
-[node name="Area2D" type="Area2D" unique_id=1136422402]
+[sub_resource type="AtlasTexture" id="AtlasTexture_88f8t"]
+atlas = ExtResource("1_tsooq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhvp1"]
+atlas = ExtResource("1_tsooq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kywx8"]
+atlas = ExtResource("1_tsooq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjfn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_665jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88f8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhvp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kywx8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr5sa"]
+size = Vector2(100, 100)
+
+[node name="coin" type="Area2D" unique_id=1136422402]
 scale = Vector2(0.1, 0.1)
 script = SubResource("GDScript_1jxqw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1028061326]
-texture = ExtResource("1_tsooq")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2072794673]
+position = Vector2(9.536743e-07, 1.9073486e-06)
+scale = Vector2(6.249999, 6.249999)
+sprite_frames = SubResource("SpriteFrames_mjfn4")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658350978]
-position = Vector2(0.5, -0.5)
+position = Vector2(-2.3096795e-06, -3.4272664e-06)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_qr5sa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
