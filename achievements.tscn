@@ -16,6 +16,7 @@ modulate_color = Color(0, 0, 0, 1)
 texture = SubResource("CanvasTexture_50mcm")
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=817268557]
+layer = 2
 
 [node name="Achievements" type="Control" parent="." unique_id=1303590198]
 layout_mode = 3
