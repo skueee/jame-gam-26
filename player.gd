@@ -39,11 +39,9 @@ var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
 var god_mode := false
-var shop := false
-var close_shop := false
+var menu := false
 var instance
-var shop_scene = preload("res://Shop.tscn")
-var achievements_scene = preload("res://achievements.tscn")
+var menu_scene = preload('res://Game_tab.tscn')
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
 var collected: Array
 
@@ -86,14 +84,14 @@ func extra_life():
 
 
 func greater_jump():
-	await Die.pause_close
+	await Die.menu_close
 	jump_strength *= 1.5
 	hud.add_duration_status(10, "Jump Boosterss")
 	await get_tree().create_timer(10).timeout
 	jump_strength *= 0.6667
 
 func boost_speed():
-	await Die.shop_close
+	await Die.menu_close
 	max_speed *= 1.5
 	acceleration *= 1.5
 	hud.add_duration_status(10, "Speed Booster")
@@ -123,7 +121,7 @@ func disable_bridge():
 func _physics_process(_delta: float) -> void:
 	if banging:
 		bang_rect.modulate.a += 1 * _delta
-	if not shop:
+	if not menu:
 		if not is_dying:
 			wall_jump_lock -= _delta
 			scale -= (scale / 100.0) * ((shrink_percent / 60.0) * _delta)
@@ -142,20 +140,11 @@ func _physics_process(_delta: float) -> void:
 			global_position = global_position.move_toward(start_pos, 300 * _delta)
 			if global_position == start_pos:
 				get_tree().call_deferred("reload_current_scene")
-	else:
-		if close_shop:
-			Die.shop_close.emit()
-			instance.queue_free()
-			close_shop = false
-			shop = false
 
-func open_shop():
-	instance = shop_scene.instantiate()
+func open_menu():
+	instance = menu_scene.instantiate()
 	add_child(instance)
 
-func open_achievements():
-	instance = achievements_scene.instantiate()
-	add_child(instance)
 
 
 func animate():
@@ -188,8 +177,8 @@ func get_input():
 	if Input.is_action_just_pressed("God"):
 		god_mode = not god_mode
 	if Input.is_action_just_pressed('Shop'):
-		shop = true
-		open_achievements()
+		menu = true
+		open_menu()
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
@@ -333,9 +322,6 @@ func _process(delta: float) -> void:
 			supersensing = false
 			Engine.time_scale = 1
 	if Input.is_action_just_pressed("ui_pause"):
-		if shop:
-			close_shop = true
-		else:
 			if!$CanvasLayer/PauseMenu.active:
 				$CanvasLayer/PauseMenu.open()
 	

@@ -1,22 +1,108 @@
 [gd_scene format=3 uid="uid://p4b1jmyn7ffg"]
 
 [ext_resource type="Texture2D" uid="uid://cjhgjqc18ngwi" path="res://trees_gbv2.png" id="1_ig4hc"]
+[ext_resource type="Texture2D" uid="uid://r5hnagoss3bi" path="res://arrow.svg" id="2_rgy25"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr5sa"]
-bg_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="GDScript" id="GDScript_ig4hc"]
+script/source = "extends CanvasLayer
+@onready var button_3: Button = $Button3
+@onready var button: Button = $Button
+
+
+var scenes  = [preload(\"res://Shop.tscn\"), preload(\"res://achievements.tscn\")]
+var number = scenes.size()
+var instance
+var current_scene = 0
+func _load_tab():
+	if is_instance_valid(instance):
+		instance.queue_free()
+	instance = scenes[current_scene].instantiate()
+	add_child(instance)
+
+func _ready() -> void:
+	action()
+
+func _on_button_pressed() -> void:
+	queue_free()
+
+
+func _on_button_presseds() -> void:
+	current_scene += 1
+	action()
+
+func _on_button_3_pressed() -> void:
+	current_scene -= 1
+	action()
+func action():
+	if not button.disabled:
+		if current_scene == number-1:
+			button.disabled = true
+	else:
+		if current_scene < number-1:
+			button.disabled = false
+	if not button_3.disabled:
+		if current_scene == 0:
+			button_3.disabled = true
+	else:
+		if current_scene > 0:
+			button_3.disabled = false
+	_load_tab()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig4hc"]
+bg_color = Color(7.189531e-07, 0.2561691, 4.813075e-08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 corner_detail = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vlv4"]
+bg_color = Color(0, 0, 0, 0.7294118)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgy25"]
+bg_color = Color(7.189531e-07, 0.2561691, 4.813075e-08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr5sa"]
+bg_color = Color(7.189531e-07, 0.2561691, 4.813075e-08, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jbr7"]
+bg_color = Color(0, 0, 0, 0.7294118)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=715594777]
+script = SubResource("GDScript_ig4hc")
 
 [node name="Control" type="Control" parent="." unique_id=961900129]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1151.0
-offset_bottom = 652.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -326.0
+offset_right = 575.5
+offset_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="Control" unique_id=1927621922]
 scroll_offset = Vector2(100, 320)
@@ -68,12 +154,46 @@ layout_mode = 2
 texture = ExtResource("1_ig4hc")
 expand_mode = 2
 
-[node name="Button" type="Button" parent="Control" unique_id=393797554]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 61.0
-offset_bottom = 57.0
+[node name="Button" type="Button" parent="." unique_id=28635800]
+offset_left = 1074.0
+offset_top = 16.0
+offset_right = 1130.0
+offset_bottom = 69.0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig4hc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1vlv4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgy25")
+icon = ExtResource("2_rgy25")
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="." unique_id=393797554]
+offset_left = 13.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr5sa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2jbr7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qr5sa")
 text = "X"
+
+[node name="Button3" type="Button" parent="." unique_id=1085571937]
+offset_left = 1060.0
+offset_top = 68.0
+offset_right = 1116.0
+offset_bottom = 121.0
+scale = Vector2(-1, -1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig4hc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1vlv4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgy25")
+icon = ExtResource("2_rgy25")
+icon_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_presseds"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
