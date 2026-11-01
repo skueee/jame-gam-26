@@ -44,16 +44,16 @@ func select(index: int):
 	# Plays the animation
 	match index:
 		0:
-			%ContinueGradient.size = Vector2(550.0, 20.0)
+			%ContinueGradient.size = Vector2(528.0, 20.0)
 			tween.tween_property(%ContinueGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 		1:
-			%MenuGradient.size = Vector2(550.0, 20.0)
+			%MenuGradient.size = Vector2(546.0, 20.0)
 			tween.tween_property(%MenuGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 		2:
-			%TitleGradient.size = Vector2(545.0, 20.0)
+			%TitleGradient.size = Vector2(510.0, 20.0)
 			tween.tween_property(%TitleGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 		3:
-			%QuitGradient.size = Vector2(545.0, 20.0)
+			%QuitGradient.size = Vector2(552.0, 20.0)
 			tween.tween_property(%QuitGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 
 func click(index: int):

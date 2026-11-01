@@ -201,10 +201,46 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0.54509807)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_05uyy"]
 resource_name = "close"
-length = 0.7
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -308,7 +344,7 @@ tracks/8/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.23333333, 0.49453926),
+"times": PackedFloat32Array(0.33333334, 0.5945393),
 "transitions": PackedFloat32Array(1.1892072, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -320,7 +356,7 @@ tracks/9/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:offset_transfor
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.16666667, 0.5333333, 0.56666666),
+"times": PackedFloat32Array(0.26666668, 0.6333333, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -332,7 +368,7 @@ tracks/10/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:offset_transfo
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.2, 0.5),
+"times": PackedFloat32Array(0.3, 0.6),
 "transitions": PackedFloat32Array(0.9012505, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -28.765)]
@@ -344,7 +380,7 @@ tracks/11/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.33333334, 0.5945392),
+"times": PackedFloat32Array(0.43333334, 0.69453925),
 "transitions": PackedFloat32Array(1.1892072, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -356,7 +392,7 @@ tracks/12/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:offset_transfor
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.26666668, 0.6333334, 0.6666667),
+"times": PackedFloat32Array(0.36666667, 0.7333334, 0.7666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -368,15 +404,51 @@ tracks/13/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:offset_transfor
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
+"times": PackedFloat32Array(0.40000004, 0.70000005),
 "transitions": PackedFloat32Array(0.9012505, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -28.765)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.16859426, 0.53526086, 0.5685942),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.19941255, 0.49941257),
+"transitions": PackedFloat32Array(0.9012505, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -28.765)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.2320437, 0.4932496),
+"transitions": PackedFloat32Array(1.1892072, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_p81d2"]
 resource_name = "open"
-length = 0.6333333
+length = 0.6666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -468,7 +540,7 @@ tracks/7/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.25027344, 0.35658357),
+"times": PackedFloat32Array(0.3, 0.40631014),
 "transitions": PackedFloat32Array(0.5176324, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -480,7 +552,7 @@ tracks/8/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:offset_transfor
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.2, 0.5, 0.5239392),
+"times": PackedFloat32Array(0.24972658, 0.5497266, 0.57366574),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -492,7 +564,7 @@ tracks/9/path = NodePath("VBoxContainer/VBoxContainer/TitleLabel:offset_transfor
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.25027344, 0.44831592),
+"times": PackedFloat32Array(0.3, 0.4980425),
 "transitions": PackedFloat32Array(0.59460354, 1),
 "update": 0,
 "values": [Vector2(0, 15.47), Vector2(0, 0)]
@@ -504,7 +576,7 @@ tracks/10/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:offset_transfor
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.26666668, 0.56666666, 0.6),
+"times": PackedFloat32Array(0.31639326, 0.6163932, 0.6497266),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, true, false]
@@ -516,7 +588,7 @@ tracks/11/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:offset_transfor
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.31370205, 0.5117445),
+"times": PackedFloat32Array(0.36342862, 0.5614711),
 "transitions": PackedFloat32Array(0.59460354, 1),
 "update": 0,
 "values": [Vector2(0, 15.47), Vector2(0, 0)]
@@ -528,7 +600,7 @@ tracks/12/path = NodePath("VBoxContainer/VBoxContainer/QuitLabel:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.31370205, 0.42001218),
+"times": PackedFloat32Array(0.36342862, 0.46973875),
 "transitions": PackedFloat32Array(0.5176324, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -544,6 +616,42 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(-0.5, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.54509807)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.20031896, 0.500319, 0.52425814),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:offset_transform_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.24926567, 0.44730815),
+"transitions": PackedFloat32Array(0.59460354, 1),
+"update": 0,
+"values": [Vector2(0, 15.47), Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("VBoxContainer/VBoxContainer/MenuLabel:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.24926567, 0.3555758),
+"transitions": PackedFloat32Array(0.5176324, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nc7s"]
