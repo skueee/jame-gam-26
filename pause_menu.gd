@@ -1,9 +1,9 @@
 extends Control
 
-## The current selection. 0 is the element the most at the top.
-var selection := 0
-
+var selection := 0   ## The current selection. 0 is the element the most at the top.
 var active: bool = false
+
+@onready var tween: Tween
 
 
 func _ready() -> void:
@@ -17,63 +17,66 @@ func open():
 	$AnimationPlayer.play("open")
 	await $AnimationPlayer.animation_finished
 	active = true
-	Engine.time_scale = 0
+	Engine.time_scale = 0.000001
 
 ## Closes the pause menu
-func close():
+func close(stop_menu: bool = true):
 	Engine.time_scale = 1
 	active = false
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished
 	hide()
 	get_tree().get_first_node_in_group("player").resumeshrinking()
-	get_tree().get_first_node_in_group("player").menu = false
+	get_tree().get_first_node_in_group("player").menu = !stop_menu
 
 func select(index: int):
 	# Sets the visibility of the gradients depending on the selection
 	%ContinueGradient.visible = (index == 0)
-	%TitleGradient.visible = (index == 1)
-	%QuitGradient.visible = (index == 2)
+	%MenuGradient.visible = (index == 1)
+	%TitleGradient.visible = (index == 2)
+	%QuitGradient.visible = (index == 3)
+	
+	if tween and tween.is_valid():
+		tween.kill()
+	
+	tween = create_tween()
 
 	# Plays the animation
 	match index:
 		0:
 			%ContinueGradient.size = Vector2(550.0, 20.0)
-			var tween = get_tree().create_tween()
-			tween.tween_property(%ContinueGradient, "size", Vector2(1152.0, 20.0), 1.0)
-			await tween.finished
-			tween.kill()
+			tween.tween_property(%ContinueGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 		1:
-			%TitleGradient.size = Vector2(545.0, 20.0)
-			var tween = get_tree().create_tween()
-			tween.tween_property(%TitleGradient, "size", Vector2(1152.0, 20.0), 1.0)
-			await tween.finished
-			tween.kill()
+			%MenuGradient.size = Vector2(550.0, 20.0)
+			tween.tween_property(%MenuGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 		2:
+			%TitleGradient.size = Vector2(545.0, 20.0)
+			tween.tween_property(%TitleGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
+		3:
 			%QuitGradient.size = Vector2(545.0, 20.0)
-			var tween = get_tree().create_tween()
-			tween.tween_property(%QuitGradient, "size", Vector2(1152.0, 20.0), 1.0)
-			await tween.finished
-			tween.kill()
+			tween.tween_property(%QuitGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 
 func click(index: int):
 	match index:
 		0:  # Continue button
 			close()
-		1:  # Title button
+		1:  # Menu button
+			close(false)
+			get_tree().get_first_node_in_group("players").open_menu()
+		2:  # Title button
 			get_tree().change_scene_to_file("res://main_menu.tscn")
-		2:  # Quit button
+		3:  # Quit button
 			get_tree().quit()
 
 ## Sets the right index number
 ## This is ass code
 func navigate(direction: int):
-	if selection + direction <= 2 and selection + direction >= 0:
+	if selection + direction <= 3 and selection + direction >= 0:
 		selection += direction
-	elif selection + direction >= 2:
+	elif selection + direction >= 3:
 		selection = 0
 	elif selection + direction <= 0:
-		selection = 2
+		selection = 3
 
 func _process(_delta):
 	if Input.is_action_just_pressed("uidown") and active:
@@ -85,7 +88,9 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("uiselect") and active:
 		click(selection)
 
-
+# ALL OF THE CODE AFTER THIS DOES NOT WORK AND IS NOT UPDATED WITH LATEST THINGS
+# I don't think it's necessary
+# - skue
 func _on_continue_area_mouse_entered() -> void:
 	if active:
 		selection = 0

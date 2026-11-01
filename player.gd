@@ -142,6 +142,7 @@ func _physics_process(_delta: float) -> void:
 				get_tree().call_deferred("reload_current_scene")
 
 func open_menu():
+	menu = true
 	pauseshrinking()
 	instance = menu_scene.instantiate()
 	add_child(instance)
@@ -178,7 +179,6 @@ func get_input():
 	if Input.is_action_just_pressed("God"):
 		god_mode = not god_mode
 	if Input.is_action_just_pressed('Shop'):
-		menu = true
 		open_menu()
 
 func bridge():

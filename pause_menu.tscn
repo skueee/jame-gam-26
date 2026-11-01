@@ -617,6 +617,30 @@ expand_mode = 1
 position = Vector2(73.5, 11.5)
 shape = SubResource("RectangleShape2D_mjfn4")
 
+[node name="MenuLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1298387570]
+clip_children = 2
+layout_mode = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_potab")
+horizontal_alignment = 1
+
+[node name="MenuGradient" type="TextureRect" parent="VBoxContainer/VBoxContainer/MenuLabel" unique_id=819764944]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -504.5
+offset_top = 5.0
+offset_right = 647.5
+offset_bottom = 25.0
+texture = SubResource("GradientTexture2D_2nc7s")
+expand_mode = 1
+
+[node name="MenuArea" type="Area2D" parent="VBoxContainer/VBoxContainer/MenuLabel" unique_id=1533940849]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/VBoxContainer/MenuLabel/MenuArea" unique_id=1210944929]
+position = Vector2(73.5, 11.5)
+shape = SubResource("RectangleShape2D_mjfn4")
+
 [node name="TitleLabel" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=260688947]
 clip_children = 2
 layout_mode = 2
