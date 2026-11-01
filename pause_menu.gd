@@ -12,6 +12,7 @@ func _ready() -> void:
 ## Opens the pause menu
 func open():
 	get_tree().get_first_node_in_group("player").pauseshrinking()
+	get_tree().get_first_node_in_group("player").menu = true
 	show()
 	$AnimationPlayer.play("open")
 	await $AnimationPlayer.animation_finished
@@ -26,6 +27,7 @@ func close():
 	await $AnimationPlayer.animation_finished
 	hide()
 	get_tree().get_first_node_in_group("player").resumeshrinking()
+	get_tree().get_first_node_in_group("player").menu = false
 
 func select(index: int):
 	# Sets the visibility of the gradients depending on the selection

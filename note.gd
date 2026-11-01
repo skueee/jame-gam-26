@@ -9,6 +9,7 @@ func _ready() -> void:
 ## [br]Takes a BBCode String as argument
 func show_note(note: String):
 	get_tree().get_first_node_in_group("player").pauseshrinking()
+	get_tree().get_first_node_in_group("player").menu = true
 	%Text.text = note
 	show()
 	$AnimationPlayer.play("open")
@@ -17,6 +18,7 @@ func show_note(note: String):
 ## Hides the note screen
 func hide_note():
 	get_tree().get_first_node_in_group("player").resumeshrinking()
+	get_tree().get_first_node_in_group("player").menu = false
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished
 	hide()

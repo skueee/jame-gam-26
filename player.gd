@@ -39,7 +39,7 @@ var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
 var god_mode := false
-var menu := false
+var menu := false   ## Disables any input while in UI
 var instance
 var menu_scene = preload('res://Game_tab.tscn')
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
@@ -142,6 +142,7 @@ func _physics_process(_delta: float) -> void:
 				get_tree().call_deferred("reload_current_scene")
 
 func open_menu():
+	pauseshrinking()
 	instance = menu_scene.instantiate()
 	add_child(instance)
 
