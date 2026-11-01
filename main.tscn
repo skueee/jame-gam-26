@@ -187,7 +187,8 @@ position = Vector2(646, -22)
 position = Vector2(231, 67)
 
 [node name="Area 2D" parent="." unique_id=599681023 instance=ExtResource("15_vivmo")]
-position = Vector2(1186, 69)
+position = Vector2(1190, 72)
+scale = Vector2(0.135, 0.135)
 time = 2
 target = Vector2(1186, 53)
 
