@@ -1,6 +1,5 @@
 extends CanvasLayer
 var scenes  = [preload("res://Shop.tscn"), preload("res://achievements.tscn")]
->>>>>>> 91f0201 (Liiiint)
 var number = scenes.size()
 var instance
 var current_scene = 0

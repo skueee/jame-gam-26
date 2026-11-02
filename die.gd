@@ -20,9 +20,6 @@ var hud: Control
 
 var coins := 0:
 	set(value):
+		hud = get_tree().get_first_node_in_group("players").find_children("HUD")[0]
 		coins = value
 		hud.set_coins(value)
-
-
-func _ready() -> void:
-	hud = get_tree().get_first_node_in_group("players").find_children("HUD")[0]
