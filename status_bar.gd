@@ -31,14 +31,14 @@ func add_status(duration: float, text: String = ""):
 	max_value = duration
 	time_left = duration
 	value = duration
-	is_active = duration
+	is_active = true
 	$Label.text = text
 	show()
 
 
 ## Sets a custom value on the bar
-func add_custom(val: int, max_value: int, text: String = ""):
-	max_value = max_value
+func add_custom(val: int, max_status: int, text: String = ""):
+	max_value = max_status
 	value = val
 	is_active = false  # We do not want the bar to update itself, so it needs not to be active. is_active is only if the bar need to decrease with a duration
 	$Label.text = text

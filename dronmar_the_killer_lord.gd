@@ -54,7 +54,6 @@ func forcejumpaway():
 
 func die():
 	if hp > 10:
-		print("ouch")
 		hp -= 10
 		hud.add_custom_status(hp, hpmax, thename)
 	else:

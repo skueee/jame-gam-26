@@ -46,7 +46,6 @@ func death():
 
 func projectile():
 	shots += 1
-	print(shots)
 	if shots == 50:
 		shots = 0
 		var projectile: PackedScene = load("res://theranger.tscn")

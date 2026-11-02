@@ -323,7 +323,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("supersense"):
 		if supercdtimer < supersense_cd:
 			return
-		if not supersensing:
+		if not supersensing and not menu:
 			supersensing = true
 			Engine.time_scale = 0.5
 			hud.add_duration_status(5, "Super Sensing")
