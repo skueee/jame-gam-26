@@ -1,13 +1,15 @@
 extends CharacterBody2D
+
+const SNIFF_RANGE = 100
+const SPEED = 70.0
+const JUMP_VELOCITY = -400.0
+
+var lockedin = false
+
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var ray_cast_2d_2: RayCast2D = $RayCast2D2
 @onready var ray_cast_2d_3: RayCast2D = $RayCast2D3
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
-var lockedin = false
-const SNIFF_RANGE = 100
-const SPEED = 70.0
-const JUMP_VELOCITY = -400.0
 
 
 func navigate() -> Array:

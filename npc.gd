@@ -1,11 +1,6 @@
 @tool
 extends StaticBody2D
 
-@onready var e = $e
-@onready var sprite = $Sprite2D
-@onready var dialouge = $"../CanvasLayer/DialogBox"
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-
 @export var npc_name: String
 @export var npc_speaktext: PackedStringArray
 @export var npc_color: Color = Color("415e9b"):
@@ -13,6 +8,10 @@ extends StaticBody2D
 		npc_color = value
 		_update_shader()
 
+@onready var e = $e
+@onready var sprite = $Sprite2D
+@onready var dialouge = $"../CanvasLayer/DialogBox"
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 
 func _update_shader():
 	if $Sprite2D.material and $Sprite2D.material is ShaderMaterial:

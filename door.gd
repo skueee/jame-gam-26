@@ -1,12 +1,14 @@
 extends Area2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var timer: Timer = $Timer
 
-var cooldown := false
 @export var id := "anything"
 @export var time := 1
-@export var target: Vector2
-var positionstart: Vector2
+@export var target : Vector2
+
+var cooldown := false
+var positionstart : Vector2
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:

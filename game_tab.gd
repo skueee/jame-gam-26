@@ -1,12 +1,12 @@
 extends CanvasLayer
-@onready var button_3: Button = $Button3
-@onready var button: Button = $Button
-
-var scenes = [preload("res://Shop.tscn"), preload("res://achievements.tscn")]
+var scenes  = [preload("res://Shop.tscn"), preload("res://achievements.tscn")]
+>>>>>>> 91f0201 (Liiiint)
 var number = scenes.size()
 var instance
 var current_scene = 0
 
+@onready var button_3: Button = $Button3
+@onready var button: Button = $Button
 
 func _load_tab():
 	if is_instance_valid(instance):

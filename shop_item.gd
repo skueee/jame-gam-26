@@ -21,7 +21,7 @@ extends HBoxContainer
 
 func update(name: String, cost: int):
 	label.text = str(cost) + "X"
-	label_2.text = namei
+	label_2.text = name
 
 
 func _ready() -> void:
