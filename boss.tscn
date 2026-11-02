@@ -3,22 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://1v7kurpovumq" path="res://icon.svg" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://8rrokeejfdmp" path="res://boss.gd" id="1_6xxrv"]
 [ext_resource type="Texture2D" uid="uid://8tq03d00d4rx" path="res://untitled@1x.png" id="2_lnbgr"]
+[ext_resource type="Script" uid="uid://bauetklrhguu6" path="res://beam.gd" id="3_o1i15"]
 [ext_resource type="Shader" uid="uid://bi0e8prtfr01t" path="res://boss.gdshader" id="3_skx2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
 size = Vector2(60, 60)
-
-[sub_resource type="GDScript" id="GDScript_8ons7"]
-resource_name = "killplayer"
-script/source = "extends Area2D
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == \"player\":
-		body.die()
-		visible = false
-		$CollisionShape2D.disabled = true
-"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ons7"]
 shader = ExtResource("3_skx2t")
@@ -64,7 +53,7 @@ texture = ExtResource("2_lnbgr")
 [node name="beam" type="Area2D" parent="." unique_id=879292775]
 visible = false
 position = Vector2(0, 30)
-script = SubResource("GDScript_8ons7")
+script = ExtResource("3_o1i15")
 
 [node name="Sprite2D" type="Sprite2D" parent="beam" unique_id=203229535]
 material = SubResource("ShaderMaterial_8ons7")

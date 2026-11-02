@@ -1,25 +1,14 @@
 [gd_scene format=3 uid="uid://djvve1poxewdc"]
 
+[ext_resource type="Script" uid="uid://cck7at6xp61bf" path="res://reverse_potion.gd" id="1_gcfo2"]
 [ext_resource type="Texture2D" uid="uid://6ve2koji2ito" path="res://assets/potion/potion.tres" id="2_t1lms"]
-
-[sub_resource type="GDScript" id="GDScript_dmrm4"]
-script/source = "extends Area2D
-
-@export var seconds := 15
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == \"player\":
-		body.reverseshrinking(seconds)
-		Die.total_reverse_shrink_potions += 1
-		queue_free()
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3f4"]
 size = Vector2(10, 18)
 
 [node name="Potion" type="Area2D" unique_id=877409574]
 collision_layer = 2
-script = SubResource("GDScript_dmrm4")
+script = ExtResource("1_gcfo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1329096000]
 position = Vector2(1.9073486e-06, 1.9073486e-06)

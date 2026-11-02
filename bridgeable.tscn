@@ -1,28 +1,7 @@
 [gd_scene format=3 uid="uid://c6mo3p1dioh2s"]
 
 [ext_resource type="Texture2D" uid="uid://cts6s3pybpsuy" path="res://cloud.png" id="1_uo1tn"]
-
-[sub_resource type="GDScript" id="GDScript_uo1tn"]
-resource_name = "expire"
-script/source = "extends RigidBody2D
-@onready var timer: Timer = $Timer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	timer.timeout.connect(expire)
-	timer.start()
-
-
-func expire():
-	freeze = false
-	apply_central_impulse(Vector2(0, -0.2))
-	timer.timeout.connect(expire2)
-	timer.start()
-
-func expire2():
-	queue_free()
-"
+[ext_resource type="Script" uid="uid://bgsvtp3pmv5dm" path="res://bridgeable.gd" id="1_vhmpr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
 size = Vector2(12, 5.75)
@@ -31,7 +10,7 @@ size = Vector2(12, 5.75)
 mass = 0.007
 gravity_scale = 0.2
 freeze = true
-script = SubResource("GDScript_uo1tn")
+script = ExtResource("1_vhmpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1759565082]
 position = Vector2(-2.9802322e-07, -1.7881393e-07)

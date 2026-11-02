@@ -1,34 +1,13 @@
 [gd_scene format=3 uid="uid://ofg0hg83vd5w"]
 
 [ext_resource type="Texture2D" uid="uid://s64w6pjyb4d7" path="res://foxy-in-progress@1x (2).png" id="1_2gl6x"]
-
-[sub_resource type="GDScript" id="GDScript_wmg3h"]
-resource_name = "send"
-script/source = "extends Area2D
-@export var level: int = 2
-@export var end: bool = false
-@export var devil: bool = false
-
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == \"player\":
-		var path: String
-		if end:
-			path = \"res://endscreen.tscn\"
-		elif devil:
-			path = \"res://devil_\" + str(level) + \".tscn\"
-		else:
-			path = \"res://level_\" + str(level) + \".tscn\"
-		Die.total_times_telported += 1
-		get_tree().call_deferred(\"change_scene_to_file\", path)
-"
+[ext_resource type="Script" uid="uid://57p15qwvys1m" path="res://shrine.gd" id="1_yguy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsws6"]
 size = Vector2(28, 28)
 
 [node name="shrine" type="Area2D" unique_id=1659972104]
-script = SubResource("GDScript_wmg3h")
+script = ExtResource("1_yguy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383021284]
 shape = SubResource("RectangleShape2D_tsws6")
