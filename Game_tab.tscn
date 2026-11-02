@@ -13,6 +13,7 @@ var scenes  = [preload(\"res://Shop.tscn\"), preload(\"res://achievements.tscn\"
 var number = scenes.size()
 var instance
 var current_scene = 0
+
 func _load_tab():
 	if is_instance_valid(instance):
 		instance.queue_free()
@@ -36,6 +37,7 @@ func _on_button_presseds() -> void:
 func _on_button_3_pressed() -> void:
 	current_scene -= 1
 	action()
+
 func action():
 	if not button.disabled:
 		if current_scene == number-1:

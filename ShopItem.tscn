@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://13y3qd0ixi7j"]
+
+[ext_resource type="Script" uid="uid://bvha1xrhuubdu" path="res://shop_item.gd" id="1_4eib6"]
+[ext_resource type="Texture2D" uid="uid://di7emp8slrmel" path="res://coin.png" id="2_4eib6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uypfl"]
+atlas = ExtResource("2_4eib6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjfn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uypfl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv1b8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qr5sa"]
+content_margin_left = 23.0
+
+[node name="Segment" type="HBoxContainer" unique_id=499629544]
+script = ExtResource("1_4eib6")
+
+[node name="Label" type="Label" parent="." unique_id=2074391670]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "2X"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1205060189]
+position = Vector2(85, 25)
+scale = Vector2(3.125, 3.125)
+sprite_frames = SubResource("SpriteFrames_mjfn4")
+
+[node name="Control" type="Control" parent="." unique_id=211761420]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=1382078007]
+custom_minimum_size = Vector2(252, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 32
+text = "Speed Booster"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=1451587957]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=540178412]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47047877, 0.7444241, 0.18764704, 1)
+theme_override_colors/font_hover_color = Color(0.19929677, 0.32720107, 0.07238682, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qr5sa")
+text = "BUY"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
