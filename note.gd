@@ -12,6 +12,7 @@ func show_note(note: String):
 	get_tree().get_first_node_in_group("player").menu = true
 	%Text.text = note
 	show()
+	Music.sfx(Music.SFX.OPEN)
 	$AnimationPlayer.play("open")
 	await $AnimationPlayer.animation_finished
 
@@ -19,6 +20,7 @@ func show_note(note: String):
 func hide_note():
 	get_tree().get_first_node_in_group("player").resumeshrinking()
 	get_tree().get_first_node_in_group("player").menu = false
+	Music.sfx(Music.SFX.CLOSE)
 	$AnimationPlayer.play("close")
 	await $AnimationPlayer.animation_finished
 	hide()

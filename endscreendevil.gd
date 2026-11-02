@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 func click(index: int):
+	Music.sfx(Music.SFX.OPEN)
 	match index:
 		0:  # Return to title button
 			get_tree().change_scene_to_file("res://main_menu.tscn")
@@ -55,6 +56,11 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 2
+		
+	if direction < 0:
+		Music.sfx(Music.SFX.DOWN)
+	elif direction > 0:
+		Music.sfx(Music.SFX.UP)
 
 
 func _process(_delta):

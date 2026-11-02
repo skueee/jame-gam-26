@@ -11,6 +11,7 @@ func _ready() -> void:
 
 ## Opens the pause menu
 func open():
+	Music.sfx(Music.SFX.OPEN)
 	get_tree().get_first_node_in_group("player").pauseshrinking()
 	get_tree().get_first_node_in_group("player").menu = true
 	show()
@@ -21,6 +22,7 @@ func open():
 
 ## Closes the pause menu
 func close(stop_menu: bool = true):
+	Music.sfx(Music.SFX.CLOSE)
 	Engine.time_scale = 1
 	active = false
 	$AnimationPlayer.play("close")
@@ -57,6 +59,7 @@ func select(index: int):
 			tween.tween_property(%QuitGradient, "size", Vector2(1152.0, 20.0), 1.0 * Engine.time_scale)
 
 func click(index: int):
+	Music.sfx(Music.SFX.OPEN)
 	match index:
 		0:  # Continue button
 			close()
@@ -77,6 +80,11 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 3
+	
+	if direction < 0:
+		Music.sfx(Music.SFX.DOWN)
+	elif direction > 0:
+		Music.sfx(Music.SFX.UP)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("uidown") and active:

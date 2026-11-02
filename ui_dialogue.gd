@@ -60,6 +60,7 @@ func show_text_box(
 	else:
 		_speaker_sprite.visible = false
 	_box.material.set_shader_parameter("replacement_color", color)
+	Music.sfx(Music.SFX.OPEN)
 
 
 ## Hides the dialoguebox
@@ -76,8 +77,10 @@ func go_to_next_text():
 	if next_text_index < current_text.size():
 		display_line(current_text[next_text_index])
 		next_text_index += 1
+		Music.sfx(Music.SFX.DOWN)
 	else:
 		hide_text_box()
+		Music.sfx(Music.SFX.CLOSE)
 
 
 ## Handles input

@@ -30,6 +30,7 @@ func select(index: int):
 
 
 func click(index: int):
+	Music.sfx(Music.SFX.OPEN)
 	match index:
 		0:  # Play button
 			get_tree().change_scene_to_file("res://main.tscn")
@@ -45,6 +46,11 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 1
+		
+	if direction < 0:
+		Music.sfx(Music.SFX.DOWN)
+	elif direction > 0:
+		Music.sfx(Music.SFX.UP)
 
 
 func _process(_delta):

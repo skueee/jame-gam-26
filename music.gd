@@ -1,6 +1,9 @@
 extends Node
 
+enum SFX { UP, DOWN, OPEN, CLOSE }
+
 var music: AudioStreamPlayer2D
+var sfx_player: AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -37,3 +40,27 @@ func _on_scene_changed() -> void:
 func restart() -> void:
 	if is_instance_valid(music):
 		music.play()
+
+## Plays an sfx
+func sfx(name: SFX):
+	var scene = get_tree().current_scene
+	
+	if not is_instance_valid(sfx_player):
+		sfx_player = AudioStreamPlayer2D.new()
+		scene.add_child(sfx_player)
+	
+	var stream: AudioStream = null
+	
+	match name:
+		SFX.UP:
+			stream = preload("res://assets/sfx/inariup.wav")
+		SFX.DOWN:
+			stream = preload("res://assets/sfx/inaridown.wav")
+		SFX.OPEN:
+			stream = preload("res://assets/sfx/inariopen.wav")
+		SFX.CLOSE:
+			stream = preload("res://assets/sfx/inariclose.wav")
+			
+	if stream:
+		sfx_player.stream = stream
+		sfx_player.play()
