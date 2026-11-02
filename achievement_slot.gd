@@ -16,18 +16,18 @@ extends HBoxContainer
 func _ready() -> void:
 	$ProgressBar.max_value = achieve
 	$Label.text = achievement_name
-	
+
 	if Engine.is_editor_hint():
 		$ProgressBar.value = 10.0
 		return
-	
+
 	$ProgressBar.value = Die.get(code)
 
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	
+
 	if $ProgressBar.value < $ProgressBar.max_value:
 		$ProgressBar.value = Die.get(code)
 	else:

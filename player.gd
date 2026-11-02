@@ -53,7 +53,6 @@ var collected: Array
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var timer_4: Timer = $Timer4
 @onready var bang_rect: ColorRect = $CanvasLayer/Bang/ColorRect
-@onready var speed_boost: Timer = $"Speed Boost"
 @onready var pause_menu: Control = $CanvasLayer/PauseMenu
 @onready var camera_2d: Camera2D = $Camera2D
 

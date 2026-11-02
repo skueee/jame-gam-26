@@ -19,9 +19,9 @@ extends HBoxContainer
 @onready var button: Button = $Button
 
 
-func update(name: String, cost: int):
-	label.text = str(cost) + "X"
-	label_2.text = name
+func update(item_name: String, item_cost: int):
+	label.text = str(item_cost) + "X"
+	label_2.text = item_name
 
 
 func _ready() -> void:

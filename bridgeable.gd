@@ -11,7 +11,8 @@ func _ready() -> void:
 func expire():
 	freeze = false
 	apply_central_impulse(Vector2(0, -0.2))
-	timer.timeout.connect(expire2)
+	if not timer.timeout.is_connected(expire2):
+		timer.timeout.connect(expire2)
 	timer.start()
 
 
