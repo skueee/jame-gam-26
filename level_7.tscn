@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b0c0tw66q3rgp"]
+[gd_scene format=4 uid="uid://cwvhps0ttxiaj"]
 
 [ext_resource type="Texture2D" uid="uid://b28j1qtykchiy" path="res://assets/tilesets/grass.png" id="1_nak3m"]
 [ext_resource type="PackedScene" uid="uid://br7ggdqod8yod" path="res://player.tscn" id="2_4ryn0"]
