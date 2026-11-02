@@ -1,19 +1,6 @@
 [gd_scene format=3 uid="uid://76kd40hxeo11"]
 
-[ext_resource type="Script" uid="uid://bh7gm0bkbhgfq" path="res://progress_bar.gd" id="2_e00ml"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv1b8"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_qr5sa"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qr5sa"]
-texture = SubResource("CanvasTexture_qr5sa")
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_50mcm"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afmmk"]
-texture = SubResource("CanvasTexture_50mcm")
+[ext_resource type="PackedScene" uid="uid://bwuk2dakx6taf" path="res://achievement_slot.tscn" id="1_e00ml"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=817268557]
 layer = 2
@@ -62,319 +49,48 @@ text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1487917446]
+[node name="AchievementSlot" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=195293557 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2135024711]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Jump Expert"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=247710467]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=130402712]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_jump"
-achieve = 10
+achieve = 50.0
+achievement_name = "Jump Expert"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=895623341]
+[node name="AchievementSlot2" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1363244066 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1194087971]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Jump God"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=578852822]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1905442150]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_jump"
+achievement_name = "Jump God"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=636303826]
+[node name="AchievementSlot3" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1944842300 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1303972425]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Anger the Witch"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=665026033]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=37375077]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_stop_shrink_potions"
-achieve = 10
+achieve = 10.0
+achievement_name = "Anger the Witch"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1531037666]
+[node name="AchievementSlot4" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2035646201 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=376758663]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "On Clouds    "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=818873986]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1799816349]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_cloud_potions"
-achieve = 10
+achieve = 10.0
+achievement_name = "On Clouds"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=2073425641]
+[node name="AchievementSlot5" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1981198202 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1803889878]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Praise The Lord"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=785626454]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1262087676]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
-code = "total_times_telported"
-achieve = 1
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=912959503]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=67357873]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Money!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=815327940]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=410024316]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_coins"
-achieve = 20
+achieve = 20.0
+achievement_name = "Money!!!"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=714287277]
+[node name="AchievementSlot6" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1863452875 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1585789565]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Rich Fox"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1033967468]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=289878441]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_coins"
+achievement_name = "Rich Fox"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1177311479]
+[node name="AchievementSlot7" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=303822464 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=433981974]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Wolf Slayer"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1123759546]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=658994774]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_wolf_slain"
-achieve = 5
+achieve = 5.0
+achievement_name = "Wolf Slayer"
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1428600752]
+[node name="AchievementSlot8" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1476161154 instance=ExtResource("1_e00ml")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=344838480]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Cloud Surfer"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=292862034]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=882663504]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
 code = "total_cloud_potions"
-achieve = 25
-
-[node name="HBoxContainer10" type="HBoxContainer" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer" unique_id=174004503]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1321725396]
-custom_minimum_size = Vector2(216, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
-text = "Key and Locke"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1875483188]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="Achievements/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=201646959]
-custom_minimum_size = Vector2(400, 35)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
-theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
-theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
-step = 1.0
-value = 90.0
-script = ExtResource("2_e00ml")
-code = "total_keys_collected"
-achieve = 10
+achieve = 25.0
+achievement_name = "Cloud Surfer"

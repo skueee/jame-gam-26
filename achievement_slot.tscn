@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bwuk2dakx6taf"]
+
+[ext_resource type="Script" uid="uid://x6n18jxsuo6c" path="res://achievement_slot.gd" id="1_cxp45"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yv1b8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qr5sa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qr5sa"]
+texture = SubResource("CanvasTexture_qr5sa")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_50mcm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afmmk"]
+texture = SubResource("CanvasTexture_50mcm")
+
+[node name="AchievementSlot" type="HBoxContainer" unique_id=195293557]
+script = ExtResource("1_cxp45")
+
+[node name="Label" type="Label" parent="." unique_id=1217963774]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxTexture_yv1b8")
+text = "anything"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=948977312]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2033414191]
+custom_minimum_size = Vector2(400, 35)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47058824, 0.74509805, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0.21932921, 0.33852574, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxTexture_qr5sa")
+theme_override_styles/fill = SubResource("StyleBoxTexture_afmmk")
+step = 1.0
+value = 50.0
