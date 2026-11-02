@@ -20,7 +20,7 @@ func _ready() -> void:
 	label_2.text = namei
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Die.coins < cost:
 		button.disabled = true
 	else:

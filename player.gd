@@ -344,5 +344,5 @@ func _process(delta: float) -> void:
 			$CanvasLayer/PauseMenu.open()
 
 
-func _collected(name):
-	return collected.has(name)
+func _collected(collectible_name):
+	return collected.has(collectible_name)

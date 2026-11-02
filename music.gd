@@ -43,7 +43,7 @@ func restart() -> void:
 
 
 ## Plays an sfx
-func sfx(name: SFX):
+func sfx(sfx_name: SFX):
 	var scene = get_tree().current_scene
 
 	if not is_instance_valid(sfx_player):
@@ -52,7 +52,7 @@ func sfx(name: SFX):
 
 	var stream: AudioStream = null
 
-	match name:
+	match sfx_name:
 		SFX.UP:
 			stream = preload("res://assets/sfx/inariup.wav")
 		SFX.DOWN:

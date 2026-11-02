@@ -12,10 +12,10 @@ func add_duration_status(duration: float, text: String = ""):
 ## Add a custom value on the bar.
 ##
 ##[br][br][param status]: The value of the progressbar.
-##[br][param max]: The maximum value of the progressbar.
+##[br][param max_value]: The maximum value of the progressbar.
 ##[br][param text]: The text shown at the top of the progressbar (Optional).
-func add_custom_status(status: int, max: int, text: String = ""):
-	$StatusBar.add_custom(status, max, text)
+func add_custom_status(status: int, max_value: int, text: String = ""):
+	$StatusBar.add_custom(status, max_value, text)
 
 
 ## Changes the number of hearths shown on screen

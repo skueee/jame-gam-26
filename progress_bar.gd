@@ -9,7 +9,7 @@ func _ready() -> void:
 	value = Die.get(code)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if value < max_value:
 		value = Die.get(code)
 	else:
