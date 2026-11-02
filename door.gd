@@ -5,17 +5,13 @@ extends Area2D
 var cooldown := false
 @export var id := "anything"
 @export var time := 1
-@export var target : Vector2
-var positionstart : Vector2
+@export var target: Vector2
+var positionstart: Vector2
+
 
 func _ready() -> void:
 	timer.timeout.connect(done)
 	positionstart = global_position
-
-
-
-
-
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -25,7 +21,6 @@ func _on_body_entered(body: Node2D) -> void:
 			tween.tween_property(self, "global_position", target, time)
 			await tween.finished
 			timer.start()
-
 
 
 func done():

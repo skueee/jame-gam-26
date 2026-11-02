@@ -25,4 +25,4 @@ var coins := 0:
 
 
 func _ready() -> void:
-	hud= get_tree().get_first_node_in_group("players").find_children("HUD")[0]
+	hud = get_tree().get_first_node_in_group("players").find_children("HUD")[0]

@@ -4,17 +4,20 @@ extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var timey: Timer = $Timer
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		body.enable_bridge(seconds)
 		Die.total_cloud_potions += 1
-		if not reusable: queue_free()
+		if not reusable:
+			queue_free()
 		visible = false
 		collision_shape_2d.set_deferred("disabled", true)
 		timey.one_shot = true
 		timey.wait_time = 10
 		timey.timeout.connect(reappear)
 		timey.start()
+
 
 func reappear():
 	visible = true

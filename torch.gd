@@ -5,6 +5,7 @@ extends CPUParticles2D
 @export var sparks_count: int = 4
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
+
 func _ready():
 	cpu_particles_2d.amount = sparks_count
 	var custom = Gradient.new()

@@ -2,7 +2,7 @@
 
 extends HBoxContainer
 
-@export var namei:= "Speed Booster":
+@export var namei := "Speed Booster":
 	set(value):
 		namei = value
 		if is_node_ready():
@@ -18,9 +18,11 @@ extends HBoxContainer
 @onready var label_2: Label = $Label2
 @onready var button: Button = $Button
 
+
 func update(name: String, cost: int):
 	label.text = str(cost) + "X"
 	label_2.text = namei
+
 
 func _ready() -> void:
 	update(namei, cost)
@@ -34,8 +36,6 @@ func _process(_delta: float) -> void:
 		button.disabled = true
 	else:
 		button.disabled = false
-
-
 
 
 func _on_button_pressed() -> void:
