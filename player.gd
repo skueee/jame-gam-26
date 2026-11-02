@@ -39,9 +39,9 @@ var wall_slide = false
 var start_pos = Vector2.ZERO
 var saved_shrink_percent: int = shrink_percent
 var god_mode := false
-var menu := false   ## Disables any input while in UI
+var menu := false  ## Disables any input while in UI
 var instance
-var menu_scene = preload('res://Game_tab.tscn')
+var menu_scene = preload("res://Game_tab.tscn")
 var bridgeable: PackedScene = preload("res://bridgeable.tscn")
 var collected: Array
 
@@ -90,6 +90,7 @@ func greater_jump():
 	await get_tree().create_timer(10).timeout
 	jump_strength *= 0.6667
 
+
 func boost_speed():
 	await Die.menu_close
 	max_speed *= 1.5
@@ -100,9 +101,9 @@ func boost_speed():
 	acceleration *= 0.667
 
 
-
 func final():
 	get_tree().change_scene_to_file("res://endscreendevil.tscn")
+
 
 func allow():
 	can_throw = true
@@ -134,19 +135,19 @@ func _physics_process(_delta: float) -> void:
 			bridge()
 
 			if scale.x < 0.5:
-				scale = Vector2(1.0,1.0)
+				scale = Vector2(1.0, 1.0)
 				die()
 		else:
 			global_position = global_position.move_toward(start_pos, 300 * _delta)
 			if global_position == start_pos:
 				get_tree().call_deferred("reload_current_scene")
 
+
 func open_menu():
 	menu = true
 	pauseshrinking()
 	instance = menu_scene.instantiate()
 	add_child(instance)
-
 
 
 func animate():
@@ -178,8 +179,9 @@ func get_input():
 			wall_direction = get_wall_normal()
 	if Input.is_action_just_pressed("God"):
 		god_mode = not god_mode
-	if Input.is_action_just_pressed('Shop'):
+	if Input.is_action_just_pressed("Shop"):
 		open_menu()
+
 
 func bridge():
 	if Input.is_action_just_pressed("bridge"):
@@ -210,7 +212,6 @@ func attack():
 
 
 func shield():
-
 	if not shield_count:
 		return
 	for i in range(shield_count):
@@ -223,10 +224,12 @@ func shield():
 
 		potion.apply_central_impulse(throw_direction * shield_force)
 
+
 func onwall():
-	if str($Area2D.get_overlapping_bodies()).find("Tile")  != -1:
+	if str($Area2D.get_overlapping_bodies()).find("Tile") != -1:
 		return true
 	return false
+
 
 func set_velocit(delta):
 	if wall_jump:
@@ -251,7 +254,12 @@ func set_velocit(delta):
 		else:
 			if not curdir:
 				curdir = last_direction
-			if onwall() and wall_side == last_direction and (direction == curdir or direction == 0) and velocity.y >= 0:
+			if (
+				onwall()
+				and wall_side == last_direction
+				and (direction == curdir or direction == 0)
+				and velocity.y >= 0
+			):
 				velocity.y = gravity * 0.02
 				velocity.y = min(velocity.y, max_fall)
 				wall_slide = true
@@ -265,13 +273,16 @@ func set_velocit(delta):
 		Die.total_jump += 1
 		jump = false
 
+
 func camerashake():
 	$Camera2D.shake(true)
+
 
 func bigbang():
 	banging = true
 	$Camera2D.shake()
 	timer_4.start()
+
 
 ## Stops shrinking for a set amount of time, 15 seconds.
 func stopshrinking():
@@ -281,18 +292,23 @@ func stopshrinking():
 	timey.timeout.connect(resumeshrinking)
 	timey.start()
 
+
 ## Stops shrinking indefinitely, until something restarts it with [method resumeshrinking].
 func pauseshrinking():
 	shrink_percent = 0
 
+
 func reverseshrinking(seconds):
-	scale = scale/((1-(shrink_percent/6000.0)) ** seconds)
+	scale = scale / ((1 - (shrink_percent / 6000.0)) ** seconds)
+
 
 func resumeshrinking():
 	shrink_percent = saved_shrink_percent
 
+
 func die(force: bool = false):
-	if banging: return
+	if banging:
+		return
 	if lives > 1 and not force:
 		lives -= 1
 		shield.call_deferred()
@@ -305,12 +321,13 @@ func die(force: bool = false):
 	Die.emit_signal("die")
 	Die.coins = 0
 
+
 func _process(delta: float) -> void:
 	supercdtimer += delta
 	if Input.is_action_just_pressed("supersense"):
-		if supercdtimer < supersense_cd: return
+		if supercdtimer < supersense_cd:
+			return
 		if not supersensing:
-
 			supersensing = true
 			Engine.time_scale = 0.5
 			hud.add_duration_status(5, "Super Sensing")
@@ -323,14 +340,9 @@ func _process(delta: float) -> void:
 			supersensing = false
 			Engine.time_scale = 1
 	if Input.is_action_just_pressed("ui_pause"):
-			if!$CanvasLayer/PauseMenu.active:
-				$CanvasLayer/PauseMenu.open()
-	
-	
-	
-
+		if !$CanvasLayer/PauseMenu.active:
+			$CanvasLayer/PauseMenu.open()
 
 
 func _collected(name):
-
 	return collected.has(name)

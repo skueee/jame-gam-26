@@ -6,7 +6,6 @@ extends Control
 ##         - listen to inputs
 ##         - hide the box when finished
 
-
 signal dialogue_finished
 
 var dialog_active: bool = false
@@ -17,6 +16,7 @@ var next_text_index: int
 @onready var _speaker_sprite: TextureRect = $DialogueBox/SpeakerSprite
 @onready var _dialogue: RichTextLabel = $DialogueBox/Text
 @onready var _box: NinePatchRect = $DialogueBox
+
 
 ## Displays the DialogBox with lines in an array and an optional speaker, sprite and border color
 ##

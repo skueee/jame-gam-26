@@ -21,5 +21,5 @@ func _physics_process(delta: float) -> void:
 		if rightcol.name == "TileMapLayer2":
 			direction = -1
 	velocity.x = speed * direction
-	$Sprite2D.flip_h = false if direction <0 else true
+	$Sprite2D.flip_h = false if direction < 0 else true
 	move_and_slide()

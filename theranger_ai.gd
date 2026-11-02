@@ -15,13 +15,13 @@ var state = "idle"
 var states = ["idle", "chasing", "decaying"]
 var lastidle = -1
 var idlefarness = 20
-var target_pos = Vector2(0,0)
+var target_pos = Vector2(0, 0)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not ultimate_target:
 		ultimate_target = get_tree().get_first_node_in_group("player")
-
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		state = "decaying"
 	var directionx = 0
 	var directiony = 0
-	var direction_to_go = Vector2(0,0)
+	var direction_to_go = Vector2(0, 0)
 	if state == "idle":
 		if global_position.distance_to(ultimate_target.global_position) < 100:
 			state = "chasing"
@@ -59,11 +59,11 @@ func _physics_process(delta: float) -> void:
 			tilemap.set_cell(Vector2i(2, 2), -1)
 			queue_free()
 	if directionx:
-			velocity.x = move_toward(velocity.x, directionx * max_speed, delta * acceleration)
+		velocity.x = move_toward(velocity.x, directionx * max_speed, delta * acceleration)
 	else:
 		velocity.x = move_toward(velocity.x, 0, slowingss * delta)
 	if directiony:
-			velocity.y = move_toward(velocity.y, directiony * max_speed, delta * acceleration)
+		velocity.y = move_toward(velocity.y, directiony * max_speed, delta * acceleration)
 	else:
 		velocity.y = move_toward(velocity.y, 0, slowingss * delta)
 	move_and_slide()

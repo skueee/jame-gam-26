@@ -22,6 +22,7 @@ func add_custom_status(status: int, max: int, text: String = ""):
 func change_health(health):
 	$HeartsContainer.set_lives(health)
 
+
 ## Sets the number of coins, and plays the animation
 ## [br][param value] is the current number of coins
 func set_coins(value: int):

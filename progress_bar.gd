@@ -1,15 +1,15 @@
 extends ProgressBar
 
-
-@export var code = 'anything'
+@export var code = "anything"
 @export var achieve := 100
+
 
 func _ready() -> void:
 	max_value = achieve
 	value = Die.get(code)
 
+
 func _process(delta: float) -> void:
-	
 	if value < max_value:
 		value = Die.get(code)
 	else:

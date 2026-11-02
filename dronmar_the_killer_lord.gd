@@ -21,6 +21,7 @@ var timer_but_cheap = 0
 func _ready() -> void:
 	hud.add_custom_status(hp, hpmax, thename)
 
+
 func set_movements(_delta):
 	if is_on_floor():
 		player.camerashake()
@@ -30,6 +31,7 @@ func set_movements(_delta):
 		direction = -1
 	else:
 		direction = 1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -45,8 +47,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
+
 func forcejumpaway():
 	pass
+
 
 func die():
 	if hp > 10:

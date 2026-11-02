@@ -1,6 +1,5 @@
 extends Node
 
-
 signal die
 signal speed_booster
 signal stop_shrinking
@@ -14,7 +13,7 @@ var total_cloud_potions := 0
 var total_stop_shrink_potions := 0
 var total_reverse_shrink_potions := 0
 var total_coins := 0
-var total_keys_collected:= 0
+var total_keys_collected := 0
 var total_wolf_slain := 0
 var total_times_telported := 0
 

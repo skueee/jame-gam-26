@@ -56,7 +56,7 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 2
-		
+
 	if direction < 0:
 		Music.sfx(Music.SFX.DOWN)
 	elif direction > 0:
@@ -72,8 +72,6 @@ func _process(_delta):
 		select(selection)
 	elif Input.is_action_just_pressed("uiselect"):
 		click(selection)
-
-
 
 
 func _on_title_area_mouse_entered() -> void:

@@ -2,6 +2,7 @@ extends HBoxContainer
 
 var coins = 0
 
+
 func set_coins(value: int):
 	var diff = abs(value - int($Label.text))
 	$Label.text = str(value)

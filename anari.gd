@@ -12,12 +12,14 @@ var direction = 0
 
 @onready var deltatimer_cooldown = 1 / shots_per_sec
 
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 
 func _physics_process(delta: float) -> void:
-	if not player: return
+	if not player:
+		return
 	var playery = player.global_position.y
 	var my_y = global_position.y
 	if not targety or abs(my_y - targety) < 10:
@@ -36,9 +38,11 @@ func _physics_process(delta: float) -> void:
 		projectile()
 	move_and_slide()
 
+
 func death():
 	player.bigbang()
 	queue_free()
+
 
 func projectile():
 	shots += 1

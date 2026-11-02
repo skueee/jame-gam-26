@@ -21,6 +21,7 @@ var timer_but_cheap = 0
 func _ready() -> void:
 	hud.add_custom_status(hp, 150, thename)
 
+
 func set_movements(delta):
 	if is_on_floor():
 		if timer_but_cheap < 0.2:
@@ -35,14 +36,16 @@ func set_movements(delta):
 		if left.get_collider().name != "player":
 			direction = 1
 
+
 func forcejumpaway():
 	direction *= -1
 	velocity.y = jump_velocity * -1
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	set_movements(delta)
-	$Sprite2D.rotation_degrees += direction * 660*delta
+	$Sprite2D.rotation_degrees += direction * 660 * delta
 	if jumping and is_on_floor():
 		velocity.y = jump_velocity * -1
 		jumping = false
@@ -53,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
+
 
 func die():
 	if hp > 10:

@@ -16,7 +16,7 @@ var timer2 = 0
 var timer3 = 0
 var state = "idle"
 var states = ["idle", "chasing", "shooting", "summoning"]
-var target_pos = Vector2(0,0)
+var target_pos = Vector2(0, 0)
 
 @onready var start_y = global_position.y
 @onready var deltatimer_cooldown = 1 / shots_per_sec
@@ -27,6 +27,7 @@ func _ready() -> void:
 	if not ultimate_target:
 		ultimate_target = get_tree().get_first_node_in_group("player")
 
+
 func summon():
 	var projectile: PackedScene = load("res://theranger.tscn")
 	var instance: CharacterBody2D = projectile.instantiate()
@@ -36,8 +37,10 @@ func summon():
 	instance.max_speed = 200
 	instance.global_position = Vector2(global_position.x + randi_range(-50, 50), global_position.y)
 
+
 func die():
 	get_tree().change_scene_to_file("res://endscreendevilevil.tscn")
+
 
 func choosestate():
 	statespassed += 1
@@ -51,6 +54,7 @@ func choosestate():
 	else:
 		state = "summoning"
 
+
 func projectile():
 	var projectile: PackedScene = load("res://bossesthrowable.tscn")
 	var instance: RigidBody2D = projectile.instantiate()
@@ -60,12 +64,13 @@ func projectile():
 	var force = 150.0
 	instance.apply_central_impulse(direction * force)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	ultimate_target.hud.add_custom_status(10.0-timer3, 10.0, "State " + str(statespassed))
+	ultimate_target.hud.add_custom_status(10.0 - timer3, 10.0, "State " + str(statespassed))
 	var directionx = 0
 	var directiony = 0
-	var direction_to_go = Vector2(0,0)
+	var direction_to_go = Vector2(0, 0)
 	if timer3 < 10:
 		timer3 += delta
 	else:
@@ -79,7 +84,9 @@ func _physics_process(delta: float) -> void:
 		directionx = direction_to_go.x
 		directiony = direction_to_go.y
 	elif state == "shooting":
-		direction_to_go = global_position.direction_to(Vector2(ultimate_target.global_position.x, start_y))
+		direction_to_go = global_position.direction_to(
+			Vector2(ultimate_target.global_position.x, start_y)
+		)
 		directionx = direction_to_go.x
 		directiony = direction_to_go.y
 		if deltatimer < deltatimer_cooldown:
@@ -91,11 +98,11 @@ func _physics_process(delta: float) -> void:
 		summon()
 		choosestate()
 	if directionx:
-			velocity.x = move_toward(velocity.x, directionx * max_speed, delta * acceleration)
+		velocity.x = move_toward(velocity.x, directionx * max_speed, delta * acceleration)
 	else:
 		velocity.x = move_toward(velocity.x, 0, slowingss * delta)
 	if directiony:
-			velocity.y = move_toward(velocity.y, directiony * max_speed, delta * acceleration)
+		velocity.y = move_toward(velocity.y, directiony * max_speed, delta * acceleration)
 	else:
 		velocity.y = move_toward(velocity.y, 0, slowingss * delta)
 	move_and_slide()

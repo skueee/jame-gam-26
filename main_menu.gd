@@ -37,6 +37,7 @@ func click(index: int):
 		1:  # Quit button
 			get_tree().quit()
 
+
 ## Sets the right index number
 ## This is ass code
 func navigate(direction: int):
@@ -46,7 +47,7 @@ func navigate(direction: int):
 		selection = 0
 	elif selection + direction <= 0:
 		selection = 1
-		
+
 	if direction < 0:
 		Music.sfx(Music.SFX.DOWN)
 	elif direction > 0:
