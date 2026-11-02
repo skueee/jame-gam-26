@@ -187,6 +187,9 @@ position = Vector2(328, 28)
 [node name="Area2D3" parent="Node" unique_id=1916796506 instance=ExtResource("14_yaehf")]
 position = Vector2(646, -22)
 
+[node name="Area2D4" parent="Node" unique_id=796034160 instance=ExtResource("14_yaehf")]
+position = Vector2(1229, 74.99999)
+
 [node name="Potion2" parent="." unique_id=877409574 instance=ExtResource("14_w48qg")]
 position = Vector2(231, 67)
 

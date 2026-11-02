@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://brwn17srsj6r2" path="res://notesprite.tscn" id="12_xbcdb"]
 [ext_resource type="PackedScene" uid="uid://ofg0hg83vd5w" path="res://shrine.tscn" id="12_yl73a"]
 [ext_resource type="PackedScene" uid="uid://dodo7c4gm2vwo" path="res://bg.tscn" id="14_s77qv"]
+[ext_resource type="PackedScene" uid="uid://bfo17vd5kf88c" path="res://coins.tscn" id="15_5hnhx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15wb7"]
 texture = ExtResource("1_n7ypv")
@@ -261,3 +262,15 @@ offset_top = 85.0
 offset_right = 2207.0
 offset_bottom = 938.0
 color = Color(0.46809, 0.29614407, 0.30326638, 1)
+
+[node name="coin" parent="." unique_id=1136422402 instance=ExtResource("15_5hnhx")]
+position = Vector2(259, -112)
+
+[node name="coin2" parent="." unique_id=1216457797 instance=ExtResource("15_5hnhx")]
+position = Vector2(259, -124)
+
+[node name="coin3" parent="." unique_id=1539305274 instance=ExtResource("15_5hnhx")]
+position = Vector2(1093, 73.999985)
+
+[node name="coin4" parent="." unique_id=1324693876 instance=ExtResource("15_5hnhx")]
+position = Vector2(1209, -57.999985)
