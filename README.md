@@ -35,11 +35,17 @@ To play the game you have the following options
 - Press A and D for left and right respectively.
 - Press W or Up arrow for Jump
 - Press Q or Left mouse key to attack.
+- Press R for supersense
+- Press ESC to pause the game (access shops and achievements)
 
 ### Lore
 - You come out of your den after noticing shifts in your body. You realise an UFO has attacked, it stealing the power of your shrine, turning you smaller second by second. - You must race against time and reach the enemy and best him to regain your powers.
 - But beware, dodge the wolves on the -way being mind controlled and the shrine help you get ahead.
 - Spirits have been running around town stealing potions and dropping them. Take them if you see any, they will ease your loss of power for a few seconds. And some will even grant you the power of the clouds.
+- You can even slow down time byusing supersense.
+- Collect coins and unlock powerups from the shp, complete achievements.
+- Villagers have been careful enough to lock their doors, but not careful enough to keep their keys from dropping.
+- Defeat devil bossses ( even leolevd).
 - The Gods will save you one time, by a shield but remember ONLY ONCE.
 - Goodluck fox and save us.
   
